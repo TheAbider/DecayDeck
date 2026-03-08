@@ -1,4 +1,4 @@
-# DecayDeck GC-20 v3 — Assembly Guide
+# DecayDeck — Assembly Guide
 
 ## PCB Specifications
 

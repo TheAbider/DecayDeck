@@ -1,7 +1,7 @@
 #pragma once
 
 // =============================================================
-// DecayDeck GC-20 v3 — Pin Definitions
+// DecayDeck — Pin Definitions
 // ESP32-S3-WROOM-1-N4 — Zero pin conflicts
 // =============================================================
 

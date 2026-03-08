@@ -1,4 +1,4 @@
-# DecayDeck GC-20 v3 — Pinout Reference
+# DecayDeck — Pinout Reference
 
 ## ESP32-S3-WROOM-1-N4 GPIO Assignments
 

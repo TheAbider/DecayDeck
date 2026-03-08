@@ -1,7 +1,7 @@
 #pragma once
 
 // =============================================================
-// DecayDeck GC-20 v3 — Configuration
+// DecayDeck — Configuration
 // =============================================================
 
 #define FIRMWARE_VERSION "0.2.0"

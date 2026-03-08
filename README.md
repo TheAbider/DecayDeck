@@ -1,4 +1,4 @@
-# DecayDeck GC-20 v3
+# DecayDeck
 
 Open-source handheld Geiger counter with dual GM tubes, capacitive touchscreen, WiFi, and LiPo battery.
 

@@ -1,4 +1,4 @@
-# DecayDeck GC-20 v3 — Schematic Reference
+# DecayDeck — Schematic Reference
 
 Complete component list and wiring guide for EasyEDA Pro.
 
