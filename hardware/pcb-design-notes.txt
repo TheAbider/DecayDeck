@@ -1,0 +1,174 @@
+GC-20 v2 PCB Design Notes
+==========================
+Last updated: 2026-03-07
+
+BOARD
+-----
+- Board outline: 2560 x 4250 mils (65mm x 108mm, matches SBM-20)
+- X range: -1280 to +1280
+- Y range: -1500 (bottom) to +2750 (top)
+- 2-layer, FR4, JLCPCB fabrication + assembly
+- Most components under display (~6mm clearance via standoffs)
+- Only tall parts in below-display strip (Y = -700 to -1500)
+
+DISPLAY: Adafruit 2090 (2.8" TFT, capacitive touch, ILI9341)
+--------------------------------------------------------------
+- Display board: 62.48 x 81.28mm
+- Mounting holes: 57.2mm x 76.2mm spacing (2252 x 3000 mils)
+- Orientation: Portrait (display on front, PCB behind)
+- Connection: Two 1x20 male pin headers (C50981) on our PCB
+  - J5 = top header (8-bit parallel side, all NC, mechanical only)
+  - J6 = bottom header (SPI side, active connections)
+
+Display geometry (from Adafruit Eagle files):
+- Headers are 50mil OUTSIDE the mounting holes (closer to board edge)
+- Headers span 1900mil (20 pins x 100mil), centered at X=0
+- 176mil gap between last pin and mounting hole on each side
+
+POSITIONS (confirmed from Adafruit Eagle file):
+  J5:  X=0,     Y=2450   (top header)
+  J6:  X=0,     Y=-650   (bottom header)
+  MH1: X=-1126, Y=2400   (top-left mounting hole)
+  MH2: X=+1126, Y=2400   (top-right mounting hole)
+  MH3: X=+1126, Y=-600   (bottom-right mounting hole)
+  MH4: X=-1126, Y=-600   (bottom-left mounting hole)
+  Mounting holes: 106mil drill, 150mil pad, plated, multi-layer
+
+J6 PIN MAP (SPI side, pin 1 = left)
+-------------------------------------
+Pin  Signal      Net Name      Connects To
+---  ----------  -----------   -------------------------
+1    GND         GND           Ground
+2    Vin         VIN_SW        Battery through power switch
+3    3Vo         (NC)          Display regulator output
+4    CLK         SPI_SCK       U8 pin 20 (GPIO14/HSCLK)
+5    MISO        SPI_MISO      U8 pin 21 (GPIO12/HMISO)
+6    MOSI        SPI_MOSI      U8 pin 19 (GPIO13/HMOSI)
+7    CS          TFT_CS        U8 pin 18 (GPIO15)
+8    D/C         TFT_DC        U8 pin 17 (GPIO2)
+9    RST         TFT_RST       U8 pin 12
+10   Lite        TFT_BL        U8 pin 8 (or 3.3V always-on)
+11   GND         GND           Ground
+12   IRQ         TOUCH_INT     U8 pin 7 (touch interrupt)
+13   SDA         I2C_SDA       U8 pin 5 (GPIO4)
+14   SCL         I2C_SCL       U8 pin 6 (GPIO5)
+15   IM3         (NC)          Mode select, default SPI
+16   IM2         (NC)          Mode select
+17   IM1         (NC)          Mode select
+18   IM0         (NC)          Mode select
+19   CCS         SD_CS         U8 pin 22 (MicroSD chip select)
+20   CD          (NC)          Card detect (optional)
+
+J5 PIN MAP (8-bit parallel side)
+---------------------------------
+All 20 pins: NC (no connection, mechanical support only)
+
+COMPONENT PLACEMENT ZONES
+--------------------------
+Below-display strip (Y = -700 to -1500):
+  Bottom center:    J1 (USB-C) at board edge
+  Left edge:        J2 (JST battery) rotated
+  Right edge:       SW1 (toggle switch) rotated
+  Upper-left:       BZ1 (buzzer, 7.5mm tall)
+  Center:           SW2, SW3 (buttons, front-facing)
+  Left:             LED1 (charge LED, 3mm TH)
+  Right:            R14 (HV sense trimmer, needs access)
+
+Under-display (Y = -500 to +2300, low-profile SMD only):
+  Lower-left:       Power/charging (U1, U7, C1, C2, D1, etc.)
+  Left:             Voltage regulation (U2, C3, C4)
+  Lower-right:      Battery monitoring (U3, U4, R6, R7, C6)
+  Center:           U8 (MCU) + bypass caps
+  Left-center:      Output drivers (Q4, Q6, LED2, etc.)
+  Right:            GM tube interface (Q3, Q5, R15-R24, etc.)
+  Upper-right:      HV section (U6, L1, Q1, D3, D4, ISOLATED)
+
+COMPONENT LIST (from schematic)
+--------------------------------
+Power/Charging:
+  J1  - USB-C connector
+  U1  - TP4056 charger (5 pins)
+  U7  - USB ESD protection (6 pins)
+  D1  - Protection diode
+  LED1 - Charge status LED
+  R1  - TP4056 program resistor
+  R4  - Status LED resistor
+  R5  - LED resistor
+  R_DP, R_DN - USB resistors
+  R2, R3 - USB termination
+  C1  - USB input cap
+  C2  - Battery cap
+
+Battery/Power:
+  J2  - JST 2-pin LiPo connector (BAT+, GND)
+  SW1 - Toggle switch (BAT+ to VIN_SW)
+  U2  - ME6210A30PG 3.3V regulator
+  U3  - Fuel gauge (BAT+, I2C, BAT_ALRT)
+  U4  - Battery monitor (BAT+, I2C)
+  C3  - Regulator input cap
+  C4  - Regulator output cap
+  C5  - BAT+ bypass cap
+  R6  - I2C SDA pullup
+  R7  - I2C SCL pullup
+  C6  - 3V3 bypass near U4
+
+MCU:
+  U8  - ESP8266 (Wemos D1 Mini, 41 pins)
+  U9  - I2C peripheral (8 pins)
+  C7-C10, C15, C16, C18 - Bypass caps
+
+HV Section:
+  U6  - TLC555CDR timer (SOIC-8)
+  Q1  - MMBTA44 (HV transistor)
+  Q2  - C1815 transistor
+  Q7  - C1815 transistor
+  L1  - 1mH inductor
+  D3, D4 - HV diodes
+  C11, C12 - HV timing caps
+  C13 - HV sense cap
+  C14, C17 - HV coupling caps
+  R10-R16 - HV resistors
+  R14 - HV sense trimmer (3-pin)
+  R15A, R15B - HV divider
+  R17, R21 - HV resistors
+  R25, R26 - HV enable/pullup
+
+GM Tube Interface:
+  Q3  - GM tube 1 pulldown transistor
+  Q5  - GM tube 2 pulldown transistor
+  R18-R20 - GM1 resistors
+  R22-R24 - GM2 resistors
+  (Tubes connect via wire to PCB pads, mounted in 3D-printed case)
+
+Output:
+  BZ1 - SMD buzzer (7.5x7.5mm)
+  Q4  - Buzzer driver transistor
+  Q6  - Vibrate motor driver transistor
+  R27 - LED data resistor
+  R28 - Vibrate resistor
+  LED2 - WS2812 or similar status LED
+  D5  - LED protection diode
+
+User Interface:
+  SW2, SW3 - Tactile buttons
+  R8, R9 - Button pullup resistors
+
+PARTS ORDERED/SELECTED
+-----------------------
+Display headers: C50981 (BOOMELE 2.54-1*20P male pin header) x2
+Display: Adafruit 2090 (ordered)
+Battery: LiPo pouch, connects via J2 (JST 2-pin)
+
+REMOVED FROM v1:
+- J3 (separate MicroSD module) - display has built-in MicroSD
+- BT1 (battery holder) - replaced by J2 JST + LiPo pouch
+- J4 (old 1x16 display header) - replaced by J5 + J6
+
+DESIGN RULES
+-------------
+- Tall components (>4mm): BZ1, SW1, SW2, SW3, LED1 go in below-display strip
+- All other SMD (<4mm) goes under display with 6-8mm standoff clearance
+- HV section isolated from digital section (ground pour gap)
+- Ground pour on both layers
+- JLCPCB 2-layer capability rules applied
+- Standoffs at mounting holes set display clearance height

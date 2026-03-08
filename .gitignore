@@ -1,0 +1,15 @@
+.pio/
+.vscode/
+build/
+*.o
+*.obj
+*.exe
+*.bin
+*.elf
+*.hex
+*.map
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.claude/
