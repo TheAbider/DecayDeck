@@ -1,6 +1,6 @@
 // =============================================================
-// DecayDeck GC-20 v2 — Main Firmware
-// Dual GM tube Geiger counter with TFT display + WiFi
+// DecayDeck GC-20 v3 — Main Firmware
+// ESP32-S3 + Dual GM tubes + ILI9341 TFT + WiFi
 // =============================================================
 
 #include <Arduino.h>
@@ -10,8 +10,8 @@
 #include <Adafruit_ILI9341.h>
 #include <Adafruit_FT6206.h>
 #include <Adafruit_NeoPixel.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266WebServer.h>
+#include <WiFi.h>
+#include <WebServer.h>
 #include <ArduinoJson.h>
 
 #include "pins.h"
@@ -21,10 +21,10 @@
 // GLOBALS
 // =============================================================
 
-Adafruit_ILI9341 tft(TFT_CS, TFT_DC);
+Adafruit_ILI9341 tft(TFT_CS, TFT_DC, TFT_RST);
 Adafruit_FT6206 touch;
 Adafruit_NeoPixel statusLED(1, LED_DATA, NEO_GRB + NEO_KHZ800);
-ESP8266WebServer server(WEB_PORT);
+WebServer server(WEB_PORT);
 
 // --- Pulse counting (ISR-safe) ---
 volatile uint32_t pulseCount1 = 0;  // STS-5
@@ -34,16 +34,16 @@ volatile uint32_t lastPulseTime2 = 0;
 
 // --- Rolling window for CPM ---
 #define RING_SIZE 60
-uint16_t ringBuffer1[RING_SIZE] = {0};  // Counts per second, last 60s
+uint16_t ringBuffer1[RING_SIZE] = {0};
 uint16_t ringBuffer2[RING_SIZE] = {0};
 uint8_t ringIndex = 0;
 
 // --- Measurement state ---
-float cpm1 = 0, cpm2 = 0;          // Counts per minute
-float cps1 = 0, cps2 = 0;          // Counts per second (smoothed)
-float usvh1 = 0, usvh2 = 0;        // µSv/h per tube
-float usvhTotal = 0;                // Combined dose rate
-float totalDose = 0;                // Accumulated dose (µSv)
+float cpm1 = 0, cpm2 = 0;
+float cps1 = 0, cps2 = 0;
+float usvh1 = 0, usvh2 = 0;
+float usvhTotal = 0;
+float totalDose = 0;
 uint32_t countsThisSec1 = 0, countsThisSec2 = 0;
 
 // --- Graph history ---
@@ -59,6 +59,7 @@ uint32_t lastBatCheck = 0;
 uint32_t lastScreenUpdate = 0;
 uint32_t lastTouchTime = 0;
 uint32_t uptime = 0;
+uint32_t vibrateEnd = 0;
 
 // --- State ---
 enum Screen { SCREEN_MAIN, SCREEN_GRAPH, SCREEN_SETTINGS, SCREEN_WIFI };
@@ -71,16 +72,11 @@ bool clickEnabled = CLICK_SOUND;
 float batteryVoltage = 4.2;
 uint8_t batteryPercent = 100;
 
-// --- WiFi ---
-bool wifiAP = true;
-String wifiSSID = "";
-String wifiPass = "";
-
 // =============================================================
 // ISR — Geiger tube pulse handlers
 // =============================================================
 
-IRAM_ATTR void onPulse1() {
+void IRAM_ATTR onPulse1() {
     uint32_t now = micros();
     if (now - lastPulseTime1 > 200) {  // 200µs dead time
         pulseCount1++;
@@ -88,12 +84,20 @@ IRAM_ATTR void onPulse1() {
     }
 }
 
-IRAM_ATTR void onPulse2() {
+void IRAM_ATTR onPulse2() {
     uint32_t now = micros();
     if (now - lastPulseTime2 > 200) {
         pulseCount2++;
         lastPulseTime2 = now;
     }
+}
+
+// =============================================================
+// BACKLIGHT (LEDC PWM)
+// =============================================================
+
+void setBacklight(uint8_t level) {
+    ledcWrite(BL_CHANNEL, level);
 }
 
 // =============================================================
@@ -118,10 +122,9 @@ void hvDisable() {
 
 uint16_t readHV() {
     uint16_t raw = analogRead(HV_SENSE);
-    // ESP8266 ADC: 0-1023 = 0-1.0V
-    // Voltage divider scales HV_OUT down to 0-1V range
-    float voltage = (raw / 1023.0f) / HV_ADC_RATIO;
-    return (uint16_t)voltage;
+    // ESP32-S3 ADC: 12-bit (0-4095), 0-3.3V with 11dB attenuation (default)
+    float senseV = (raw / 4095.0f) * 3.3f;
+    return (uint16_t)(senseV / HV_ADC_RATIO);
 }
 
 void hvRegulate() {
@@ -139,10 +142,7 @@ void hvRegulate() {
 // =============================================================
 
 void batteryCheck() {
-    // Read from I2C fuel gauge (U3) if available
-    // Fallback: estimate from HV_SENSE ADC when HV is off
-    // For now, placeholder using a simple voltage estimate
-    Wire.beginTransmission(0x36);  // MAX17048 typical address
+    Wire.beginTransmission(0x36);  // MAX17048
     if (Wire.endTransmission() == 0) {
         Wire.beginTransmission(0x36);
         Wire.write(0x02);  // VCELL register
@@ -165,7 +165,7 @@ void batteryCheck() {
 }
 
 // =============================================================
-// DISPLAY
+// DISPLAY (Portrait 240x320)
 // =============================================================
 
 void drawHeader() {
@@ -202,92 +202,21 @@ void drawHeader() {
     }
 }
 
-void drawMainScreen() {
-    tft.fillScreen(COLOR_BG);
-    drawHeader();
-
-    // Large dose rate display
-    tft.setTextSize(3);
-    tft.setTextColor(usvhTotal > DOSE_ALARM_USV ? COLOR_ALARM :
-                     usvhTotal > DOSE_WARN_USV ? COLOR_WARN : COLOR_TEXT);
-    tft.setCursor(10, 35);
-    tft.print(usvhTotal, 3);
-    tft.setTextSize(2);
-    tft.print(" uSv/h");
-
-    // Separator
-    tft.drawFastHLine(0, 65, SCREEN_WIDTH, COLOR_TEXT_DIM);
-
-    // Per-tube readings
-    tft.setTextSize(1);
-    tft.setTextColor(COLOR_TEXT);
-
-    tft.setCursor(10, 75);
-    tft.print("STS-5:   ");
-    tft.print(cpm1, 0);
-    tft.print(" CPM  ");
-    tft.print(usvh1, 3);
-    tft.print(" uSv/h");
-
-    tft.setCursor(10, 90);
-    tft.print("SI-3BG:  ");
-    tft.print(cpm2, 0);
-    tft.print(" CPM  ");
-    tft.print(usvh2, 3);
-    tft.print(" uSv/h");
-
-    // CPS bar
-    tft.drawFastHLine(0, 108, SCREEN_WIDTH, COLOR_TEXT_DIM);
-    tft.setCursor(10, 115);
-    tft.setTextColor(COLOR_ACCENT);
-    tft.print("CPS: ");
-    tft.print(cps1 + cps2, 1);
-
-    // CPS bar graph
-    uint16_t barLen = constrain((uint16_t)((cps1 + cps2) * 10), 0, SCREEN_WIDTH - 60);
-    tft.fillRect(55, 113, SCREEN_WIDTH - 60, 12, COLOR_GRAPH_BG);
-    if (barLen > 0) {
-        uint16_t barColor = COLOR_GRAPH;
-        if (cps1 + cps2 > 10) barColor = COLOR_WARN;
-        if (cps1 + cps2 > 50) barColor = COLOR_ALARM;
-        tft.fillRect(55, 113, barLen, 12, barColor);
-    }
-
-    // Mini graph (last 60 readings)
-    drawMiniGraph(0, 135, SCREEN_WIDTH, 80);
-
-    // Bottom status bar
-    tft.fillRect(0, SCREEN_HEIGHT - 20, SCREEN_WIDTH, 20, COLOR_HEADER);
-    tft.setTextColor(0xFFFF);
-    tft.setTextSize(1);
-    tft.setCursor(4, SCREEN_HEIGHT - 16);
-    tft.print("Dose: ");
-    tft.print(totalDose, 2);
-    tft.print(" uSv  HV:");
-    tft.print(readHV());
-    tft.print("V  Up:");
-    tft.print(uptime / 60);
-    tft.print("m");
-}
-
 void drawMiniGraph(int x, int y, int w, int h) {
     tft.fillRect(x, y, w, h, COLOR_GRAPH_BG);
     tft.drawRect(x, y, w, h, COLOR_TEXT_DIM);
 
-    // Find max for scaling
     float maxVal = 0.1f;
     for (int i = 0; i < min((int)historyCount, HISTORY_POINTS); i++) {
         if (history[i] > maxVal) maxVal = history[i];
     }
 
-    // Draw scale label
     tft.setTextSize(1);
     tft.setTextColor(COLOR_TEXT_DIM);
     tft.setCursor(x + 2, y + 2);
     tft.print(maxVal, 2);
     tft.print(" uSv/h");
 
-    // Plot points
     int points = min((int)historyCount, min(HISTORY_POINTS, w - 4));
     if (points < 2) return;
 
@@ -304,6 +233,71 @@ void drawMiniGraph(int x, int y, int w, int h) {
     }
 }
 
+void drawMainScreen() {
+    tft.fillScreen(COLOR_BG);
+    drawHeader();
+
+    // Large dose rate
+    tft.setTextSize(3);
+    tft.setTextColor(usvhTotal > DOSE_ALARM_USV ? COLOR_ALARM :
+                     usvhTotal > DOSE_WARN_USV ? COLOR_WARN : COLOR_TEXT);
+    tft.setCursor(10, 35);
+    tft.print(usvhTotal, 3);
+    tft.setTextSize(2);
+    tft.print(" uSv/h");
+
+    tft.drawFastHLine(0, 65, SCREEN_WIDTH, COLOR_TEXT_DIM);
+
+    // Per-tube readings
+    tft.setTextSize(1);
+    tft.setTextColor(COLOR_TEXT);
+    tft.setCursor(10, 75);
+    tft.print("STS-5:  ");
+    tft.print(cpm1, 0);
+    tft.print(" CPM  ");
+    tft.print(usvh1, 3);
+    tft.print(" uSv/h");
+
+    tft.setCursor(10, 90);
+    tft.print("SI-3BG: ");
+    tft.print(cpm2, 0);
+    tft.print(" CPM  ");
+    tft.print(usvh2, 3);
+    tft.print(" uSv/h");
+
+    // CPS bar
+    tft.drawFastHLine(0, 108, SCREEN_WIDTH, COLOR_TEXT_DIM);
+    tft.setCursor(10, 115);
+    tft.setTextColor(COLOR_ACCENT);
+    tft.print("CPS: ");
+    tft.print(cps1 + cps2, 1);
+
+    uint16_t barLen = constrain((uint16_t)((cps1 + cps2) * 10), 0, SCREEN_WIDTH - 60);
+    tft.fillRect(55, 113, SCREEN_WIDTH - 60, 12, COLOR_GRAPH_BG);
+    if (barLen > 0) {
+        uint16_t barColor = COLOR_GRAPH;
+        if (cps1 + cps2 > 10) barColor = COLOR_WARN;
+        if (cps1 + cps2 > 50) barColor = COLOR_ALARM;
+        tft.fillRect(55, 113, barLen, 12, barColor);
+    }
+
+    // Mini graph (taller in portrait mode)
+    drawMiniGraph(0, 135, SCREEN_WIDTH, 140);
+
+    // Bottom status bar
+    tft.fillRect(0, SCREEN_HEIGHT - 20, SCREEN_WIDTH, 20, COLOR_HEADER);
+    tft.setTextColor(0xFFFF);
+    tft.setTextSize(1);
+    tft.setCursor(4, SCREEN_HEIGHT - 16);
+    tft.print("Dose:");
+    tft.print(totalDose, 2);
+    tft.print("uSv HV:");
+    tft.print(readHV());
+    tft.print("V Up:");
+    tft.print(uptime / 60);
+    tft.print("m");
+}
+
 void drawGraphScreen() {
     tft.fillScreen(COLOR_BG);
     drawHeader();
@@ -317,7 +311,6 @@ void drawGraphScreen() {
 
     drawMiniGraph(5, 45, SCREEN_WIDTH - 10, SCREEN_HEIGHT - 70);
 
-    // Bottom nav hint
     tft.setCursor(10, SCREEN_HEIGHT - 16);
     tft.setTextColor(COLOR_ACCENT);
     tft.print("Touch: Main  |  BTN: Settings");
@@ -331,9 +324,8 @@ void updateDisplay() {
         case SCREEN_GRAPH:
             drawGraphScreen();
             break;
-        case SCREEN_SETTINGS:
-        case SCREEN_WIFI:
-            drawMainScreen();  // Placeholder
+        default:
+            drawMainScreen();
             break;
     }
 }
@@ -359,10 +351,16 @@ void ledOff() {
     statusLED.show();
 }
 
-void pulseVibrate(uint16_t ms) {
+void startVibrate(uint16_t ms) {
     digitalWrite(VIBRATE_PIN, HIGH);
-    delay(ms);
-    digitalWrite(VIBRATE_PIN, LOW);
+    vibrateEnd = millis() + ms;
+}
+
+void updateVibrate() {
+    if (vibrateEnd > 0 && millis() >= vibrateEnd) {
+        digitalWrite(VIBRATE_PIN, LOW);
+        vibrateEnd = 0;
+    }
 }
 
 // =============================================================
@@ -432,7 +430,6 @@ void handleAPI() {
     String uptimeStr = String(hrs) + "h " + String(mins % 60) + "m";
     doc["uptime"] = uptimeStr;
 
-    // History array
     JsonArray hist = doc["history"].to<JsonArray>();
     int points = min((int)historyCount, HISTORY_POINTS);
     for (int i = 0; i < points; i++) {
@@ -456,7 +453,6 @@ void setupWebServer() {
 // =============================================================
 
 void processSecond() {
-    // Grab counts atomically
     noInterrupts();
     countsThisSec1 = pulseCount1;
     countsThisSec2 = pulseCount2;
@@ -464,33 +460,26 @@ void processSecond() {
     pulseCount2 = 0;
     interrupts();
 
-    // Store in ring buffer
     ringBuffer1[ringIndex] = countsThisSec1;
     ringBuffer2[ringIndex] = countsThisSec2;
     ringIndex = (ringIndex + 1) % RING_SIZE;
 
-    // Calculate CPM (sum of last 60 seconds)
     cpm1 = 0; cpm2 = 0;
     for (int i = 0; i < RING_SIZE; i++) {
         cpm1 += ringBuffer1[i];
         cpm2 += ringBuffer2[i];
     }
 
-    // CPS (smoothed)
     cps1 = cps1 * 0.7f + countsThisSec1 * 0.3f;
     cps2 = cps2 * 0.7f + countsThisSec2 * 0.3f;
 
-    // Convert to µSv/h
     usvh1 = cpm1 / STS5_CPM_PER_USV;
     usvh2 = cpm2 / SI3BG_CPM_PER_USV;
-    usvhTotal = usvh1;  // Use STS-5 as primary (more accurate for gamma)
+    usvhTotal = usvh1;  // STS-5 as primary (more accurate for gamma)
 
-    // Accumulate dose
-    totalDose += usvhTotal / 3600.0f;  // µSv per second
-
+    totalDose += usvhTotal / 3600.0f;
     uptime++;
 
-    // Click/flash on count
     if (countsThisSec1 > 0 || countsThisSec2 > 0) {
         clickBuzzer();
         flashLED(0, 20, 0);
@@ -498,12 +487,11 @@ void processSecond() {
         ledOff();
     }
 
-    // Alarm check
     if (usvhTotal > DOSE_ALARM_USV) {
         if (!alarmActive) {
             alarmActive = true;
             flashLED(50, 0, 0);
-            if (VIBRATE_ON_ALARM) pulseVibrate(200);
+            if (VIBRATE_ON_ALARM) startVibrate(200);
         }
     } else {
         alarmActive = false;
@@ -511,7 +499,6 @@ void processSecond() {
 }
 
 void processMinute() {
-    // Store in history for graph
     history[historyIndex] = usvhTotal;
     historyIndex = (historyIndex + 1) % HISTORY_POINTS;
     if (historyCount < HISTORY_POINTS) historyCount++;
@@ -529,11 +516,10 @@ void handleTouch() {
 
     if (backlightDimmed) {
         backlightDimmed = false;
-        analogWrite(TFT_BL, BACKLIGHT_DEFAULT);
+        setBacklight(BACKLIGHT_DEFAULT);
         return;
     }
 
-    // Simple screen cycling on touch
     switch (currentScreen) {
         case SCREEN_MAIN:
             currentScreen = SCREEN_GRAPH;
@@ -551,7 +537,7 @@ void handleTouch() {
 void handleBacklight() {
     if (!backlightDimmed && millis() - lastTouchTime > SCREEN_TIMEOUT_MS) {
         backlightDimmed = true;
-        analogWrite(TFT_BL, BACKLIGHT_DIM);
+        setBacklight(BACKLIGHT_DIM);
     }
 }
 
@@ -562,16 +548,22 @@ void handleBacklight() {
 void setup() {
     Serial.begin(115200);
     Serial.println();
-    Serial.println("DecayDeck v" FIRMWARE_VERSION);
+    Serial.println("DecayDeck v" FIRMWARE_VERSION " (ESP32-S3)");
     Serial.println("Initializing...");
 
-    // Pins
+    // Output pins
     pinMode(BUZZER_PIN, OUTPUT);
     pinMode(VIBRATE_PIN, OUTPUT);
-    pinMode(TFT_BL, OUTPUT);
     digitalWrite(BUZZER_PIN, LOW);
     digitalWrite(VIBRATE_PIN, LOW);
-    analogWrite(TFT_BL, BACKLIGHT_DEFAULT);
+
+    // Backlight (LEDC PWM)
+    ledcSetup(BL_CHANNEL, 5000, 8);
+    ledcAttachPin(TFT_BL, BL_CHANNEL);
+    setBacklight(BACKLIGHT_DEFAULT);
+
+    // SPI bus with custom pins
+    SPI.begin(SPI_SCK, SPI_MISO, SPI_MOSI);
 
     // I2C
     Wire.begin(I2C_SDA, I2C_SCL);
@@ -582,16 +574,16 @@ void setup() {
     tft.fillScreen(COLOR_BG);
     tft.setTextColor(COLOR_TEXT);
     tft.setTextSize(2);
-    tft.setCursor(20, 100);
+    tft.setCursor(50, 120);
     tft.println("DecayDeck");
     tft.setTextSize(1);
-    tft.setCursor(20, 130);
+    tft.setCursor(70, 150);
     tft.println("v" FIRMWARE_VERSION);
-    tft.setCursor(20, 150);
+    tft.setCursor(50, 170);
     tft.println("Starting HV boost...");
 
     // Touch
-    if (touch.begin(40)) {
+    if (touch.begin(40, &Wire)) {
         Serial.println("Touch OK");
     } else {
         Serial.println("Touch not found");
@@ -607,12 +599,12 @@ void setup() {
     hvEnable();
     delay(HV_STARTUP_MS);
 
-    tft.setCursor(20, 170);
+    tft.setCursor(50, 190);
     tft.print("HV: ");
     tft.print(readHV());
     tft.println("V");
 
-    // GM tube interrupts
+    // GM tube interrupts (dedicated pins, no conflicts!)
     pinMode(GM_INT1, INPUT);
     pinMode(GM_INT2, INPUT);
     attachInterrupt(digitalPinToInterrupt(GM_INT1), onPulse1, FALLING);
@@ -621,10 +613,10 @@ void setup() {
     // WiFi AP
     setupWiFiAP();
     setupWebServer();
-    tft.setCursor(20, 190);
-    tft.print("WiFi AP: ");
+    tft.setCursor(50, 210);
+    tft.print("WiFi: ");
     tft.println(WIFI_AP_SSID);
-    tft.setCursor(20, 205);
+    tft.setCursor(50, 225);
     tft.print("IP: ");
     tft.println(WiFi.softAPIP());
 
@@ -658,7 +650,6 @@ void loop() {
         lastSecond = now;
         processSecond();
 
-        // Update display every second on main screen
         if (now - lastScreenUpdate >= CPS_UPDATE_MS) {
             lastScreenUpdate = now;
             updateDisplay();
@@ -689,8 +680,9 @@ void loop() {
     // Backlight auto-dim
     handleBacklight();
 
+    // Non-blocking vibrate
+    updateVibrate();
+
     // WiFi
     server.handleClient();
-
-    yield();
 }

@@ -1,29 +1,29 @@
 #pragma once
 
 // =============================================================
-// DecayDeck GC-20 v2 — Configuration
+// DecayDeck GC-20 v3 — Configuration
 // =============================================================
 
-#define FIRMWARE_VERSION "0.1.0"
+#define FIRMWARE_VERSION "0.2.0"
 #define DEVICE_NAME "DecayDeck"
 
 // --- GM Tube Calibration ---
-// STS-5: ~100 CPM per µR/h (gamma)
-// SI-3BG: ~7 CPM per µR/h (beta + gamma, more sensitive to beta)
-#define STS5_CPM_PER_USV    158.0f   // CPM per µSv/h (adjust with calibration source)
-#define SI3BG_CPM_PER_USV   11.0f    // CPM per µSv/h
+// STS-5: ~158 CPM per µSv/h (gamma only, thick glass wall)
+// SI-3BG: ~11 CPM per µSv/h (beta + gamma, mica window)
+// Adjust with known calibration source (Cs-137 for gamma, Sr-90 for beta)
+#define STS5_CPM_PER_USV    158.0f
+#define SI3BG_CPM_PER_USV   11.0f
 
 // --- HV Boost ---
-#define HV_TARGET_MV        400      // Target HV in millivolts (actually volts, but ADC reads mV)
-#define HV_ADC_RATIO         0.00234f // Voltage divider ratio: R15A+R15B / R16
-                                      // HV_SENSE = HV_OUT * R16 / (R15A + R15B + R16)
+#define HV_TARGET_MV        400      // Target HV in volts (label says mV, actually V)
+#define HV_ADC_RATIO         0.00234f // Voltage divider: R16 / (R15A + R15B + R16)
 #define HV_REGULATE_MS       100     // HV regulation loop interval
 #define HV_STARTUP_MS        2000    // Time to let HV stabilize at boot
 
 // --- Display ---
 #define SCREEN_WIDTH         240
 #define SCREEN_HEIGHT        320
-#define TFT_ROTATION           1     // Landscape: 1 or 3
+#define TFT_ROTATION           0     // Portrait mode (phone orientation)
 #define BACKLIGHT_DEFAULT    200     // PWM 0-255
 #define BACKLIGHT_DIM         50     // Dimmed level
 #define SCREEN_TIMEOUT_MS  30000     // Auto-dim after 30s
@@ -67,3 +67,6 @@
 #define COLOR_GRAPH_BG    0x0120     // Very dark green
 #define COLOR_HEADER      0x001F     // Blue
 #define COLOR_BATTERY     0x07E0     // Green (changes to warn/alarm)
+
+// --- LEDC ---
+#define BL_CHANNEL           0      // LEDC channel for backlight PWM
