@@ -46,17 +46,28 @@
 // Battery
 #define BAT_ALRT    18  // MAX17048 alert interrupt
 
+// Charge Status (active low, accent LEDs also show these)
+#define CHRG_STAT   36  // TP4056 charging indicator
+#define STDBY_STAT  37  // TP4056 charge complete
+
+// SD Card Detect (active low with 10k pullup)
+#define SD_DETECT   38  // SD card inserted
+
 // USB (native, hardware-fixed — do not reassign)
 // GPIO19 = USB_D-
 // GPIO20 = USB_D+
+
+// Environmental Sensor (BME280, I2C — uses same SDA/SCL as above)
+// I2C address: 0x76 (SDO pin tied to GND)
 
 // Boot/Reset (active during boot only)
 // EN:    10k pullup to 3V3 + 1µF cap to GND
 // GPIO0: 10k pullup to 3V3 (boot mode select)
 
 // =============================================================
-// FREE GPIOs for future expansion:
-// GPIO26, GPIO33, GPIO34, GPIO38
-// GPIO35-42 (available on N4 variant, no PSRAM)
+// FREE GPIOs for future expansion (ESP32-S3-WROOM-1-N4 only):
+// GPIO35, GPIO39, GPIO40, GPIO41, GPIO42, GPIO45, GPIO46
 // GPIO43 (TX0), GPIO44 (RX0) — UART0 if needed
+// Note: GPIO26-32 are internal SPI flash, NOT available on the module.
+// Note: GPIO33, GPIO34, GPIO36, GPIO37 are in use on this board.
 // =============================================================

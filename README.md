@@ -5,12 +5,13 @@ Open-source handheld Geiger counter with dual GM tubes, capacitive touchscreen, 
 ## Hardware
 
 - **MCU:** ESP32-S3-WROOM-1-N4 (dual-core 240MHz, native USB, WiFi + BLE 5.0)
-- **Display:** Adafruit 2090 (2.8" ILI9341 TFT + FT6206 capacitive touch)
-- **GM Tubes:** STS-5 (gamma) + SI-3BG (beta+gamma)
-- **HV Supply:** 555-based boost converter (~400V DC)
-- **Power:** Single-cell 3.7V LiPo (103450, ~1800mAh) with TP4056 USB-C charging (1A)
-- **Regulator:** AP2112K-3.3 (600mA LDO)
-- **Battery Monitoring:** MAX17048 fuel gauge
+- **Display:** Adafruit 2090 (2.8" ILI9341 TFT + FT6206 capacitive touch + microSD slot)
+- **GM Tubes:** STS-5 (gamma) + SI-3BG (high-dose beta+gamma)
+- **HV Supply:** 555-based boost converter with voltage doubler (~400V DC)
+- **Power:** Single-cell 3.7V LiPo (105070, ~3500mAh) with TP4056 USB-C charging
+- **Regulator:** 3.3V LDO (600mA+)
+- **Battery Monitoring:** MAX17048 fuel gauge (I²C 0x36)
+- **Environmental:** BME280 temperature / humidity / pressure sensor (I²C 0x76)
 - **PCB:** 65mm x 108mm, 2-layer FR4 (JLCPCB)
 
 ## Features
@@ -18,11 +19,12 @@ Open-source handheld Geiger counter with dual GM tubes, capacitive touchscreen, 
 - Dual-tube radiation measurement (CPM, CPS, µSv/h)
 - 240x320 capacitive touchscreen (portrait mode)
 - Real-time dose rate graph (4-hour history)
+- Environmental logging (temperature, humidity, pressure)
 - Buzzer click on each count, WS2812 RGB LED flash
 - Vibration motor alarm on dose threshold
 - WiFi AP mode with web dashboard and REST API
-- MicroSD data logging (CSV)
-- USB-C charging (1A) + native USB programming
+- MicroSD data logging (CSV) with daily rotation
+- USB-C charging + native USB programming
 - Zero GPIO pin conflicts (every function on a dedicated pin)
 
 ## Firmware

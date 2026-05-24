@@ -6,6 +6,8 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <Wire.h>
+#include <SD.h>
+#include <time.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_ILI9341.h>
 #include <Adafruit_FT6206.h>
@@ -13,6 +15,7 @@
 #include <WiFi.h>
 #include <WebServer.h>
 #include <ArduinoJson.h>
+#include <Adafruit_BME280.h>
 
 #include "pins.h"
 #include "config.h"
@@ -25,6 +28,7 @@ Adafruit_ILI9341 tft(TFT_CS, TFT_DC, TFT_RST);
 Adafruit_FT6206 touch;
 Adafruit_NeoPixel statusLED(1, LED_DATA, NEO_GRB + NEO_KHZ800);
 WebServer server(WEB_PORT);
+Adafruit_BME280 bme;
 
 // --- Pulse counting (ISR-safe) ---
 volatile uint32_t pulseCount1 = 0;  // STS-5
@@ -71,6 +75,21 @@ bool alarmActive = false;
 bool clickEnabled = CLICK_SOUND;
 float batteryVoltage = 4.2;
 uint8_t batteryPercent = 100;
+
+// --- Environmental (BME280) ---
+bool bmeReady = false;
+float envTemp = 0;      // °C
+float envHumidity = 0;  // %RH
+float envPressure = 0;  // hPa
+uint32_t lastEnvRead = 0;
+
+// --- SD Card / Logging ---
+bool sdReady = false;
+bool timeValid = false;
+char currentLogDate[16] = "";
+uint32_t lastLogTime = 0;
+uint32_t lastSDMaint = 0;
+uint16_t logRetainDays = LOG_RETAIN_DAYS;
 
 // =============================================================
 // ISR — Geiger tube pulse handlers
@@ -130,9 +149,9 @@ uint16_t readHV() {
 void hvRegulate() {
     if (!hvEnabled) return;
     uint16_t hv = readHV();
-    if (hv < HV_TARGET_MV - 10) {
+    if (hv < HV_TARGET_V - 10) {
         digitalWrite(HV_EN, HIGH);
-    } else if (hv > HV_TARGET_MV + 10) {
+    } else if (hv > HV_TARGET_V + 10) {
         digitalWrite(HV_EN, LOW);
     }
 }
@@ -364,6 +383,197 @@ void updateVibrate() {
 }
 
 // =============================================================
+// ENVIRONMENTAL SENSOR (BME280)
+// =============================================================
+
+bool bmeInit() {
+    if (!bme.begin(BME280_ADDR, &Wire)) {
+        Serial.println("BME280: not found");
+        return false;
+    }
+    // Weather monitoring mode: low power, 1Hz forced measurements
+    bme.setSampling(Adafruit_BME280::MODE_FORCED,
+                    Adafruit_BME280::SAMPLING_X1,  // temp
+                    Adafruit_BME280::SAMPLING_X1,  // pressure
+                    Adafruit_BME280::SAMPLING_X1,  // humidity
+                    Adafruit_BME280::FILTER_X4,
+                    Adafruit_BME280::STANDBY_MS_1000);
+    Serial.println("BME280: OK");
+    return true;
+}
+
+void readEnvironment() {
+    if (!bmeReady) return;
+    bme.takeForcedMeasurement();
+    envTemp = bme.readTemperature();
+    envHumidity = bme.readHumidity();
+    envPressure = bme.readPressure() / 100.0f;  // Pa → hPa
+}
+
+// =============================================================
+// SD CARD / DATA LOGGING
+// =============================================================
+
+struct LogFileInfo {
+    char name[20];
+    uint32_t size;
+};
+
+bool sdInit() {
+    if (!SD.begin(SD_CS, SPI)) {
+        Serial.println("SD: not found");
+        return false;
+    }
+    if (!SD.exists(LOG_DIR)) {
+        SD.mkdir(LOG_DIR);
+    }
+    Serial.printf("SD: %lluMB total, %lluMB used\n",
+        SD.totalBytes() / 1048576ULL, SD.usedBytes() / 1048576ULL);
+    return true;
+}
+
+uint64_t sdFreeMB() {
+    return (SD.totalBytes() - SD.usedBytes()) / 1048576ULL;
+}
+
+void getDateStr(char* buf, size_t len) {
+    struct tm t;
+    if (getLocalTime(&t, 100)) {
+        strftime(buf, len, "%Y-%m-%d", &t);
+        timeValid = true;
+    } else {
+        // No RTC sync yet — use boot-relative day counter
+        snprintf(buf, len, "session-%05lu", uptime / 86400);
+        timeValid = false;
+    }
+}
+
+void getTimestampStr(char* buf, size_t len) {
+    struct tm t;
+    if (getLocalTime(&t, 100)) {
+        strftime(buf, len, "%Y-%m-%d %H:%M:%S", &t);
+    } else {
+        unsigned long h = uptime / 3600;
+        unsigned long m = (uptime % 3600) / 60;
+        unsigned long s = uptime % 60;
+        snprintf(buf, len, "%03lu:%02lu:%02lu", h, m, s);
+    }
+}
+
+int listLogs(LogFileInfo* files, int maxFiles) {
+    File dir = SD.open(LOG_DIR);
+    if (!dir || !dir.isDirectory()) return 0;
+
+    int count = 0;
+    File entry;
+    while ((entry = dir.openNextFile()) && count < maxFiles) {
+        if (!entry.isDirectory()) {
+            const char* name = entry.name();
+            const char* slash = strrchr(name, '/');
+            if (slash) name = slash + 1;
+            strncpy(files[count].name, name, sizeof(files[count].name) - 1);
+            files[count].name[sizeof(files[count].name) - 1] = '\0';
+            files[count].size = entry.size();
+            count++;
+        }
+        entry.close();
+    }
+    dir.close();
+
+    // Sort by name (date-based filenames sort chronologically)
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = i + 1; j < count; j++) {
+            if (strcmp(files[i].name, files[j].name) > 0) {
+                LogFileInfo tmp = files[i];
+                files[i] = files[j];
+                files[j] = tmp;
+            }
+        }
+    }
+    return count;
+}
+
+void deleteLog(const char* filename) {
+    String path = String(LOG_DIR) + "/" + filename;
+    if (SD.exists(path.c_str())) {
+        SD.remove(path.c_str());
+        Serial.printf("SD: deleted %s\n", filename);
+    }
+}
+
+void logData() {
+    if (!sdReady) return;
+
+    char date[16];
+    getDateStr(date, sizeof(date));
+    String path = String(LOG_DIR) + "/" + date + ".csv";
+    bool newFile = !SD.exists(path.c_str());
+
+    File f = SD.open(path.c_str(), FILE_APPEND);
+    if (!f) {
+        Serial.println("SD: write failed");
+        return;
+    }
+
+    if (newFile) {
+        f.println("timestamp,cpm_sts5,cpm_si3bg,usvh_sts5,usvh_si3bg,usvh_total,dose_total_usv,hv_volts,battery_pct,temp_c,humidity_pct,pressure_hpa");
+        strncpy(currentLogDate, date, sizeof(currentLogDate));
+    }
+
+    char ts[24];
+    getTimestampStr(ts, sizeof(ts));
+    f.printf("%s,%.0f,%.0f,%.3f,%.3f,%.3f,%.2f,%u,%u,%.1f,%.1f,%.1f\n",
+        ts, cpm1, cpm2, usvh1, usvh2, usvhTotal, totalDose, readHV(), batteryPercent,
+        envTemp, envHumidity, envPressure);
+    f.flush();
+    f.close();
+}
+
+// Delete logs older than retention policy
+void cleanupByAge() {
+    if (logRetainDays == 0 || !timeValid) return;
+
+    struct tm now;
+    if (!getLocalTime(&now, 100)) return;
+    time_t nowEpoch = mktime(&now);
+
+    LogFileInfo files[365];
+    int count = listLogs(files, 365);
+
+    for (int i = 0; i < count; i++) {
+        struct tm fd = {0};
+        if (sscanf(files[i].name, "%d-%d-%d", &fd.tm_year, &fd.tm_mon, &fd.tm_mday) == 3) {
+            fd.tm_year -= 1900;
+            fd.tm_mon -= 1;
+            time_t fileEpoch = mktime(&fd);
+            int ageDays = (nowEpoch - fileEpoch) / 86400;
+            if (ageDays > logRetainDays) {
+                deleteLog(files[i].name);
+            }
+        }
+    }
+}
+
+// Emergency cleanup when SD card is nearly full
+void cleanupBySpace() {
+    while (sdFreeMB() < SD_AUTO_CLEAN_MB) {
+        LogFileInfo files[365];
+        int count = listLogs(files, 365);
+        if (count <= 1) break;  // Never delete the current day's file
+        deleteLog(files[0].name);  // Delete oldest
+    }
+}
+
+void sdMaintenance() {
+    if (!sdReady) return;
+    cleanupByAge();
+    cleanupBySpace();
+    if (sdFreeMB() < SD_WARN_MB) {
+        Serial.printf("SD: LOW SPACE — %lluMB free\n", sdFreeMB());
+    }
+}
+
+// =============================================================
 // WIFI + WEB SERVER
 // =============================================================
 
@@ -396,10 +606,14 @@ void handleRoot() {
         "document.getElementById('bat').textContent=d.bat+'%';"
         "document.getElementById('total').textContent=d.totalDose.toFixed(2);"
         "document.getElementById('up').textContent=d.uptime;"
+        "var e=document.getElementById('env');"
+        "if(d.temp)e.innerHTML='Temp: '+d.temp+'&deg;C | Humidity: '+d.humidity+'% | Pressure: '+d.pressure+' hPa';"
+        "else e.innerHTML='BME280: not connected';"
         "var b=document.getElementById('bar');"
         "b.style.width=Math.min(d.cps*5,100)+'%';"
         "});"
         "setTimeout(update,1000);}"
+        "fetch('/api/settime?epoch='+Math.floor(Date.now()/1000));"
         "update();"
         "</script></head><body>"
         "<h1>DecayDeck</h1>"
@@ -411,6 +625,8 @@ void handleRoot() {
         "<div class='card'>Total Dose: <span id='total'>-</span> &micro;Sv<br>"
         "HV: <span id='hv'>-</span>V | Battery: <span id='bat'>-</span><br>"
         "Uptime: <span id='up'>-</span></div>"
+        "<div class='card' id='env'></div>"
+        "<div class='card'><a href='/data'>Data Manager</a> — download, export, cleanup logs</div>"
         "</body></html>";
     server.send(200, "text/html", html);
 }
@@ -424,6 +640,11 @@ void handleAPI() {
     doc["hv"] = readHV();
     doc["bat"] = batteryPercent;
     doc["totalDose"] = totalDose;
+    if (bmeReady) {
+        doc["temp"] = serialized(String(envTemp, 1));
+        doc["humidity"] = serialized(String(envHumidity, 1));
+        doc["pressure"] = serialized(String(envPressure, 1));
+    }
 
     uint32_t mins = uptime / 60;
     uint32_t hrs = mins / 60;
@@ -442,9 +663,263 @@ void handleAPI() {
     server.send(200, "application/json", response);
 }
 
+// --- Time sync (phone pushes its clock to the device) ---
+void handleSetTime() {
+    if (server.hasArg("epoch")) {
+        time_t epoch = (time_t)server.arg("epoch").toInt();
+        struct timeval tv = { .tv_sec = epoch, .tv_usec = 0 };
+        settimeofday(&tv, NULL);
+        timeValid = true;
+        server.send(200, "application/json", "{\"ok\":true}");
+    } else {
+        server.send(400, "application/json", "{\"error\":\"Missing epoch\"}");
+    }
+}
+
+// --- SD info ---
+void handleSDInfo() {
+    if (!sdReady) {
+        server.send(503, "application/json", "{\"error\":\"SD not available\"}");
+        return;
+    }
+    JsonDocument doc;
+    doc["total_mb"] = (uint32_t)(SD.totalBytes() / 1048576ULL);
+    doc["used_mb"] = (uint32_t)(SD.usedBytes() / 1048576ULL);
+    doc["free_mb"] = (uint32_t)sdFreeMB();
+    doc["retain_days"] = logRetainDays;
+    doc["time_valid"] = timeValid;
+
+    String resp;
+    serializeJson(doc, resp);
+    server.send(200, "application/json", resp);
+}
+
+// --- List log files ---
+void handleLogList() {
+    if (!sdReady) {
+        server.send(503, "application/json", "{\"error\":\"SD not available\"}");
+        return;
+    }
+    LogFileInfo files[365];
+    int count = listLogs(files, 365);
+
+    JsonDocument doc;
+    JsonArray arr = doc["files"].to<JsonArray>();
+    uint32_t totalSize = 0;
+    for (int i = 0; i < count; i++) {
+        JsonObject obj = arr.add<JsonObject>();
+        obj["name"] = files[i].name;
+        obj["size"] = files[i].size;
+        totalSize += files[i].size;
+    }
+    doc["count"] = count;
+    doc["total_bytes"] = totalSize;
+
+    String resp;
+    serializeJson(doc, resp);
+    server.send(200, "application/json", resp);
+}
+
+// --- Download single log file ---
+void handleLogDownload() {
+    if (!sdReady) {
+        server.send(503, "text/plain", "SD not available");
+        return;
+    }
+    if (!server.hasArg("file")) {
+        server.send(400, "text/plain", "Missing ?file= parameter");
+        return;
+    }
+    String filename = server.arg("file");
+    for (unsigned int i = 0; i < filename.length(); i++) {
+        char c = filename[i];
+        if (!isalnum(c) && c != '-' && c != '.') {
+            server.send(400, "text/plain", "Invalid filename");
+            return;
+        }
+    }
+    String path = String(LOG_DIR) + "/" + filename;
+    if (!SD.exists(path.c_str())) {
+        server.send(404, "text/plain", "File not found");
+        return;
+    }
+    File f = SD.open(path.c_str(), FILE_READ);
+    if (!f) {
+        server.send(500, "text/plain", "Open failed");
+        return;
+    }
+    server.sendHeader("Content-Disposition", "attachment; filename=" + filename);
+    server.streamFile(f, "text/csv");
+    f.close();
+}
+
+// --- Export all logs as single CSV ---
+void handleExportAll() {
+    if (!sdReady) {
+        server.send(503, "text/plain", "SD not available");
+        return;
+    }
+    LogFileInfo files[365];
+    int count = listLogs(files, 365);
+    if (count == 0) {
+        server.send(200, "text/plain", "No log files");
+        return;
+    }
+
+    server.sendHeader("Content-Disposition", "attachment; filename=decaydeck_export.csv");
+    server.setContentLength(CONTENT_LENGTH_UNKNOWN);
+    server.send(200, "text/csv", "");
+    server.sendContent("timestamp,cpm_sts5,cpm_si3bg,usvh_sts5,usvh_si3bg,usvh_total,dose_total_usv,hv_volts,battery_pct,temp_c,humidity_pct,pressure_hpa\n");
+
+    for (int i = 0; i < count; i++) {
+        String path = String(LOG_DIR) + "/" + files[i].name;
+        File f = SD.open(path.c_str(), FILE_READ);
+        if (!f) continue;
+        f.readStringUntil('\n');  // Skip per-file header
+        while (f.available()) {
+            String line = f.readStringUntil('\n');
+            if (line.length() > 0) {
+                server.sendContent(line + "\n");
+            }
+        }
+        f.close();
+    }
+}
+
+// --- Delete single log ---
+void handleLogDelete() {
+    if (!sdReady) {
+        server.send(503, "application/json", "{\"error\":\"SD not available\"}");
+        return;
+    }
+    if (!server.hasArg("file")) {
+        server.send(400, "application/json", "{\"error\":\"Missing ?file=\"}");
+        return;
+    }
+    String filename = server.arg("file");
+    for (unsigned int i = 0; i < filename.length(); i++) {
+        char c = filename[i];
+        if (!isalnum(c) && c != '-' && c != '.') {
+            server.send(400, "application/json", "{\"error\":\"Invalid filename\"}");
+            return;
+        }
+    }
+    deleteLog(filename.c_str());
+    server.send(200, "application/json", "{\"ok\":true}");
+}
+
+// --- Cleanup logs (by age or all) ---
+void handleCleanup() {
+    if (!sdReady) {
+        server.send(503, "application/json", "{\"error\":\"SD not available\"}");
+        return;
+    }
+    if (server.hasArg("days")) {
+        int days = server.arg("days").toInt();
+        if (days > 0) {
+            uint16_t saved = logRetainDays;
+            logRetainDays = days;
+            cleanupByAge();
+            logRetainDays = saved;
+        }
+    } else if (server.hasArg("all")) {
+        LogFileInfo files[365];
+        int count = listLogs(files, 365);
+        for (int i = 0; i < count; i++) {
+            deleteLog(files[i].name);
+        }
+    }
+    server.send(200, "application/json", "{\"ok\":true}");
+}
+
+// --- Settings (get/set retention) ---
+void handleSettings() {
+    if (server.hasArg("retain_days")) {
+        logRetainDays = server.arg("retain_days").toInt();
+    }
+    JsonDocument doc;
+    doc["retain_days"] = logRetainDays;
+    doc["click_sound"] = clickEnabled;
+    doc["firmware"] = FIRMWARE_VERSION;
+
+    String resp;
+    serializeJson(doc, resp);
+    server.send(200, "application/json", resp);
+}
+
+// --- Data management web page ---
+void handleDataPage() {
+    String html = "<!DOCTYPE html><html><head>"
+        "<meta charset='utf-8'>"
+        "<meta name='viewport' content='width=device-width,initial-scale=1'>"
+        "<title>DecayDeck Data</title>"
+        "<style>"
+        "body{font-family:monospace;background:#111;color:#0f0;padding:20px;max-width:600px;margin:0 auto;}"
+        "h1{color:#0ff;}h2{color:#0ff;font-size:1.2em;}"
+        ".c{background:#1a1a1a;border:1px solid #333;padding:15px;margin:10px 0;border-radius:8px;}"
+        "a{color:#0ff;}button{background:#333;color:#0f0;border:1px solid #0f0;"
+        "padding:8px 16px;margin:4px;cursor:pointer;font-family:monospace;border-radius:4px;}"
+        "button:hover{background:#0f0;color:#111;}.dng{border-color:#f00;color:#f00;}"
+        ".dng:hover{background:#f00;color:#111;}"
+        "table{width:100%;border-collapse:collapse;}td,th{padding:6px;text-align:left;border-bottom:1px solid #333;}"
+        ".sz{color:#888;}.bar{height:12px;background:#020;margin:4px 0;}.bf{height:100%;background:#0f0;}"
+        "</style></head><body>"
+        "<h1><a href='/' style='text-decoration:none;color:#0ff'>DecayDeck</a> &gt; Data</h1>"
+        "<div class='c' id='sd'>Loading...</div>"
+        "<div class='c'><h2>Log Files</h2><div id='fl'>Loading...</div><br>"
+        "<button onclick=\"dl('/api/export','decaydeck_export.csv')\">Export All CSV</button></div>"
+        "<div class='c'><h2>Cleanup</h2>"
+        "<button onclick=\"cu('days=30')\">Older than 30d</button>"
+        "<button onclick=\"cu('days=7')\">Older than 7d</button>"
+        "<button class='dng' onclick=\"if(confirm('Delete ALL logs?'))cu('all=1')\">Delete All</button></div>"
+        "<div class='c'><h2>Retention</h2>"
+        "<input id='rd' type='number' value='90' min='0' max='999' style='width:60px;"
+        "background:#222;color:#0f0;border:1px solid #333;padding:4px;font-family:monospace;'> days "
+        "<button onclick=\"fetch('/api/settings?retain_days='+document.getElementById('rd').value)"
+        ".then(()=>ld())\">Save</button> <span class='sz'>(0 = keep forever)</span></div>"
+        "<script>"
+        "fetch('/api/settime?epoch='+Math.floor(Date.now()/1000));"
+        "function kb(b){return b<1024?b+'B':b<1048576?(b/1024).toFixed(1)+'KB':(b/1048576).toFixed(1)+'MB';}"
+        "function ld(){"
+        "fetch('/api/sd').then(r=>r.json()).then(d=>{"
+        "var p=((d.used_mb/(d.total_mb||1))*100).toFixed(1);"
+        "document.getElementById('sd').innerHTML="
+        "'<b>SD Card:</b> '+d.used_mb+'MB / '+d.total_mb+'MB ('+d.free_mb+'MB free)<br>'"
+        "+'<div class=\"bar\"><div class=\"bf\" style=\"width:'+p+'%\"></div></div>'"
+        "+'Retention: '+d.retain_days+'d | Clock: '+(d.time_valid?'synced':'uptime only');"
+        "document.getElementById('rd').value=d.retain_days;"
+        "});"
+        "fetch('/api/logs').then(r=>r.json()).then(d=>{"
+        "if(!d.files.length){document.getElementById('fl').innerHTML='No logs yet.';return;}"
+        "var h='<table><tr><th>Date</th><th>Size</th><th></th></tr>';"
+        "d.files.forEach(f=>{"
+        "h+='<tr><td>'+f.name+'</td><td class=\"sz\">'+kb(f.size)+'</td>'"
+        "+'<td><a href=\"/api/download?file='+f.name+'\">DL</a> '"
+        "+'<a href=\"#\" onclick=\"rm(\\''+f.name+'\\');return false\" style=\"color:#f00\">X</a></td></tr>';});"
+        "h+='</table><br>'+d.count+' files, '+kb(d.total_bytes)+' total';"
+        "document.getElementById('fl').innerHTML=h;});}"
+        "function rm(f){if(confirm('Delete '+f+'?'))fetch('/api/delete?file='+f).then(()=>ld());}"
+        "function cu(q){fetch('/api/cleanup?'+q).then(()=>ld());}"
+        "function dl(u,n){var a=document.createElement('a');a.href=u;a.download=n;a.click();}"
+        "ld();</script></body></html>";
+    server.send(200, "text/html", html);
+}
+
 void setupWebServer() {
+    // Main UI
     server.on("/", handleRoot);
+    server.on("/data", handleDataPage);
+    // Real-time API
     server.on("/api/data", handleAPI);
+    server.on("/api/settime", handleSetTime);
+    server.on("/api/settings", handleSettings);
+    // SD / Log management API
+    server.on("/api/sd", handleSDInfo);
+    server.on("/api/logs", handleLogList);
+    server.on("/api/download", handleLogDownload);
+    server.on("/api/export", handleExportAll);
+    server.on("/api/delete", handleLogDelete);
+    server.on("/api/cleanup", handleCleanup);
     server.begin();
 }
 
@@ -599,7 +1074,7 @@ void setup() {
     hvEnable();
     delay(HV_STARTUP_MS);
 
-    tft.setCursor(50, 190);
+    tft.setCursor(50, 185);
     tft.print("HV: ");
     tft.print(readHV());
     tft.println("V");
@@ -610,13 +1085,29 @@ void setup() {
     attachInterrupt(digitalPinToInterrupt(GM_INT1), onPulse1, FALLING);
     attachInterrupt(digitalPinToInterrupt(GM_INT2), onPulse2, FALLING);
 
+    // BME280 (I2C, same bus as touch + fuel gauge)
+    bmeReady = bmeInit();
+    tft.setCursor(50, 200);
+    tft.print("ENV: ");
+    tft.println(bmeReady ? "BME280 OK" : "not found");
+
+    // SD card (shares SPI bus with display)
+    sdReady = sdInit();
+    tft.setCursor(50, 215);
+    tft.print("SD: ");
+    if (sdReady) {
+        tft.printf("OK %lluMB free", sdFreeMB());
+    } else {
+        tft.print("not found");
+    }
+
     // WiFi AP
     setupWiFiAP();
     setupWebServer();
-    tft.setCursor(50, 210);
+    tft.setCursor(50, 230);
     tft.print("WiFi: ");
     tft.println(WIFI_AP_SSID);
-    tft.setCursor(50, 225);
+    tft.setCursor(50, 245);
     tft.print("IP: ");
     tft.println(WiFi.softAPIP());
 
@@ -660,6 +1151,24 @@ void loop() {
     if (now - lastMinute >= 60000) {
         lastMinute = now;
         processMinute();
+    }
+
+    // Environmental sensor
+    if (bmeReady && now - lastEnvRead >= ENV_READ_MS) {
+        lastEnvRead = now;
+        readEnvironment();
+    }
+
+    // SD logging
+    if (sdReady && now - lastLogTime >= (uint32_t)LOG_INTERVAL_SEC * 1000) {
+        lastLogTime = now;
+        logData();
+    }
+
+    // SD maintenance (cleanup old files, check space)
+    if (sdReady && now - lastSDMaint >= SD_CHECK_MS) {
+        lastSDMaint = now;
+        sdMaintenance();
     }
 
     // HV regulation

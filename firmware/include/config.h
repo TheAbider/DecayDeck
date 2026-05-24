@@ -15,8 +15,9 @@
 #define SI3BG_CPM_PER_USV   11.0f
 
 // --- HV Boost ---
-#define HV_TARGET_MV        400      // Target HV in volts (label says mV, actually V)
-#define HV_ADC_RATIO         0.00234f // Voltage divider: R16 / (R15A + R15B + R16)
+#define HV_TARGET_V         400      // Target HV in volts
+#define HV_ADC_RATIO         0.00157f // Voltage divider: R16 / (R15A + R15B + R15C + R16)
+                                     // 47k / (10M + 10M + 10M + 47k) = 0.001567
 #define HV_REGULATE_MS       100     // HV regulation loop interval
 #define HV_STARTUP_MS        2000    // Time to let HV stabilize at boot
 
@@ -36,14 +37,22 @@
 #define DOSE_WARN_USV        0.3f    // Warning threshold µSv/h
 
 // --- Data Logging ---
+#define LOG_DIR          "/logs"      // Daily CSV files: /logs/YYYY-MM-DD.csv
 #define LOG_INTERVAL_SEC      60     // Log to SD every 60 seconds
-#define LOG_FILENAME     "/decaydeck.csv"
+#define LOG_RETAIN_DAYS       90     // Auto-delete logs older than this (0 = forever)
+#define SD_WARN_MB            10     // Low space warning threshold (MB)
+#define SD_AUTO_CLEAN_MB       5     // Auto-delete oldest logs below this (MB free)
+#define SD_CHECK_MS       300000     // Check SD space / run maintenance every 5 min
 
 // --- WiFi ---
 #define WIFI_AP_SSID     "DecayDeck"
 #define WIFI_AP_PASS     "geiger20"  // Min 8 chars for AP mode
 #define WIFI_CONNECT_TIMEOUT 10000   // ms to wait for STA connection
 #define WEB_PORT             80
+
+// --- Environmental (BME280) ---
+#define BME280_ADDR          0x76   // SDO→GND
+#define ENV_READ_MS          5000   // Read temp/humidity/pressure every 5s
 
 // --- Battery ---
 #define BAT_LOW_MV          3300     // Low battery warning (mV)
@@ -52,7 +61,7 @@
 
 // --- UI ---
 #define CLICK_SOUND         true     // Buzzer click on each count
-#define CLICK_DURATION_US     50     // Click pulse length
+#define CLICK_DURATION_US   2000     // Click pulse length (2 ms audible tick for self-driving piezo)
 #define VIBRATE_ON_ALARM    true     // Vibrate on dose alarm
 #define LED_FLASH_ON_COUNT  true     // Flash WS2812 on each count
 
