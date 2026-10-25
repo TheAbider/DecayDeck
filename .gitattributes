@@ -1,0 +1,5 @@
+# Binary design outputs: never convert line endings
+*.pdf binary
+*.png binary
+*.zip binary
+hardware/v4/fab/** binary

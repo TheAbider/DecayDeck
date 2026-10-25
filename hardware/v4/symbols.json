@@ -1,0 +1,2746 @@
+{
+ "C110293": {
+  "mpn": "SKRTLAE010",
+  "lcsc": "C110293",
+  "footprint": "KEY-SMD_SKRTLAE010",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "7d5027d2d03d474298916bdcfa741bb7",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": -15,
+    "rot": 270
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 0,
+    "dy": -15,
+    "rot": 270
+   },
+   {
+    "num": "3",
+    "name": "3",
+    "dx": 20,
+    "dy": -15,
+    "rot": 270
+   },
+   {
+    "num": "4",
+    "name": "4",
+    "dx": -40,
+    "dy": 25,
+    "rot": 180
+   },
+   {
+    "num": "5",
+    "name": "5",
+    "dx": 40,
+    "dy": 25,
+    "rot": 0
+   }
+  ]
+ },
+ "C110926": {
+  "mpn": "LIS2DH12TR",
+  "lcsc": "C110926",
+  "footprint": "LGA-12_L2.0-W2.0-P0.50-BL",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "408366b1bc4a4fa799bf978a38296acf",
+  "pins": [
+   {
+    "num": "1",
+    "name": "SCL/SPC",
+    "dx": -100,
+    "dy": 25,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "CS",
+    "dx": -100,
+    "dy": 15,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "SDO/SA0",
+    "dx": -100,
+    "dy": 5,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "SDA/SDI/SDO",
+    "dx": -100,
+    "dy": -5,
+    "rot": 180
+   },
+   {
+    "num": "5",
+    "name": "RES",
+    "dx": -100,
+    "dy": -15,
+    "rot": 180
+   },
+   {
+    "num": "6",
+    "name": "GND",
+    "dx": -100,
+    "dy": -25,
+    "rot": 180
+   },
+   {
+    "num": "7",
+    "name": "GND",
+    "dx": 100,
+    "dy": -25,
+    "rot": 0
+   },
+   {
+    "num": "8",
+    "name": "GND",
+    "dx": 100,
+    "dy": -15,
+    "rot": 0
+   },
+   {
+    "num": "9",
+    "name": "VDD",
+    "dx": 100,
+    "dy": -5,
+    "rot": 0
+   },
+   {
+    "num": "10",
+    "name": "VDD_IO",
+    "dx": 100,
+    "dy": 5,
+    "rot": 0
+   },
+   {
+    "num": "11",
+    "name": "INT2",
+    "dx": 100,
+    "dy": 15,
+    "rot": 0
+   },
+   {
+    "num": "12",
+    "name": "INT1",
+    "dx": 100,
+    "dy": 25,
+    "rot": 0
+   }
+  ]
+ },
+ "C116737": {
+  "mpn": "FMMT458TA",
+  "lcsc": "C116737",
+  "footprint": "SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "fd5aaff1597f40d081489c37f62b741b",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -10,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "3",
+    "dx": 10,
+    "dy": 20,
+    "rot": 90
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 10,
+    "dy": -20,
+    "rot": 270
+   }
+  ]
+ },
+ "C124205": {
+  "mpn": "BAT54WS-7-F",
+  "lcsc": "C124205",
+  "footprint": "SOD-323_L1.8-W1.3-LS2.5-RD",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "7233bad4903d445e984c952c4e25fcbc",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "C13564": {
+  "mpn": "NCP18XH103F03RB",
+  "lcsc": "C13564",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "8e595e2b2c7f4634882abec0bc3ac68a",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C14663": {
+  "mpn": "CC0603KRX7R9BB104",
+  "lcsc": "C14663",
+  "footprint": "C0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "a299e4f29fd2469688f76621c3d59c4d",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "C14858": {
+  "mpn": "CL10C101JB8NNNC",
+  "lcsc": "C14858",
+  "footprint": "C0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "8e2066dcddc04bbbaec8059659608eed",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -15,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 15,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "C15127": {
+  "mpn": "AO3401A",
+  "lcsc": "C15127",
+  "footprint": "SOT-23_L2.9-W1.3-P1.90-LS2.4-BR",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "f58385f66b144586baef3753ba84f65d",
+  "pins": [
+   {
+    "num": "3",
+    "name": "D",
+    "dx": 10,
+    "dy": 20,
+    "rot": 90
+   },
+   {
+    "num": "1",
+    "name": "G",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "S",
+    "dx": 10,
+    "dy": -20,
+    "rot": 270
+   }
+  ]
+ },
+ "C15464": {
+  "mpn": "BQ24075RGTR",
+  "lcsc": "C15464",
+  "footprint": "QFN-16_L3.0-W3.0-P0.50-TL-EP1.7",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "8a18598ea3e34fa492ee122fde3f5e5d",
+  "pins": [
+   {
+    "num": "1",
+    "name": "TS",
+    "dx": -60,
+    "dy": 35,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "BAT",
+    "dx": -60,
+    "dy": 15,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "BAT",
+    "dx": -60,
+    "dy": -5,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "#CE",
+    "dx": 60,
+    "dy": -35,
+    "rot": 0
+   },
+   {
+    "num": "5",
+    "name": "EN2",
+    "dx": 60,
+    "dy": -15,
+    "rot": 0
+   },
+   {
+    "num": "6",
+    "name": "EN1",
+    "dx": 60,
+    "dy": -5,
+    "rot": 0
+   },
+   {
+    "num": "7",
+    "name": "#PGOOD",
+    "dx": 60,
+    "dy": 15,
+    "rot": 0
+   },
+   {
+    "num": "8",
+    "name": "VSS",
+    "dx": 60,
+    "dy": -65,
+    "rot": 0
+   },
+   {
+    "num": "9",
+    "name": "#CHG",
+    "dx": 60,
+    "dy": 35,
+    "rot": 0
+   },
+   {
+    "num": "10",
+    "name": "OUT",
+    "dx": 60,
+    "dy": 65,
+    "rot": 0
+   },
+   {
+    "num": "11",
+    "name": "OUT",
+    "dx": 60,
+    "dy": 55,
+    "rot": 0
+   },
+   {
+    "num": "12",
+    "name": "ILIM",
+    "dx": -60,
+    "dy": -45,
+    "rot": 180
+   },
+   {
+    "num": "13",
+    "name": "IN",
+    "dx": -60,
+    "dy": 65,
+    "rot": 180
+   },
+   {
+    "num": "14",
+    "name": "TMR",
+    "dx": -60,
+    "dy": -25,
+    "rot": 180
+   },
+   {
+    "num": "15",
+    "name": "SYSOFF",
+    "dx": 60,
+    "dy": -25,
+    "rot": 0
+   },
+   {
+    "num": "16",
+    "name": "ISET",
+    "dx": -60,
+    "dy": -65,
+    "rot": 180
+   },
+   {
+    "num": "17",
+    "name": "EP",
+    "dx": 60,
+    "dy": -55,
+    "rot": 0
+   }
+  ]
+ },
+ "C15849": {
+  "mpn": "CL10A105KB8NNNC",
+  "lcsc": "C15849",
+  "footprint": "C0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "af2e25dc8e174a11bab66129be592f4d",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C15850": {
+  "mpn": "CL21A106KAYNNNE",
+  "lcsc": "C15850",
+  "footprint": "C0805",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "e10bc30d72324129a5b7daae4e75f56f",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C1588": {
+  "mpn": "CL10B102KB8NNNC",
+  "lcsc": "C1588",
+  "footprint": "C0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "8dd2db52a53a4497b767f6270556778e",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -15,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 15,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "C1604": {
+  "mpn": "0603B222K500NT",
+  "lcsc": "C1604",
+  "footprint": "C0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "e27e4e388c6c48578d79a836966a6f5b",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -15,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 15,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "C165948": {
+  "mpn": "TYPE-C-31-M-12",
+  "lcsc": "C165948",
+  "footprint": "USB-C_SMD-TYPE-C-31-M-12_1",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "730e76758f9742ca9ca85c73f4ec0ecd",
+  "pins": [
+   {
+    "num": "A1B12",
+    "name": "GND",
+    "dx": -35,
+    "dy": 55,
+    "rot": 180
+   },
+   {
+    "num": "A4B9",
+    "name": "VBUS",
+    "dx": -35,
+    "dy": 45,
+    "rot": 180
+   },
+   {
+    "num": "B8",
+    "name": "SBU2",
+    "dx": -35,
+    "dy": 35,
+    "rot": 180
+   },
+   {
+    "num": "A5",
+    "name": "CC1",
+    "dx": -35,
+    "dy": 25,
+    "rot": 180
+   },
+   {
+    "num": "B7",
+    "name": "DN2",
+    "dx": -35,
+    "dy": 15,
+    "rot": 180
+   },
+   {
+    "num": "A6",
+    "name": "DP1",
+    "dx": -35,
+    "dy": 5,
+    "rot": 180
+   },
+   {
+    "num": "A7",
+    "name": "DN1",
+    "dx": -35,
+    "dy": -5,
+    "rot": 180
+   },
+   {
+    "num": "B6",
+    "name": "DP2",
+    "dx": -35,
+    "dy": -15,
+    "rot": 180
+   },
+   {
+    "num": "A8",
+    "name": "SBU1",
+    "dx": -35,
+    "dy": -25,
+    "rot": 180
+   },
+   {
+    "num": "B5",
+    "name": "CC2",
+    "dx": -35,
+    "dy": -35,
+    "rot": 180
+   },
+   {
+    "num": "B4A9",
+    "name": "VBUS",
+    "dx": -35,
+    "dy": -45,
+    "rot": 180
+   },
+   {
+    "num": "B1A12",
+    "name": "GND",
+    "dx": -35,
+    "dy": -55,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "EH",
+    "dx": 35,
+    "dy": -25,
+    "rot": 0
+   },
+   {
+    "num": "3",
+    "name": "EH",
+    "dx": 35,
+    "dy": -35,
+    "rot": 0
+   },
+   {
+    "num": "2",
+    "name": "EH",
+    "dx": 35,
+    "dy": -45,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "EH",
+    "dx": 35,
+    "dy": -55,
+    "rot": 0
+   }
+  ]
+ },
+ "C1779": {
+  "mpn": "CL21A475KAQNNNE",
+  "lcsc": "C1779",
+  "footprint": "C0805",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "cffcb18c2c544b879332d01f596fbfaf",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -15,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 15,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "C17903": {
+  "mpn": "1206W4F100JT5E",
+  "lcsc": "C17903",
+  "footprint": "R1206",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "c1e709cc474f4a1d895ca59b4dedf2ad",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C18221164": {
+  "mpn": "XFL4015-471MEC",
+  "lcsc": "C18221164",
+  "footprint": "IND-SMD_L4.0-W4.0_XFL4020-102MEB",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "1b9e47154fde41f89b1ab0674cdb81f0",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C194785": {
+  "mpn": "SMAJ440A",
+  "lcsc": "C194785",
+  "footprint": "SMA_L4.3-W2.6-LS5.2-RD",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "3c567e2550cc4f3281cfe49f35ab1dd2",
+  "pins": [
+   {
+    "num": "2",
+    "name": "A",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "K",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C19829576": {
+  "mpn": "74LVC2G17GW",
+  "lcsc": "C19829576",
+  "footprint": "SOT-363_L2.1-W1.3-P0.65-LS2.2-BL",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "03239961a2264900b0de599152c262d3",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1A",
+    "dx": -35,
+    "dy": 10,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "GND",
+    "dx": -35,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "2A",
+    "dx": -35,
+    "dy": -10,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "2Y",
+    "dx": 35,
+    "dy": -10,
+    "rot": 0
+   },
+   {
+    "num": "5",
+    "name": "VCC",
+    "dx": 35,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "6",
+    "name": "1Y",
+    "dx": 35,
+    "dy": 10,
+    "rot": 0
+   }
+  ]
+ },
+ "C20917": {
+  "mpn": "AO3400A",
+  "lcsc": "C20917",
+  "footprint": "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "1c95a10b7c4a4095b426799cbca7b1b2",
+  "pins": [
+   {
+    "num": "3",
+    "name": "D",
+    "dx": 10,
+    "dy": 20,
+    "rot": 90
+   },
+   {
+    "num": "1",
+    "name": "G",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "S",
+    "dx": 10,
+    "dy": -20,
+    "rot": 270
+   }
+  ]
+ },
+ "C21190": {
+  "mpn": "0603WAF1001T5E",
+  "lcsc": "C21190",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "2340647df7144fc5a30489ed06518eb5",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C2128": {
+  "mpn": "1N4148WS",
+  "lcsc": "C2128",
+  "footprint": "SOD-323_L1.8-W1.3-LS2.5-RD",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "24f1572ddddb42c2abec3b14b1aeb99f",
+  "pins": [
+   {
+    "num": "2",
+    "name": "A",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "K",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C22764": {
+  "mpn": "0603WAF1101T5E",
+  "lcsc": "C22764",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "4d2c78e677ad4ccea143c13f13d3b559",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C22767": {
+  "mpn": "0603WAF1301T5E",
+  "lcsc": "C22767",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "d5f33a1992274f06b971118880724231",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C22775": {
+  "mpn": "0603WAF1000T5E",
+  "lcsc": "C22775",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "36db983e5fa14bceb3ea79e257ee721a",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C2286": {
+  "mpn": "KT-0603R",
+  "lcsc": "C2286",
+  "footprint": "LED-SMD_L1.6-W0.8-R-RD",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "015cbd77079d4b0ea5c81b79fefdcea3",
+  "pins": [
+   {
+    "num": "2",
+    "name": "K",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "1",
+    "name": "A",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "C22935": {
+  "mpn": "0603WAF1004T5E",
+  "lcsc": "C22935",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "60479e0364284da4a2720dc86428b721",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C22961": {
+  "mpn": "0603WAF2203T5E",
+  "lcsc": "C22961",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "caeeabafb7f24dd0952ed00bda6f9912",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C23138": {
+  "mpn": "0603WAF3300T5E",
+  "lcsc": "C23138",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "0a9f3a313c9145cf8517fd23769490cb",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C23140": {
+  "mpn": "0603WAF330JT5E",
+  "lcsc": "C23140",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "5eeb39a954384729b7c4437a26b4fefa",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C23162": {
+  "mpn": "0603WAF4701T5E",
+  "lcsc": "C23162",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "4c1efea8e0884946a0b9422079d22f25",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C23186": {
+  "mpn": "0603WAF5101T5E",
+  "lcsc": "C23186",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "5e5266518f0e41f791738aa9f7251c1d",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C23194": {
+  "mpn": "0603WAF5113T5E",
+  "lcsc": "C23194",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "5da205ce1cf5436f846e6078cd22c6f7",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C23206": {
+  "mpn": "0603WAF5602T5E",
+  "lcsc": "C23206",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "856fddc18019495081b89d9458a1110c",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C23265": {
+  "mpn": "0603WAF9102T5E",
+  "lcsc": "C23265",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "8561958716164ed79abeea22dd389cad",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C25803": {
+  "mpn": "0603WAF1003T5E",
+  "lcsc": "C25803",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "c728373c421046ff8f40bf82a79ee519",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C25804": {
+  "mpn": "0603WAF1002T5E",
+  "lcsc": "C25804",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "b0602c6e20fc41faa226d9f001a9bead",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C26121": {
+  "mpn": "1206W4F2204T5E",
+  "lcsc": "C26121",
+  "footprint": "R1206",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "f1fcbfd50a2c431d8b18361d79441cc4",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C2682616": {
+  "mpn": "MAX17048G+T10",
+  "lcsc": "C2682616",
+  "footprint": "TDFN-8_L2.0-W2.0-P0.50-BL-EP1.2",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "c5501ae7c06a4077bb589b1bac78f492",
+  "pins": [
+   {
+    "num": "1",
+    "name": "CTG",
+    "dx": -50,
+    "dy": 10,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "CELL",
+    "dx": -50,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "VDD",
+    "dx": -50,
+    "dy": -10,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "GND",
+    "dx": -50,
+    "dy": -20,
+    "rot": 180
+   },
+   {
+    "num": "5",
+    "name": "ALRT#",
+    "dx": 50,
+    "dy": -20,
+    "rot": 0
+   },
+   {
+    "num": "6",
+    "name": "QSTRT",
+    "dx": 50,
+    "dy": -10,
+    "rot": 0
+   },
+   {
+    "num": "7",
+    "name": "SCL",
+    "dx": 50,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "8",
+    "name": "SDA",
+    "dx": 50,
+    "dy": 10,
+    "rot": 0
+   },
+   {
+    "num": "9",
+    "name": "EP",
+    "dx": 50,
+    "dy": 20,
+    "rot": 0
+   }
+  ]
+ },
+ "C2845237": {
+  "mpn": "TPS63802DLAR",
+  "lcsc": "C2845237",
+  "footprint": "VSON-10_L3.0-W2.0-P0.50-TL",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "0bac151cc11246e3af23f100649d9c7a",
+  "pins": [
+   {
+    "num": "1",
+    "name": "EN",
+    "dx": -45,
+    "dy": 20,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "MODE",
+    "dx": -45,
+    "dy": 10,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "AGND",
+    "dx": -45,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "FB",
+    "dx": -45,
+    "dy": -10,
+    "rot": 180
+   },
+   {
+    "num": "5",
+    "name": "PG",
+    "dx": -45,
+    "dy": -20,
+    "rot": 180
+   },
+   {
+    "num": "6",
+    "name": "VOUT",
+    "dx": 45,
+    "dy": -20,
+    "rot": 0
+   },
+   {
+    "num": "7",
+    "name": "L2",
+    "dx": 45,
+    "dy": -10,
+    "rot": 0
+   },
+   {
+    "num": "8",
+    "name": "GND",
+    "dx": 45,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "9",
+    "name": "L1",
+    "dx": 45,
+    "dy": 10,
+    "rot": 0
+   },
+   {
+    "num": "10",
+    "name": "VIN",
+    "dx": 45,
+    "dy": 20,
+    "rot": 0
+   }
+  ]
+ },
+ "C2905423": {
+  "mpn": "KH-2.54FH-1X20P-H8.5",
+  "lcsc": "C2905423",
+  "footprint": "HDR-TH_20P-P2.54-V-F-2",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "91cfd0a1e84b4f1f8f03555951fd5b93",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 95,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": -20,
+    "dy": 85,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "3",
+    "dx": -20,
+    "dy": 75,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "4",
+    "dx": -20,
+    "dy": 65,
+    "rot": 180
+   },
+   {
+    "num": "5",
+    "name": "5",
+    "dx": -20,
+    "dy": 55,
+    "rot": 180
+   },
+   {
+    "num": "6",
+    "name": "6",
+    "dx": -20,
+    "dy": 45,
+    "rot": 180
+   },
+   {
+    "num": "7",
+    "name": "7",
+    "dx": -20,
+    "dy": 35,
+    "rot": 180
+   },
+   {
+    "num": "8",
+    "name": "8",
+    "dx": -20,
+    "dy": 25,
+    "rot": 180
+   },
+   {
+    "num": "9",
+    "name": "9",
+    "dx": -20,
+    "dy": 15,
+    "rot": 180
+   },
+   {
+    "num": "10",
+    "name": "10",
+    "dx": -20,
+    "dy": 5,
+    "rot": 180
+   },
+   {
+    "num": "11",
+    "name": "11",
+    "dx": -20,
+    "dy": -5,
+    "rot": 180
+   },
+   {
+    "num": "12",
+    "name": "12",
+    "dx": -20,
+    "dy": -15,
+    "rot": 180
+   },
+   {
+    "num": "13",
+    "name": "13",
+    "dx": -20,
+    "dy": -25,
+    "rot": 180
+   },
+   {
+    "num": "14",
+    "name": "14",
+    "dx": -20,
+    "dy": -35,
+    "rot": 180
+   },
+   {
+    "num": "15",
+    "name": "15",
+    "dx": -20,
+    "dy": -45,
+    "rot": 180
+   },
+   {
+    "num": "16",
+    "name": "16",
+    "dx": -20,
+    "dy": -55,
+    "rot": 180
+   },
+   {
+    "num": "17",
+    "name": "17",
+    "dx": -20,
+    "dy": -65,
+    "rot": 180
+   },
+   {
+    "num": "18",
+    "name": "18",
+    "dx": -20,
+    "dy": -75,
+    "rot": 180
+   },
+   {
+    "num": "19",
+    "name": "19",
+    "dx": -20,
+    "dy": -85,
+    "rot": 180
+   },
+   {
+    "num": "20",
+    "name": "20",
+    "dx": -20,
+    "dy": -95,
+    "rot": 180
+   }
+  ]
+ },
+ "C2913205": {
+  "mpn": "ESP32-S3-WROOM-1-N16R2",
+  "lcsc": "C2913205",
+  "footprint": "WIRELM-SMD_ESP32-S3-WROOM-1",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "66b3838809bd4c87b584f0ab36e52b0a",
+  "pins": [
+   {
+    "num": "41",
+    "name": "GND",
+    "dx": 80,
+    "dy": 90,
+    "rot": 0
+   },
+   {
+    "num": "40",
+    "name": "GND",
+    "dx": 80,
+    "dy": 80,
+    "rot": 0
+   },
+   {
+    "num": "39",
+    "name": "IO1",
+    "dx": 80,
+    "dy": 70,
+    "rot": 0
+   },
+   {
+    "num": "38",
+    "name": "IO2",
+    "dx": 80,
+    "dy": 60,
+    "rot": 0
+   },
+   {
+    "num": "37",
+    "name": "TXD0",
+    "dx": 80,
+    "dy": 50,
+    "rot": 0
+   },
+   {
+    "num": "36",
+    "name": "RXD0",
+    "dx": 80,
+    "dy": 40,
+    "rot": 0
+   },
+   {
+    "num": "35",
+    "name": "IO42",
+    "dx": 80,
+    "dy": 30,
+    "rot": 0
+   },
+   {
+    "num": "34",
+    "name": "IO41",
+    "dx": 80,
+    "dy": 20,
+    "rot": 0
+   },
+   {
+    "num": "33",
+    "name": "IO40",
+    "dx": 80,
+    "dy": 10,
+    "rot": 0
+   },
+   {
+    "num": "32",
+    "name": "IO39",
+    "dx": 80,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "31",
+    "name": "IO38",
+    "dx": 80,
+    "dy": -10,
+    "rot": 0
+   },
+   {
+    "num": "30",
+    "name": "IO37",
+    "dx": 80,
+    "dy": -20,
+    "rot": 0
+   },
+   {
+    "num": "29",
+    "name": "IO36",
+    "dx": 80,
+    "dy": -30,
+    "rot": 0
+   },
+   {
+    "num": "28",
+    "name": "IO35",
+    "dx": 80,
+    "dy": -40,
+    "rot": 0
+   },
+   {
+    "num": "27",
+    "name": "IO0",
+    "dx": 80,
+    "dy": -50,
+    "rot": 0
+   },
+   {
+    "num": "26",
+    "name": "IO45",
+    "dx": 55,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "25",
+    "name": "IO48",
+    "dx": 45,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "24",
+    "name": "IO47",
+    "dx": 35,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "23",
+    "name": "IO21",
+    "dx": 25,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "22",
+    "name": "IO14",
+    "dx": 15,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "21",
+    "name": "IO13",
+    "dx": 5,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "20",
+    "name": "IO12",
+    "dx": -5,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "19",
+    "name": "IO11",
+    "dx": -15,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "18",
+    "name": "IO10",
+    "dx": -25,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "17",
+    "name": "IO9",
+    "dx": -35,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "16",
+    "name": "IO46",
+    "dx": -45,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "15",
+    "name": "IO3",
+    "dx": -55,
+    "dy": -100,
+    "rot": 270
+   },
+   {
+    "num": "14",
+    "name": "IO20",
+    "dx": -80,
+    "dy": -50,
+    "rot": 180
+   },
+   {
+    "num": "13",
+    "name": "IO19",
+    "dx": -80,
+    "dy": -40,
+    "rot": 180
+   },
+   {
+    "num": "12",
+    "name": "IO8",
+    "dx": -80,
+    "dy": -30,
+    "rot": 180
+   },
+   {
+    "num": "11",
+    "name": "IO18",
+    "dx": -80,
+    "dy": -20,
+    "rot": 180
+   },
+   {
+    "num": "10",
+    "name": "IO17",
+    "dx": -80,
+    "dy": -10,
+    "rot": 180
+   },
+   {
+    "num": "9",
+    "name": "IO16",
+    "dx": -80,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "8",
+    "name": "IO15",
+    "dx": -80,
+    "dy": 10,
+    "rot": 180
+   },
+   {
+    "num": "7",
+    "name": "IO7",
+    "dx": -80,
+    "dy": 20,
+    "rot": 180
+   },
+   {
+    "num": "6",
+    "name": "IO6",
+    "dx": -80,
+    "dy": 30,
+    "rot": 180
+   },
+   {
+    "num": "5",
+    "name": "IO5",
+    "dx": -80,
+    "dy": 40,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "IO4",
+    "dx": -80,
+    "dy": 50,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "EN",
+    "dx": -80,
+    "dy": 60,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "3V3",
+    "dx": -80,
+    "dy": 70,
+    "rot": 180
+   },
+   {
+    "num": "1",
+    "name": "GND",
+    "dx": -80,
+    "dy": 80,
+    "rot": 180
+   }
+  ]
+ },
+ "C295747": {
+  "mpn": "S2B-PH-SM4-TB(LF)(SN)",
+  "lcsc": "C295747",
+  "footprint": "CONN-SMD_P2.00_S2B-PH-SM4-TB-LF-SN",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "e36262a38c7e4ab8a1efe0df793ebdea",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -15,
+    "dy": 5,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": -15,
+    "dy": -5,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "3",
+    "dx": 15,
+    "dy": -25,
+    "rot": 270
+   },
+   {
+    "num": "4",
+    "name": "4",
+    "dx": 15,
+    "dy": 25,
+    "rot": 90
+   }
+  ]
+ },
+ "C2997659": {
+  "mpn": "PNLS6045-102M 1MH",
+  "lcsc": "C2997659",
+  "footprint": "IND-SMD_L6.0-W6.0",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "212e30f9e1e44d7a9554691e5a1419d5",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C37704": {
+  "mpn": "BAT54C,215",
+  "lcsc": "C37704",
+  "footprint": "SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "d425af9eeac54f10b5822d67f2ae486b",
+  "pins": [
+   {
+    "num": "1",
+    "name": "A",
+    "dx": -25,
+    "dy": 10,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "A",
+    "dx": -25,
+    "dy": -10,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "K",
+    "dx": 25,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "C37800": {
+  "mpn": "1206W4F4704T5E",
+  "lcsc": "C37800",
+  "footprint": "R1206",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "e15da890bf4149788e736c474a19931b",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C4190": {
+  "mpn": "0603WAF2201T5E",
+  "lcsc": "C4190",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "be60f304bdf4486e908bd15535a43c6d",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C45783": {
+  "mpn": "CL21A226MAQNNNE",
+  "lcsc": "C45783",
+  "footprint": "C0805",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "9583d53cf848486a9d523fcaf153a729",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "C492405": {
+  "mpn": "PZ254V-11-06P",
+  "lcsc": "C492405",
+  "footprint": "HDR-TH_6P-P2.54-V-M",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "fad999a47190473f8ff6600e2a9faee8",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 25,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": -20,
+    "dy": 15,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "3",
+    "dx": -20,
+    "dy": 5,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "4",
+    "dx": -20,
+    "dy": -5,
+    "rot": 180
+   },
+   {
+    "num": "5",
+    "name": "5",
+    "dx": -20,
+    "dy": -15,
+    "rot": 180
+   },
+   {
+    "num": "6",
+    "name": "6",
+    "dx": -20,
+    "dy": -25,
+    "rot": 180
+   }
+  ]
+ },
+ "C52917434": {
+  "mpn": "WS2812B-2020-V6",
+  "lcsc": "C52917434",
+  "footprint": "LED-SMD_4P-L2.2-W2.0-P1.00_WS2815C-2020-4P",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "ae4f25c905f546cdb8b046922870e7ee",
+  "pins": [
+   {
+    "num": "1",
+    "name": "DO",
+    "dx": 35,
+    "dy": -5,
+    "rot": 0
+   },
+   {
+    "num": "2",
+    "name": "GND",
+    "dx": 35,
+    "dy": 5,
+    "rot": 0
+   },
+   {
+    "num": "3",
+    "name": "DI",
+    "dx": -35,
+    "dy": 5,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "VDD",
+    "dx": -35,
+    "dy": -5,
+    "rot": 180
+   }
+  ]
+ },
+ "C5366550": {
+  "mpn": "RV-3032-C7-32.768KHZ-2.5PPM-TA-QA",
+  "lcsc": "C5366550",
+  "footprint": "DFN-8_L3.2-W1.5-P0.9-BL",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "58b96f4fd73f44459731e4b21b727504",
+  "pins": [
+   {
+    "num": "1",
+    "name": "VBACKUP",
+    "dx": -60,
+    "dy": 15,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "SDA",
+    "dx": -60,
+    "dy": 5,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "INT#",
+    "dx": -60,
+    "dy": -5,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "EVI",
+    "dx": -60,
+    "dy": -15,
+    "rot": 180
+   },
+   {
+    "num": "5",
+    "name": "VSS",
+    "dx": 60,
+    "dy": -15,
+    "rot": 0
+   },
+   {
+    "num": "6",
+    "name": "VDD",
+    "dx": 60,
+    "dy": -5,
+    "rot": 0
+   },
+   {
+    "num": "7",
+    "name": "CLKOUT",
+    "dx": 60,
+    "dy": 5,
+    "rot": 0
+   },
+   {
+    "num": "8",
+    "name": "SCL",
+    "dx": 60,
+    "dy": 15,
+    "rot": 0
+   }
+  ]
+ },
+ "C59781": {
+  "mpn": "1206W4F1006T5E",
+  "lcsc": "C59781",
+  "footprint": "R1206",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "6aaa57776ddb4e149a111538c9fcdf2f",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C702117": {
+  "mpn": "TLV7011DBVR",
+  "lcsc": "C702117",
+  "footprint": "TSOT-23-5_L2.9-W1.6-P0.95-LS2.8-BL",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "fee52d6053714e558dc87bda53e8a0f7",
+  "pins": [
+   {
+    "num": "1",
+    "name": "OUT",
+    "dx": -35,
+    "dy": 10,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "VEE",
+    "dx": -35,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "IN+",
+    "dx": -35,
+    "dy": -10,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "IN",
+    "dx": 35,
+    "dy": -10,
+    "rot": 0
+   },
+   {
+    "num": "5",
+    "name": "VCC",
+    "dx": 35,
+    "dy": 10,
+    "rot": 0
+   }
+  ]
+ },
+ "C7519": {
+  "mpn": "USBLC6-2SC6",
+  "lcsc": "C7519",
+  "footprint": "SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BL",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "5f9a995bc73746278024add8c7b330e3",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -65,
+    "dy": 30,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": -65,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "3",
+    "dx": -65,
+    "dy": -30,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "4",
+    "dx": 65,
+    "dy": -30,
+    "rot": 0
+   },
+   {
+    "num": "5",
+    "name": "5",
+    "dx": 65,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "6",
+    "name": "6",
+    "dx": 65,
+    "dy": 30,
+    "rot": 0
+   }
+  ]
+ },
+ "C7666": {
+  "mpn": "SN74LVC1G08DBVR",
+  "lcsc": "C7666",
+  "footprint": "SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "aa7194888c6b459094e5437dc75d23f0",
+  "pins": [
+   {
+    "num": "1",
+    "name": "A",
+    "dx": -40,
+    "dy": 10,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "B",
+    "dx": -40,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "GND",
+    "dx": -40,
+    "dy": -10,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "Y",
+    "dx": 40,
+    "dy": -10,
+    "rot": 0
+   },
+   {
+    "num": "5",
+    "name": "VCC",
+    "dx": 40,
+    "dy": 10,
+    "rot": 0
+   }
+  ]
+ },
+ "C81191": {
+  "mpn": "US1M-E3/61T",
+  "lcsc": "C81191",
+  "footprint": "SMA_L4.3-W2.6-LS5.2-RD",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "e16531550d8e4be9818044afdfd04b38",
+  "pins": [
+   {
+    "num": "2",
+    "name": "A",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "K",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C8545": {
+  "mpn": "2N7002",
+  "lcsc": "C8545",
+  "footprint": "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "959ea626302c4db3824cd499dc3d451b",
+  "pins": [
+   {
+    "num": "3",
+    "name": "D",
+    "dx": 10,
+    "dy": 20,
+    "rot": 90
+   },
+   {
+    "num": "1",
+    "name": "G",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "S",
+    "dx": 10,
+    "dy": -20,
+    "rot": 270
+   }
+  ]
+ },
+ "C8664": {
+  "mpn": "BC847C,215",
+  "lcsc": "C8664",
+  "footprint": "SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "d44c5a5cf8fa48219dc82743a75855c9",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -10,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "3",
+    "dx": 10,
+    "dy": 20,
+    "rot": 90
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 10,
+    "dy": -20,
+    "rot": 270
+   }
+  ]
+ },
+ "C90462": {
+  "mpn": "OPT3001DNPR",
+  "lcsc": "C90462",
+  "footprint": "USON6_L2.1-W2.1-P0.65-BL-EP",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "348ebe3abe4e47fd9faa587dc7c1ae89",
+  "pins": [
+   {
+    "num": "1",
+    "name": "VDD",
+    "dx": -40,
+    "dy": 10,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "ADDR",
+    "dx": -40,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "GND",
+    "dx": -40,
+    "dy": -10,
+    "rot": 180
+   },
+   {
+    "num": "4",
+    "name": "SCL",
+    "dx": 40,
+    "dy": -10,
+    "rot": 0
+   },
+   {
+    "num": "5",
+    "name": "INT",
+    "dx": 40,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "6",
+    "name": "SDA",
+    "dx": 40,
+    "dy": 10,
+    "rot": 0
+   },
+   {
+    "num": "7",
+    "name": "EP",
+    "dx": 0,
+    "dy": -30,
+    "rot": 270
+   }
+  ]
+ },
+ "C9194": {
+  "mpn": "1206B103K102NT",
+  "lcsc": "C9194",
+  "footprint": "C1206",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "8ac69c049d4d4efc98ee7f277e53f932",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -15,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 15,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "C92489": {
+  "mpn": "BME280",
+  "lcsc": "C92489",
+  "footprint": "LGA-8_BME280_BL",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "1f52c4e11b04435e848c13b2facb77f4",
+  "pins": [
+   {
+    "num": "1",
+    "name": "GND",
+    "dx": 50,
+    "dy": 15,
+    "rot": 0
+   },
+   {
+    "num": "2",
+    "name": "CSB",
+    "dx": 50,
+    "dy": 5,
+    "rot": 0
+   },
+   {
+    "num": "3",
+    "name": "SDI",
+    "dx": 50,
+    "dy": -5,
+    "rot": 0
+   },
+   {
+    "num": "4",
+    "name": "SCK",
+    "dx": 50,
+    "dy": -15,
+    "rot": 0
+   },
+   {
+    "num": "5",
+    "name": "SDO",
+    "dx": -50,
+    "dy": -15,
+    "rot": 180
+   },
+   {
+    "num": "6",
+    "name": "VDDIO",
+    "dx": -50,
+    "dy": -5,
+    "rot": 180
+   },
+   {
+    "num": "7",
+    "name": "GND",
+    "dx": -50,
+    "dy": 5,
+    "rot": 180
+   },
+   {
+    "num": "8",
+    "name": "VDD",
+    "dx": -50,
+    "dy": 15,
+    "rot": 180
+   }
+  ]
+ },
+ "C94599": {
+  "mpn": "MLT-8530",
+  "lcsc": "C94599",
+  "footprint": "BUZ-SMD_4P-L8.5-W8.5-P8.50-BR",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "26fa103cae804dfc9e4da63dad10ba23",
+  "pins": [
+   {
+    "num": "1",
+    "name": "+",
+    "dx": -15,
+    "dy": 5,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": -15,
+    "dy": -5,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "3",
+    "dx": 0,
+    "dy": -30,
+    "rot": 270
+   },
+   {
+    "num": "4",
+    "name": "4",
+    "dx": 5,
+    "dy": -30,
+    "rot": 270
+   }
+  ]
+ },
+ "C96123": {
+  "mpn": "CL31A476MPHNNNE",
+  "lcsc": "C96123",
+  "footprint": "C1206",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "e2b83b74e6594adc95f5ed0233068d84",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   }
+  ]
+ },
+ "PAD_TH": {
+  "mpn": null,
+  "lcsc": null,
+  "footprint": null,
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "9aab8841b4094696bd50549098ab28ca",
+  "pins": [
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -10,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C95298": {
+  "mpn": "MLT-8540H",
+  "lcsc": "C95298",
+  "footprint": "BUZ-SMD_4P-L8.5-W8.5-P8.50-TL",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "ce71a706e39c428397ce6f8eba315360",
+  "pins": [
+   {
+    "num": "1",
+    "name": "+",
+    "dx": -15,
+    "dy": 5,
+    "rot": 180
+   },
+   {
+    "num": "2",
+    "name": "2",
+    "dx": -15,
+    "dy": -5,
+    "rot": 180
+   },
+   {
+    "num": "3",
+    "name": "NC",
+    "dx": 0,
+    "dy": -30,
+    "rot": 270
+   },
+   {
+    "num": "4",
+    "name": "NC",
+    "dx": 10,
+    "dy": -30,
+    "rot": 270
+   }
+  ]
+ },
+ "C137219": {
+  "mpn": "RC1206FR-7W10RL",
+  "lcsc": "C137219",
+  "footprint": "R1206",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "5e4211bf5b62471a9ff758c9f2ad196a",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C426626": {
+  "mpn": "VBDR202W103K1GV001E",
+  "lcsc": "C426626",
+  "footprint": "C1812",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "d8e8fb67d07e4d7081cea1352106ad5b",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C163361": {
+  "mpn": "RC1206JR-0747ML",
+  "lcsc": "C163361",
+  "footprint": "R1206",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "9f3f43b96b604c8597023c053fb3f57b",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C23242": {
+  "mpn": "0603WAF7502T5E",
+  "lcsc": "C23242",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "6642eb6a58d14652957b1a67764b4bb3",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ },
+ "C23258": {
+  "mpn": "0603WAF8872T5E",
+  "lcsc": "C23258",
+  "footprint": "R0603",
+  "libraryUuid": "0819f05c4eef4c71ace90d822a990e87",
+  "uuid": "364d102849444762977b222a53388852",
+  "pins": [
+   {
+    "num": "2",
+    "name": "2",
+    "dx": 20,
+    "dy": 0,
+    "rot": 0
+   },
+   {
+    "num": "1",
+    "name": "1",
+    "dx": -20,
+    "dy": 0,
+    "rot": 180
+   }
+  ]
+ }
+}

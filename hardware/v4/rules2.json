@@ -1,0 +1,6775 @@
+{
+ "success": true,
+ "result": {
+  "name": "自定义配置",
+  "cfg": {
+   "config": {
+    "Spacing": {
+     "Safe Spacing": {
+      "copperThickness1oz": {
+       "editName": "copperThickness1oz",
+       "unit": "mm",
+       "isSetDefault": true,
+       "column": [
+        "Track",
+        "SMD Pad",
+        "TH Pad",
+        "SMD Test Point",
+        "TH Test Point",
+        "Via",
+        "Fill Region/Teardrop",
+        "Copper/Plane Zone",
+        "Slot Region",
+        "Line",
+        "Text/Image",
+        "Board Outline"
+       ],
+       "row": [
+        "Track",
+        "SMD Pad",
+        "TH Pad",
+        "SMD Test Point",
+        "TH Test Point",
+        "Via",
+        "Fill Region/Teardrop",
+        "Copper/Plane Zone",
+        "Slot Region",
+        "Line",
+        "Text/Image",
+        "Board Outline",
+        "Hole"
+       ],
+       "status": 0,
+       "tables": {
+        "1": {
+         "status": 1,
+         "content": [
+          [
+           0.10199878
+          ],
+          [
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.254,
+           0.254,
+           0.254,
+           0.254,
+           0.254,
+           0.254,
+           0.254,
+           0.254
+          ],
+          [
+           0.29999939999999997,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.254,
+           0.15239999999999998
+          ],
+          [
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.254,
+           0.29999939999999997,
+           0.15239999999999998
+          ],
+          [
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.254,
+           0.15239999999999998,
+           0.15239999999999998,
+           0.15239999999999998
+          ],
+          [
+           0.29972,
+           0.29972,
+           0.29972,
+           0.29972,
+           0.29972,
+           0.29972,
+           0.29972,
+           0.254,
+           0.29972,
+           0.29972,
+           0.29972
+          ],
+          [
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.254,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998
+          ]
+         ]
+        }
+       }
+      },
+      "copperThickness2oz": {
+       "editName": "copperThickness2oz",
+       "unit": "mm",
+       "isSetDefault": false,
+       "column": [
+        "Track",
+        "SMD Pad",
+        "TH Pad",
+        "SMD Test Point",
+        "TH Test Point",
+        "Via",
+        "Fill Region/Teardrop",
+        "Copper/Plane Zone",
+        "Slot Region",
+        "Line",
+        "Text/Image",
+        "Board Outline"
+       ],
+       "row": [
+        "Track",
+        "SMD Pad",
+        "TH Pad",
+        "SMD Test Point",
+        "TH Test Point",
+        "Via",
+        "Fill Region/Teardrop",
+        "Copper/Plane Zone",
+        "Slot Region",
+        "Line",
+        "Text/Image",
+        "Board Outline",
+        "Hole"
+       ],
+       "status": 0,
+       "tables": {
+        "1": {
+         "status": 1,
+         "content": [
+          [
+           0.20299933999999997
+          ],
+          [
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.254,
+           0.254,
+           0.254,
+           0.254,
+           0.254,
+           0.254,
+           0.254,
+           0.254
+          ],
+          [
+           0.29999939999999997,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.254,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.254,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.15200122,
+           0.254,
+           0.15200122,
+           0.15200122,
+           0.15200122
+          ],
+          [
+           0.29999939999999997,
+           0.29999939999999997,
+           0.29999939999999997,
+           0.29999939999999997,
+           0.29999939999999997,
+           0.29999939999999997,
+           0.29999939999999997,
+           0.254,
+           0.29999939999999997,
+           0.29999939999999997,
+           0.29999939999999997
+          ],
+          [
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.254,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998,
+           0.17599659999999998
+          ]
+         ]
+        }
+       }
+      },
+      "HV": {
+       "editName": "HV",
+       "unit": "mm",
+       "isSetDefault": false,
+       "column": [
+        "Track",
+        "SMD Pad",
+        "TH Pad",
+        "SMD Test Point",
+        "TH Test Point",
+        "Via",
+        "Fill Region/Teardrop",
+        "Copper/Plane Zone",
+        "Slot Region",
+        "Line",
+        "Text/Image",
+        "Board Outline"
+       ],
+       "row": [
+        "Track",
+        "SMD Pad",
+        "TH Pad",
+        "SMD Test Point",
+        "TH Test Point",
+        "Via",
+        "Fill Region/Teardrop",
+        "Copper/Plane Zone",
+        "Slot Region",
+        "Line",
+        "Text/Image",
+        "Board Outline",
+        "Hole"
+       ],
+       "status": 0,
+       "tables": {
+        "1": {
+         "status": 1,
+         "content": [
+          [
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ],
+          [
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008,
+           2.50000008
+          ]
+         ]
+        }
+       }
+      }
+     },
+     "Other Spacing": {
+      "otherClearance": {
+       "editName": "otherClearance",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "device2device": 0,
+        "thru2Smd": 0,
+        "hole2Hole": 0.29999939999999997
+       }
+      }
+     },
+     "Creepage Distance": {
+      "creepage": {
+       "editName": "creepage",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "creepageDistance": 0,
+        "ignoreLayer": true
+       }
+      }
+     }
+    },
+    "Physics": {
+     "Track": {
+      "copperThickness1oz": {
+       "editName": "copperThickness1oz",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "status": 1,
+        "data": {
+         "1": {
+          "minValue": 0.127,
+          "defaultValue": 0.254,
+          "maxValue": 2.54
+         }
+        }
+       }
+      },
+      "copperThickness2oz": {
+       "editName": "copperThickness2oz",
+       "unit": "mm",
+       "isSetDefault": false,
+       "form": {
+        "status": 1,
+        "data": {
+         "1": {
+          "minValue": 0.20299933999999997,
+          "defaultValue": 0.254,
+          "maxValue": 2.54
+         }
+        }
+       }
+      },
+      "PWR": {
+       "editName": "PWR",
+       "unit": "mm",
+       "isSetDefault": false,
+       "form": {
+        "status": 1,
+        "data": {
+         "1": {
+          "minValue": 0.29999939999999997,
+          "defaultValue": 0.49999899999999997,
+          "maxValue": 2.54
+         }
+        }
+       }
+      },
+      "HV": {
+       "editName": "HV",
+       "unit": "mm",
+       "isSetDefault": false,
+       "form": {
+        "status": 1,
+        "data": {
+         "1": {
+          "minValue": 0.29999939999999997,
+          "defaultValue": 0.39999919999999994,
+          "maxValue": 2.54
+         }
+        }
+       }
+      }
+     },
+     "Net Length Range": {
+      "netLength": {
+       "editName": "netLength",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "netLengthMin": 0,
+        "netLengthMax": 0
+       }
+      }
+     },
+     "Net Length Tolerance": {
+      "netLengthTolerance": {
+       "editName": "netLengthTolerance",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "netLengthTolerance": 25.4
+       }
+      }
+     },
+     "Differential Pair": {
+      "differentialPair": {
+       "editName": "differentialPair",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "strokeWidthTables": {
+         "status": 1,
+         "data": {
+          "1": {
+           "minValue": 0.127,
+           "defaultValue": 0.254,
+           "maxValue": 2.54
+          }
+         }
+        },
+        "diffPairSpacingTables": {
+         "status": 1,
+         "data": {
+          "1": {
+           "minValue": 0.15239999999999998,
+           "defaultValue": 0.15239999999999998,
+           "maxValue": 0
+          }
+         }
+        },
+        "differentailPairLenTolerMax": 0.254
+       }
+      }
+     },
+     "Blind/Buried Via": {
+      "blindVia": {
+       "editName": "blindVia",
+       "isSetDefault": true,
+       "table": []
+      }
+     },
+     "Via Size": {
+      "viaSize": {
+       "editName": "viaSize",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "viaOuterdiameterMin": 0.49999899999999997,
+        "viaOuterdiameterMax": 10.00000032,
+        "viaOuterdiameterDefault": 0.61000132,
+        "viaInnerdiameterMin": 0.29999939999999997,
+        "viaInnerdiameterMax": 6.2999975599999996,
+        "viaInnerdiameterDefault": 0.30499812
+       }
+      }
+     }
+    },
+    "Plane": {
+     "Plane Zone": {
+      "innerPlane": {
+       "editName": "innerPlane",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "status": 1,
+        "data": {
+         "1": {
+          "connectMode": 0,
+          "lineClearance": 0.254,
+          "lineWidth": 0.254,
+          "lineAngle": 90
+         }
+        }
+       }
+      }
+     },
+     "Copper Zone": {
+      "copperRegion": {
+       "editName": "copperRegion",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "singleLayerPadModel": {
+         "status": 1,
+         "data": {
+          "1": {
+           "connectMode": 0,
+           "lineClearance": 0.254,
+           "lineWidth": 0.254,
+           "lineAngle": 90
+          }
+         }
+        },
+        "multiLayerPadModel": {
+         "status": 1,
+         "data": {
+          "1": {
+           "connectMode": 0,
+           "lineClearance": 0.254,
+           "lineWidth": 0.254,
+           "lineAngle": 90
+          }
+         }
+        },
+        "trackConnectModel": {
+         "status": 1,
+         "data": {
+          "1": {
+           "trackConnectMode": 0
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    "Expansion": {
+     "Solder Mask Expansion": {
+      "solderMaskExpansion": {
+       "editName": "solderMaskExpansion",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "padToplayerExpansion": 0.0508,
+        "padBottomlayerExpansion": 0.0508,
+        "viaToplayerExpansion": -25.4,
+        "viaBottomlayerExpansion": -25.4,
+        "testPointToplayerExpansion": 0.0508,
+        "testPointBottomlayerExpansion": 0.0508
+       }
+      }
+     },
+     "Paste Mask Expansion": {
+      "pasteMaskExpansion": {
+       "editName": "pasteMaskExpansion",
+       "unit": "mm",
+       "isSetDefault": true,
+       "form": {
+        "padToplayerExpansion": 0,
+        "padBottomlayerExpansion": 0,
+        "testPointToplayerExpansion": -25.4,
+        "testPointBottomlayerExpansion": -25.4
+       }
+      }
+     }
+    }
+   },
+   "name": "自定义配置"
+  },
+  "all": [
+   {
+    "name": "JLCPCB Capability(Two Layers Board)",
+    "config": {
+     "Spacing": {
+      "Safe Spacing": {
+       "copperThickness1oz": {
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "editName": "copperThickness1oz",
+        "isSetDefault": true,
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "table": [
+         [
+          0.102
+         ],
+         [
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254
+         ],
+         [
+          0.3,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.3,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.254,
+          0.3,
+          0.3,
+          0.3
+         ],
+         [
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.254,
+          0.176,
+          0.176,
+          0.176,
+          0.176
+         ]
+        ],
+        "unit": "mm"
+       },
+       "copperThickness2oz": {
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "editName": "copperThickness2oz",
+        "isSetDefault": false,
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "table": [
+         [
+          0.203
+         ],
+         [
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254
+         ],
+         [
+          0.3,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.3,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.254,
+          0.3,
+          0.3,
+          0.3
+         ],
+         [
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.254,
+          0.176,
+          0.176,
+          0.176,
+          0.176
+         ]
+        ],
+        "unit": "mm"
+       }
+      },
+      "Other Spacing": {
+       "otherClearance": {
+        "editName": "otherClearance",
+        "form": {
+         "device2device": 0,
+         "thru2Smd": 0,
+         "hole2Hole": 0.3
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Creepage Distance": {
+       "creepage": {
+        "editName": "creepage",
+        "form": {
+         "creepageDistance": 0,
+         "ignoreLayer": true
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Expansion": {
+      "Paste Mask Expansion": {
+       "pasteMaskExpansion": {
+        "editName": "pasteMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0,
+         "padToplayerExpansion": 0,
+         "testPointBottomlayerExpansion": -25.4,
+         "testPointToplayerExpansion": -25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Solder Mask Expansion": {
+       "solderMaskExpansion": {
+        "editName": "solderMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0.051,
+         "padToplayerExpansion": 0.051,
+         "viaBottomlayerExpansion": -25.4,
+         "viaToplayerExpansion": -25.4,
+         "testPointBottomlayerExpansion": 0.051,
+         "testPointToplayerExpansion": 0.051
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Physics": {
+      "Blind/Buried Via": {
+       "blindVia": {
+        "editName": "blindVia",
+        "isSetDefault": true,
+        "table": []
+       }
+      },
+      "Differential Pair": {
+       "differentialPair": {
+        "editName": "differentialPair",
+        "form": {
+         "differentailPairLenTolerMax": 0.254,
+         "differentailPairSpacingDefault": 0.152,
+         "differentailPairSpacingMin": 0.152,
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.127
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Range": {
+       "netLength": {
+        "editName": "netLength",
+        "form": {
+         "netLengthMax": 0,
+         "netLengthMin": 0
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Tolerance": {
+       "netLengthTolerance": {
+        "editName": "netLengthTolerance",
+        "form": {
+         "netLengthTolerance": 25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Track": {
+       "copperThickness1oz": {
+        "editName": "copperThickness1oz",
+        "form": {
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.127
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       },
+       "copperThickness2oz": {
+        "editName": "copperThickness2oz",
+        "form": {
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.203
+        },
+        "isSetDefault": false,
+        "unit": "mm"
+       }
+      },
+      "Via Size": {
+       "viaSize": {
+        "editName": "viaSize",
+        "form": {
+         "viaInnerdiameterDefault": 0.305,
+         "viaInnerdiameterMax": 6.3,
+         "viaInnerdiameterMin": 0.3,
+         "viaOuterdiameterDefault": 0.61,
+         "viaOuterdiameterMax": 10,
+         "viaOuterdiameterMin": 0.5
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Plane": {
+      "Copper Zone": {
+       "copperRegion": {
+        "editName": "copperRegion",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90,
+         "padConnectionMode": "0",
+         "padDivergenceSpacing": 0.254,
+         "padDivergenceStrokeWidth": 0.254,
+         "padSpokeAngle": 90,
+         "trackConnectionMode": "0"
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Plane Zone": {
+       "innerPlane": {
+        "editName": "innerPlane",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     }
+    }
+   },
+   {
+    "name": "JLCPCB Capability(Single Layer Board)",
+    "config": {
+     "Spacing": {
+      "Safe Spacing": {
+       "copperThickness1oz": {
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "editName": "copperThickness1oz",
+        "isSetDefault": true,
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "table": [
+         [
+          0.102
+         ],
+         [
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254
+         ],
+         [
+          0.3,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.3,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.254,
+          0.3,
+          0.3,
+          0.3
+         ],
+         [
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.254,
+          0.176,
+          0.176,
+          0.176,
+          0.176
+         ]
+        ],
+        "unit": "mm"
+       },
+       "copperThickness2oz": {
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "editName": "copperThickness2oz",
+        "isSetDefault": false,
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "table": [
+         [
+          0.203
+         ],
+         [
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254
+         ],
+         [
+          0.3,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.3,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.254,
+          0.3,
+          0.3,
+          0.3
+         ],
+         [
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.254,
+          0.176,
+          0.176,
+          0.176,
+          0.176
+         ]
+        ],
+        "unit": "mm"
+       }
+      },
+      "Other Spacing": {
+       "otherClearance": {
+        "editName": "otherClearance",
+        "form": {
+         "device2device": 0,
+         "thru2Smd": 0,
+         "hole2Hole": 0.3
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Creepage Distance": {
+       "creepage": {
+        "editName": "creepage",
+        "form": {
+         "creepageDistance": 0,
+         "ignoreLayer": true
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Expansion": {
+      "Paste Mask Expansion": {
+       "pasteMaskExpansion": {
+        "editName": "pasteMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0,
+         "padToplayerExpansion": 0,
+         "testPointBottomlayerExpansion": -25.4,
+         "testPointToplayerExpansion": -25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Solder Mask Expansion": {
+       "solderMaskExpansion": {
+        "editName": "solderMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0.051,
+         "padToplayerExpansion": 0.051,
+         "viaBottomlayerExpansion": -25.4,
+         "viaToplayerExpansion": -25.4,
+         "testPointBottomlayerExpansion": 0.051,
+         "testPointToplayerExpansion": 0.051
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Physics": {
+      "Blind/Buried Via": {
+       "blindVia": {
+        "editName": "blindVia",
+        "isSetDefault": true,
+        "table": []
+       }
+      },
+      "Differential Pair": {
+       "differentialPair": {
+        "editName": "differentialPair",
+        "form": {
+         "differentailPairLenTolerMax": 0.254,
+         "differentailPairSpacingDefault": 0.152,
+         "differentailPairSpacingMin": 0.152,
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.127
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Range": {
+       "netLength": {
+        "editName": "netLength",
+        "form": {
+         "netLengthMax": 0,
+         "netLengthMin": 0
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Tolerance": {
+       "netLengthTolerance": {
+        "editName": "netLengthTolerance",
+        "form": {
+         "netLengthTolerance": 25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Track": {
+       "copperThickness1oz": {
+        "editName": "copperThickness1oz",
+        "form": {
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.102
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       },
+       "copperThickness2oz": {
+        "editName": "copperThickness2oz",
+        "form": {
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.203
+        },
+        "isSetDefault": false,
+        "unit": "mm"
+       }
+      },
+      "Via Size": {
+       "viaSize": {
+        "editName": "viaSize",
+        "form": {
+         "viaInnerdiameterDefault": 0.5,
+         "viaInnerdiameterMax": 6.3,
+         "viaInnerdiameterMin": 0.3,
+         "viaOuterdiameterDefault": 1,
+         "viaOuterdiameterMax": 10,
+         "viaOuterdiameterMin": 0.5
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Plane": {
+      "Copper Zone": {
+       "copperRegion": {
+        "editName": "copperRegion",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90,
+         "padConnectionMode": "0",
+         "padDivergenceSpacing": 0.254,
+         "padDivergenceStrokeWidth": 0.254,
+         "padSpokeAngle": 90,
+         "trackConnectionMode": "0"
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Plane Zone": {
+       "innerPlane": {
+        "editName": "innerPlane",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     }
+    }
+   },
+   {
+    "name": "JLCPCB Capability(Multiple Layers Board)",
+    "config": {
+     "Spacing": {
+      "Safe Spacing": {
+       "copperThickness1oz": {
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "editName": "copperThickness1oz",
+        "isSetDefault": true,
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "table": [
+         [
+          0.102
+         ],
+         [
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254
+         ],
+         [
+          0.3,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.3,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.254,
+          0.3,
+          0.3,
+          0.3
+         ],
+         [
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.254,
+          0.176,
+          0.176,
+          0.176,
+          0.176
+         ]
+        ],
+        "unit": "mm"
+       },
+       "copperThickness2oz": {
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "editName": "copperThickness2oz",
+        "isSetDefault": false,
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "table": [
+         [
+          0.203
+         ],
+         [
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254
+         ],
+         [
+          0.3,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.3,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.254,
+          0.3,
+          0.3,
+          0.3
+         ],
+         [
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.254,
+          0.176,
+          0.176,
+          0.176,
+          0.176
+         ]
+        ],
+        "unit": "mm"
+       },
+       "copperThicknessInner0.5oz": {
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "editName": "copperThicknessInner0.5oz",
+        "isSetDefault": false,
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "table": [
+         [
+          0.089
+         ],
+         [
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254
+         ],
+         [
+          0.3,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.3,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.254,
+          0.3,
+          0.3,
+          0.3
+         ],
+         [
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.254,
+          0.176,
+          0.176,
+          0.176,
+          0.176
+         ]
+        ],
+        "unit": "mm"
+       }
+      },
+      "Other Spacing": {
+       "otherClearance": {
+        "editName": "otherClearance",
+        "form": {
+         "device2device": 0,
+         "thru2Smd": 0,
+         "hole2Hole": 0.3
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Creepage Distance": {
+       "creepage": {
+        "editName": "creepage",
+        "form": {
+         "creepageDistance": 0,
+         "ignoreLayer": true
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Expansion": {
+      "Paste Mask Expansion": {
+       "pasteMaskExpansion": {
+        "editName": "pasteMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0,
+         "padToplayerExpansion": 0,
+         "testPointBottomlayerExpansion": -25.4,
+         "testPointToplayerExpansion": -25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Solder Mask Expansion": {
+       "solderMaskExpansion": {
+        "editName": "solderMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0.051,
+         "padToplayerExpansion": 0.051,
+         "viaBottomlayerExpansion": -25.4,
+         "viaToplayerExpansion": -25.4,
+         "testPointBottomlayerExpansion": 0.051,
+         "testPointToplayerExpansion": 0.051
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Physics": {
+      "Blind/Buried Via": {
+       "blindVia": {
+        "editName": "blindVia",
+        "isSetDefault": true,
+        "table": []
+       }
+      },
+      "Differential Pair": {
+       "differentialPair": {
+        "editName": "differentialPair",
+        "form": {
+         "differentailPairLenTolerMax": 0.254,
+         "differentailPairSpacingDefault": 0.152,
+         "differentailPairSpacingMin": 0.152,
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.127
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Range": {
+       "netLength": {
+        "editName": "netLength",
+        "form": {
+         "netLengthMax": 0,
+         "netLengthMin": 0
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Tolerance": {
+       "netLengthTolerance": {
+        "editName": "netLengthTolerance",
+        "form": {
+         "netLengthTolerance": 25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Track": {
+       "copperThickness1oz": {
+        "editName": "copperThickness1oz",
+        "form": {
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.102
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       },
+       "copperThickness2oz": {
+        "editName": "copperThickness2oz",
+        "form": {
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.203
+        },
+        "isSetDefault": false,
+        "unit": "mm"
+       },
+       "copperThickness0.5oz": {
+        "editName": "copperThickness0.5oz",
+        "form": {
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.089
+        },
+        "isSetDefault": false,
+        "unit": "mm"
+       }
+      },
+      "Via Size": {
+       "viaSize": {
+        "editName": "viaSize",
+        "form": {
+         "viaInnerdiameterDefault": 0.305,
+         "viaInnerdiameterMax": 6.3,
+         "viaInnerdiameterMin": 0.2,
+         "viaOuterdiameterDefault": 0.61,
+         "viaOuterdiameterMax": 10,
+         "viaOuterdiameterMin": 0.3
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Plane": {
+      "Copper Zone": {
+       "copperRegion": {
+        "editName": "copperRegion",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90,
+         "padConnectionMode": "0",
+         "padDivergenceSpacing": 0.254,
+         "padDivergenceStrokeWidth": 0.254,
+         "padSpokeAngle": 90,
+         "trackConnectionMode": "0"
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Plane Zone": {
+       "innerPlane": {
+        "editName": "innerPlane",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     }
+    }
+   },
+   {
+    "name": "JLCPCB Capability(High Frequency Board)",
+    "config": {
+     "Spacing": {
+      "Safe Spacing": {
+       "safeClearance": {
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "editName": "safeClearance",
+        "isSetDefault": true,
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "table": [
+         [
+          0.102
+         ],
+         [
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254
+         ],
+         [
+          0.3,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.3,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.254,
+          0.3,
+          0.3,
+          0.3
+         ],
+         [
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.254,
+          0.176,
+          0.176,
+          0.176,
+          0.176
+         ]
+        ],
+        "unit": "mm"
+       }
+      },
+      "Other Spacing": {
+       "otherClearance": {
+        "editName": "otherClearance",
+        "form": {
+         "device2device": 0,
+         "thru2Smd": 0,
+         "hole2Hole": 0.3
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Creepage Distance": {
+       "creepage": {
+        "editName": "creepage",
+        "form": {
+         "creepageDistance": 0,
+         "ignoreLayer": true
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Expansion": {
+      "Paste Mask Expansion": {
+       "pasteMaskExpansion": {
+        "editName": "pasteMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0,
+         "padToplayerExpansion": 0,
+         "testPointBottomlayerExpansion": -25.4,
+         "testPointToplayerExpansion": -25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Solder Mask Expansion": {
+       "solderMaskExpansion": {
+        "editName": "solderMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0.051,
+         "padToplayerExpansion": 0.051,
+         "viaBottomlayerExpansion": -25.4,
+         "viaToplayerExpansion": -25.4,
+         "testPointBottomlayerExpansion": 0.051,
+         "testPointToplayerExpansion": 0.051
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Physics": {
+      "Blind/Buried Via": {
+       "blindVia": {
+        "editName": "blindVia",
+        "isSetDefault": true,
+        "table": []
+       }
+      },
+      "Differential Pair": {
+       "differentialPair": {
+        "editName": "differentialPair",
+        "form": {
+         "differentailPairLenTolerMax": 0.254,
+         "differentailPairSpacingDefault": 0.152,
+         "differentailPairSpacingMin": 0.152,
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.127
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Range": {
+       "netLength": {
+        "editName": "netLength",
+        "form": {
+         "netLengthMax": 0,
+         "netLengthMin": 0
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Tolerance": {
+       "netLengthTolerance": {
+        "editName": "netLengthTolerance",
+        "form": {
+         "netLengthTolerance": 25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Track": {
+       "trackWidth": {
+        "editName": "trackWidth",
+        "form": {
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.102
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Via Size": {
+       "viaSize": {
+        "editName": "viaSize",
+        "form": {
+         "viaInnerdiameterDefault": 0.305,
+         "viaInnerdiameterMax": 6,
+         "viaInnerdiameterMin": 0.25,
+         "viaOuterdiameterDefault": 0.61,
+         "viaOuterdiameterMax": 10,
+         "viaOuterdiameterMin": 0.5
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Plane": {
+      "Copper Zone": {
+       "copperRegion": {
+        "editName": "copperRegion",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90,
+         "padConnectionMode": "0",
+         "padDivergenceSpacing": 0.254,
+         "padDivergenceStrokeWidth": 0.254,
+         "padSpokeAngle": 90,
+         "trackConnectionMode": "0"
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Plane Zone": {
+       "innerPlane": {
+        "editName": "innerPlane",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     }
+    }
+   },
+   {
+    "name": "JLCPCB Capability(Aluminum Substrate Board)",
+    "config": {
+     "Spacing": {
+      "Safe Spacing": {
+       "safeClearance": {
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "editName": "safeClearance",
+        "isSetDefault": true,
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "table": [
+         [
+          0.102
+         ],
+         [
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254
+         ],
+         [
+          0.3,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.3,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.254,
+          0.3,
+          0.3,
+          0.3
+         ],
+         [
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.254,
+          0.176,
+          0.176,
+          0.176,
+          0.176
+         ]
+        ],
+        "unit": "mm"
+       }
+      },
+      "Other Spacing": {
+       "otherClearance": {
+        "editName": "otherClearance",
+        "form": {
+         "device2device": 0,
+         "thru2Smd": 0,
+         "hole2Hole": 0.3
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Creepage Distance": {
+       "creepage": {
+        "editName": "creepage",
+        "form": {
+         "creepageDistance": 0,
+         "ignoreLayer": true
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Expansion": {
+      "Paste Mask Expansion": {
+       "pasteMaskExpansion": {
+        "editName": "pasteMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0,
+         "padToplayerExpansion": 0,
+         "testPointBottomlayerExpansion": -25.4,
+         "testPointToplayerExpansion": -25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Solder Mask Expansion": {
+       "solderMaskExpansion": {
+        "editName": "solderMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0.051,
+         "padToplayerExpansion": 0.051,
+         "viaBottomlayerExpansion": -25.4,
+         "viaToplayerExpansion": -25.4,
+         "testPointBottomlayerExpansion": 0.051,
+         "testPointToplayerExpansion": 0.051
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Physics": {
+      "Blind/Buried Via": {
+       "blindVia": {
+        "editName": "blindVia",
+        "isSetDefault": true,
+        "table": []
+       }
+      },
+      "Differential Pair": {
+       "differentialPair": {
+        "editName": "differentialPair",
+        "form": {
+         "differentailPairLenTolerMax": 0.254,
+         "differentailPairSpacingDefault": 0.152,
+         "differentailPairSpacingMin": 0.152,
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.127
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Range": {
+       "netLength": {
+        "editName": "netLength",
+        "form": {
+         "netLengthMax": 0,
+         "netLengthMin": 0
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Tolerance": {
+       "netLengthTolerance": {
+        "editName": "netLengthTolerance",
+        "form": {
+         "netLengthTolerance": 25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Track": {
+       "trackWidth": {
+        "editName": "trackWidth",
+        "form": {
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.102
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Via Size": {
+       "viaSize": {
+        "editName": "viaSize",
+        "form": {
+         "viaInnerdiameterDefault": 1,
+         "viaInnerdiameterMax": 6,
+         "viaInnerdiameterMin": 1,
+         "viaOuterdiameterDefault": 2,
+         "viaOuterdiameterMax": 10,
+         "viaOuterdiameterMin": 1
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Plane": {
+      "Copper Zone": {
+       "copperRegion": {
+        "editName": "copperRegion",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90,
+         "padConnectionMode": "0",
+         "padDivergenceSpacing": 0.254,
+         "padDivergenceStrokeWidth": 0.254,
+         "padSpokeAngle": 90,
+         "trackConnectionMode": "0"
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Plane Zone": {
+       "innerPlane": {
+        "editName": "innerPlane",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     }
+    }
+   },
+   {
+    "name": "JLCPCB Capability(Copper Substrate Board)",
+    "config": {
+     "Spacing": {
+      "Safe Spacing": {
+       "safeClearance": {
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "editName": "safeClearance",
+        "isSetDefault": true,
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "table": [
+         [
+          0.102
+         ],
+         [
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254,
+          0.254
+         ],
+         [
+          0.3,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.3,
+          0.152
+         ],
+         [
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.152,
+          0.254,
+          0.152,
+          0.152,
+          0.152
+         ],
+         [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.254,
+          0.3,
+          0.3,
+          0.3
+         ],
+         [
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.176,
+          0.254,
+          0.176,
+          0.176,
+          0.176,
+          0.176
+         ]
+        ],
+        "unit": "mm"
+       }
+      },
+      "Other Spacing": {
+       "otherClearance": {
+        "editName": "otherClearance",
+        "form": {
+         "device2device": 0,
+         "thru2Smd": 0,
+         "hole2Hole": 0.3
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Creepage Distance": {
+       "creepage": {
+        "editName": "creepage",
+        "form": {
+         "creepageDistance": 0,
+         "ignoreLayer": true
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Expansion": {
+      "Paste Mask Expansion": {
+       "pasteMaskExpansion": {
+        "editName": "pasteMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0,
+         "padToplayerExpansion": 0,
+         "testPointBottomlayerExpansion": -25.4,
+         "testPointToplayerExpansion": -25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Solder Mask Expansion": {
+       "solderMaskExpansion": {
+        "editName": "solderMaskExpansion",
+        "form": {
+         "padBottomlayerExpansion": 0.051,
+         "padToplayerExpansion": 0.051,
+         "viaBottomlayerExpansion": -25.4,
+         "viaToplayerExpansion": -25.4,
+         "testPointBottomlayerExpansion": 0.051,
+         "testPointToplayerExpansion": 0.051
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Physics": {
+      "Blind/Buried Via": {
+       "blindVia": {
+        "editName": "blindVia",
+        "isSetDefault": true,
+        "table": []
+       }
+      },
+      "Differential Pair": {
+       "differentialPair": {
+        "editName": "differentialPair",
+        "form": {
+         "differentailPairLenTolerMax": 0.254,
+         "differentailPairSpacingDefault": 0.152,
+         "differentailPairSpacingMin": 0.152,
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.127
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Range": {
+       "netLength": {
+        "editName": "netLength",
+        "form": {
+         "netLengthMax": 0,
+         "netLengthMin": 0
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Net Length Tolerance": {
+       "netLengthTolerance": {
+        "editName": "netLengthTolerance",
+        "form": {
+         "netLengthTolerance": 25.4
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Track": {
+       "trackWidth": {
+        "editName": "trackWidth",
+        "form": {
+         "strokeWidthDefault": 0.254,
+         "strokeWidthMax": 2.54,
+         "strokeWidthMin": 0.102
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Via Size": {
+       "viaSize": {
+        "editName": "viaSize",
+        "form": {
+         "viaInnerdiameterDefault": 1,
+         "viaInnerdiameterMax": 6,
+         "viaInnerdiameterMin": 1,
+         "viaOuterdiameterDefault": 2,
+         "viaOuterdiameterMax": 10,
+         "viaOuterdiameterMin": 1
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     },
+     "Plane": {
+      "Copper Zone": {
+       "copperRegion": {
+        "editName": "copperRegion",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90,
+         "padConnectionMode": "0",
+         "padDivergenceSpacing": 0.254,
+         "padDivergenceStrokeWidth": 0.254,
+         "padSpokeAngle": 90,
+         "trackConnectionMode": "0"
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      },
+      "Plane Zone": {
+       "innerPlane": {
+        "editName": "innerPlane",
+        "form": {
+         "multiLayerPadConnectionMode": "0",
+         "multiLayerPadDivergenceSpacing": 0.254,
+         "multiLayerPadDivergenceStrokeWidth": 0.254,
+         "multiLayerPadSpokeAngle": 90
+        },
+        "isSetDefault": true,
+        "unit": "mm"
+       }
+      }
+     }
+    }
+   },
+   {
+    "config": {
+     "Spacing": {
+      "Safe Spacing": {
+       "copperThickness1oz": {
+        "editName": "copperThickness1oz",
+        "unit": "mm",
+        "isSetDefault": true,
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "status": 0,
+        "tables": {
+         "1": {
+          "status": 1,
+          "content": [
+           [
+            0.10199878
+           ],
+           [
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.254,
+            0.254,
+            0.254,
+            0.254,
+            0.254,
+            0.254,
+            0.254,
+            0.254
+           ],
+           [
+            0.29999939999999997,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.254,
+            0.15239999999999998
+           ],
+           [
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.254,
+            0.29999939999999997,
+            0.15239999999999998
+           ],
+           [
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.254,
+            0.15239999999999998,
+            0.15239999999999998,
+            0.15239999999999998
+           ],
+           [
+            0.29972,
+            0.29972,
+            0.29972,
+            0.29972,
+            0.29972,
+            0.29972,
+            0.29972,
+            0.254,
+            0.29972,
+            0.29972,
+            0.29972
+           ],
+           [
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.254,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998
+           ]
+          ]
+         }
+        }
+       },
+       "copperThickness2oz": {
+        "editName": "copperThickness2oz",
+        "unit": "mm",
+        "isSetDefault": false,
+        "column": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline"
+        ],
+        "row": [
+         "Track",
+         "SMD Pad",
+         "TH Pad",
+         "SMD Test Point",
+         "TH Test Point",
+         "Via",
+         "Fill Region/Teardrop",
+         "Copper/Plane Zone",
+         "Slot Region",
+         "Line",
+         "Text/Image",
+         "Board Outline",
+         "Hole"
+        ],
+        "status": 0,
+        "tables": {
+         "1": {
+          "status": 1,
+          "content": [
+           [
+            0.20299933999999997
+           ],
+           [
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.254,
+            0.254,
+            0.254,
+            0.254,
+            0.254,
+            0.254,
+            0.254,
+            0.254
+           ],
+           [
+            0.29999939999999997,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.254,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.254,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.15200122,
+            0.254,
+            0.15200122,
+            0.15200122,
+            0.15200122
+           ],
+           [
+            0.29999939999999997,
+            0.29999939999999997,
+            0.29999939999999997,
+            0.29999939999999997,
+            0.29999939999999997,
+            0.29999939999999997,
+            0.29999939999999997,
+            0.254,
+            0.29999939999999997,
+            0.29999939999999997,
+            0.29999939999999997
+           ],
+           [
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.254,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998,
+            0.17599659999999998
+           ]
+          ]
+         }
+        }
+       }
+      },
+      "Other Spacing": {
+       "otherClearance": {
+        "editName": "otherClearance",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "device2device": 0,
+         "thru2Smd": 0,
+         "hole2Hole": 0.29999939999999997
+        }
+       }
+      },
+      "Creepage Distance": {
+       "creepage": {
+        "editName": "creepage",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "creepageDistance": 0,
+         "ignoreLayer": true
+        }
+       }
+      }
+     },
+     "Physics": {
+      "Track": {
+       "copperThickness1oz": {
+        "editName": "copperThickness1oz",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "status": 1,
+         "data": {
+          "1": {
+           "minValue": 0.127,
+           "defaultValue": 0.254,
+           "maxValue": 2.54
+          }
+         }
+        }
+       },
+       "copperThickness2oz": {
+        "editName": "copperThickness2oz",
+        "unit": "mm",
+        "isSetDefault": false,
+        "form": {
+         "status": 1,
+         "data": {
+          "1": {
+           "minValue": 0.20299933999999997,
+           "defaultValue": 0.254,
+           "maxValue": 2.54
+          }
+         }
+        }
+       }
+      },
+      "Net Length Range": {
+       "netLength": {
+        "editName": "netLength",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "netLengthMin": 0,
+         "netLengthMax": 0
+        }
+       }
+      },
+      "Net Length Tolerance": {
+       "netLengthTolerance": {
+        "editName": "netLengthTolerance",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "netLengthTolerance": 25.4
+        }
+       }
+      },
+      "Differential Pair": {
+       "differentialPair": {
+        "editName": "differentialPair",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "strokeWidthTables": {
+          "status": 1,
+          "data": {
+           "1": {
+            "minValue": 0.127,
+            "defaultValue": 0.254,
+            "maxValue": 2.54
+           }
+          }
+         },
+         "diffPairSpacingTables": {
+          "status": 1,
+          "data": {
+           "1": {
+            "minValue": 0.15239999999999998,
+            "defaultValue": 0.15239999999999998,
+            "maxValue": 0
+           }
+          }
+         },
+         "differentailPairLenTolerMax": 0.254
+        }
+       }
+      },
+      "Blind/Buried Via": {
+       "blindVia": {
+        "editName": "blindVia",
+        "isSetDefault": true,
+        "table": []
+       }
+      },
+      "Via Size": {
+       "viaSize": {
+        "editName": "viaSize",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "viaOuterdiameterMin": 0.49999899999999997,
+         "viaOuterdiameterMax": 10.00000032,
+         "viaOuterdiameterDefault": 0.61000132,
+         "viaInnerdiameterMin": 0.29999939999999997,
+         "viaInnerdiameterMax": 6.2999975599999996,
+         "viaInnerdiameterDefault": 0.30499812
+        }
+       }
+      }
+     },
+     "Plane": {
+      "Plane Zone": {
+       "innerPlane": {
+        "editName": "innerPlane",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "status": 1,
+         "data": {
+          "1": {
+           "connectMode": 0,
+           "lineClearance": 0.254,
+           "lineWidth": 0.254,
+           "lineAngle": 90
+          }
+         }
+        }
+       }
+      },
+      "Copper Zone": {
+       "copperRegion": {
+        "editName": "copperRegion",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "singleLayerPadModel": {
+          "status": 1,
+          "data": {
+           "1": {
+            "connectMode": 0,
+            "lineClearance": 0.254,
+            "lineWidth": 0.254,
+            "lineAngle": 90
+           }
+          }
+         },
+         "multiLayerPadModel": {
+          "status": 1,
+          "data": {
+           "1": {
+            "connectMode": 0,
+            "lineClearance": 0.254,
+            "lineWidth": 0.254,
+            "lineAngle": 90
+           }
+          }
+         },
+         "trackConnectModel": {
+          "status": 1,
+          "data": {
+           "1": {
+            "trackConnectMode": 0
+           }
+          }
+         }
+        }
+       }
+      }
+     },
+     "Expansion": {
+      "Solder Mask Expansion": {
+       "solderMaskExpansion": {
+        "editName": "solderMaskExpansion",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "padToplayerExpansion": 0.0508,
+         "padBottomlayerExpansion": 0.0508,
+         "viaToplayerExpansion": -25.4,
+         "viaBottomlayerExpansion": -25.4,
+         "testPointToplayerExpansion": 0.0508,
+         "testPointBottomlayerExpansion": 0.0508
+        }
+       }
+      },
+      "Paste Mask Expansion": {
+       "pasteMaskExpansion": {
+        "editName": "pasteMaskExpansion",
+        "unit": "mm",
+        "isSetDefault": true,
+        "form": {
+         "padToplayerExpansion": 0,
+         "padBottomlayerExpansion": 0,
+         "testPointToplayerExpansion": -25.4,
+         "testPointBottomlayerExpansion": -25.4
+        }
+       }
+      }
+     }
+    },
+    "name": "自定义配置"
+   }
+  ],
+  "netRules": [
+   {
+    "type": "net",
+    "name": "GND",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "PWR",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "CC1_SNS",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "USB_DN",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "USB_DP",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "VBUS",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "PWR",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "3V3",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "PWR",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BZ_DRV",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "CC2_SNS",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "VSYS",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "PWR",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "VBAT_P",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "PWR",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "ESP_EN",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BTN_A",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BTN_B",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_VIN",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "PWR",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_BASE",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_DRV",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_REF",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_V1",
+    "Safe Spacing": "HV",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "HV",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_M",
+    "Safe Spacing": "HV",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "HV",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_SW",
+    "Safe Spacing": "HV",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "HV",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_OUT",
+    "Safe Spacing": "HV",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "HV",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_FB",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM1_B",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM2_B",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "RTC_VB",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "PWR_NG",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "PWR_BTN_SNS",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "PWR_BTN_N",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "PWR_HOLD",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "PWR_PFET",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "PWR_EN",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "CHG_N",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "CHG_SNS",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "MOT_DRV",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BAT_RAW",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "PWR",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "DISP_3VO",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "SPI_SCK_D",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "SPI_MISO",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "SPI_MOSI_D",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "TFT_CS",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "TFT_DC",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "TFT_RST",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "TFT_BL",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "TOUCH_INT",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "I2C_SDA",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "I2C_SCL",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "SD_CS",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "SD_CD",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM1_ANODE",
+    "Safe Spacing": "HV",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "HV",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM1_K",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM2_ANODE",
+    "Safe Spacing": "HV",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "HV",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM2_K",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "UART_TX",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "UART_RX",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BB_L1",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "PWR",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BB_L2",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "PWR",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "LED_DIN",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "CHG_LED_A",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BQ_TS",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "Q1_G",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "CC1",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "CC2",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM1_C",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM2_C",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BZ_G",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "MOT_G",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "CHG_FAST",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BQ_EN1",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BQ_ISET",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BQ_ILIM",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BQ_TMR",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BQ_EN2",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BB_FB",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_PWM",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_REF_PWM",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_D1",
+    "Safe Spacing": "HV",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "HV",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_D2",
+    "Safe Spacing": "HV",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "HV",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_FB_ADC",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM1_AM",
+    "Safe Spacing": "HV",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "HV",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM2_AM",
+    "Safe Spacing": "HV",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "HV",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "SPI_SCK",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "SPI_MOSI",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "RTC_INT",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BUZZER",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "VIBRATE",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "LED_DATA",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM1_OUT",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "GM2_OUT",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "IMU_INT",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "BAT_ALRT",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   },
+   {
+    "type": "net",
+    "name": "HV_COMP",
+    "Safe Spacing": "default",
+    "Copper Safe Spacing": null,
+    "Plane Safe Spacing": null,
+    "Track": "default",
+    "Net Length Range": "default",
+    "Net Length Tolerance": null,
+    "Blind/Buried Via": "default",
+    "Via Size": "default",
+    "Plane Zone": "default",
+    "Copper Zone": "default",
+    "Solder Mask Expansion": "default",
+    "Paste Mask Expansion": "default",
+    "Creepage Distance": null,
+    "targetNet": null
+   }
+  ],
+  "classes": [],
+  "layers": [
+   [
+    1,
+    "Top Layer",
+    "SIGNAL"
+   ],
+   [
+    2,
+    "Bottom Layer",
+    "SIGNAL"
+   ],
+   [
+    3,
+    "Top Silkscreen Layer",
+    "SILKSCREEN"
+   ],
+   [
+    4,
+    "Bottom Silkscreen Layer",
+    "SILKSCREEN"
+   ],
+   [
+    5,
+    "Top Solder Mask Layer",
+    "SOLDER_MASK"
+   ],
+   [
+    6,
+    "Bottom Solder Mask Layer",
+    "SOLDER_MASK"
+   ],
+   [
+    7,
+    "Top Paste Mask Layer",
+    "PASTE_MASK"
+   ],
+   [
+    8,
+    "Bottom Paste Mask Layer",
+    "PASTE_MASK"
+   ],
+   [
+    9,
+    "Top Assembly Layer",
+    "ASSEMBLY"
+   ],
+   [
+    10,
+    "Bottom Assembly Layer",
+    "ASSEMBLY"
+   ],
+   [
+    11,
+    "Board Outline Layer",
+    "OTHER"
+   ],
+   [
+    12,
+    "Multi-Layer",
+    "OTHER"
+   ],
+   [
+    13,
+    "Document Layer",
+    "OTHER"
+   ],
+   [
+    14,
+    "Mechanical Layer",
+    "OTHER"
+   ],
+   [
+    15,
+    "Inner1",
+    "SIGNAL"
+   ],
+   [
+    16,
+    "Inner2",
+    "SIGNAL"
+   ],
+   [
+    17,
+    "Inner3",
+    "SIGNAL"
+   ],
+   [
+    18,
+    "Inner4",
+    "SIGNAL"
+   ],
+   [
+    19,
+    "Inner5",
+    "SIGNAL"
+   ],
+   [
+    20,
+    "Inner6",
+    "SIGNAL"
+   ],
+   [
+    21,
+    "Inner7",
+    "SIGNAL"
+   ],
+   [
+    22,
+    "Inner8",
+    "SIGNAL"
+   ],
+   [
+    23,
+    "Inner9",
+    "SIGNAL"
+   ],
+   [
+    24,
+    "Inner10",
+    "SIGNAL"
+   ],
+   [
+    25,
+    "Inner11",
+    "SIGNAL"
+   ],
+   [
+    26,
+    "Inner12",
+    "SIGNAL"
+   ],
+   [
+    27,
+    "Inner13",
+    "SIGNAL"
+   ],
+   [
+    28,
+    "Inner14",
+    "SIGNAL"
+   ],
+   [
+    29,
+    "Inner15",
+    "SIGNAL"
+   ],
+   [
+    30,
+    "Inner16",
+    "SIGNAL"
+   ],
+   [
+    31,
+    "Inner17",
+    "SIGNAL"
+   ],
+   [
+    32,
+    "Inner18",
+    "SIGNAL"
+   ],
+   [
+    33,
+    "Inner19",
+    "SIGNAL"
+   ],
+   [
+    34,
+    "Inner20",
+    "SIGNAL"
+   ],
+   [
+    35,
+    "Inner21",
+    "SIGNAL"
+   ],
+   [
+    36,
+    "Inner22",
+    "SIGNAL"
+   ],
+   [
+    37,
+    "Inner23",
+    "SIGNAL"
+   ],
+   [
+    38,
+    "Inner24",
+    "SIGNAL"
+   ],
+   [
+    39,
+    "Inner25",
+    "SIGNAL"
+   ],
+   [
+    40,
+    "Inner26",
+    "SIGNAL"
+   ],
+   [
+    41,
+    "Inner27",
+    "SIGNAL"
+   ],
+   [
+    42,
+    "Inner28",
+    "SIGNAL"
+   ],
+   [
+    43,
+    "Inner29",
+    "SIGNAL"
+   ],
+   [
+    44,
+    "Inner30",
+    "SIGNAL"
+   ],
+   [
+    45,
+    "Inner31",
+    "SIGNAL"
+   ],
+   [
+    46,
+    "Inner32",
+    "SIGNAL"
+   ],
+   [
+    47,
+    "Hole Layer",
+    "OTHER"
+   ],
+   [
+    48,
+    "Component Shape Layer",
+    "OTHER"
+   ],
+   [
+    49,
+    "Component Marking Layer",
+    "OTHER"
+   ],
+   [
+    50,
+    "Pin Soldering Layer",
+    "OTHER"
+   ],
+   [
+    51,
+    "Pin Floating Layer",
+    "OTHER"
+   ],
+   [
+    52,
+    "Component Model Layer",
+    "OTHER"
+   ],
+   [
+    53,
+    "3D Shell Outline Layer",
+    "OTHER"
+   ],
+   [
+    54,
+    "3D Shell Top Layer",
+    "OTHER"
+   ],
+   [
+    55,
+    "3D Shell Bottom Layer",
+    "OTHER"
+   ],
+   [
+    56,
+    "Drill Drawing Layer",
+    "OTHER"
+   ],
+   [
+    57,
+    "Ratline Layer",
+    "OTHER"
+   ],
+   [
+    58,
+    "Top Stiffener Layer",
+    "OTHER"
+   ],
+   [
+    59,
+    "Bottom Stiffener Layer",
+    "OTHER"
+   ],
+   [
+    71,
+    "Custom1",
+    "CUSTOM"
+   ],
+   [
+    72,
+    "Custom2",
+    "CUSTOM"
+   ],
+   [
+    73,
+    "Custom3",
+    "CUSTOM"
+   ],
+   [
+    74,
+    "Custom4",
+    "CUSTOM"
+   ],
+   [
+    75,
+    "Custom5",
+    "CUSTOM"
+   ],
+   [
+    76,
+    "Custom6",
+    "CUSTOM"
+   ],
+   [
+    77,
+    "Custom7",
+    "CUSTOM"
+   ],
+   [
+    78,
+    "Custom8",
+    "CUSTOM"
+   ],
+   [
+    79,
+    "Custom9",
+    "CUSTOM"
+   ],
+   [
+    80,
+    "Custom10",
+    "CUSTOM"
+   ],
+   [
+    81,
+    "Custom11",
+    "CUSTOM"
+   ],
+   [
+    82,
+    "Custom12",
+    "CUSTOM"
+   ],
+   [
+    83,
+    "Custom13",
+    "CUSTOM"
+   ],
+   [
+    84,
+    "Custom14",
+    "CUSTOM"
+   ],
+   [
+    85,
+    "Custom15",
+    "CUSTOM"
+   ],
+   [
+    86,
+    "Custom16",
+    "CUSTOM"
+   ],
+   [
+    87,
+    "Custom17",
+    "CUSTOM"
+   ],
+   [
+    88,
+    "Custom18",
+    "CUSTOM"
+   ],
+   [
+    89,
+    "Custom19",
+    "CUSTOM"
+   ],
+   [
+    90,
+    "Custom20",
+    "CUSTOM"
+   ],
+   [
+    91,
+    "Custom21",
+    "CUSTOM"
+   ],
+   [
+    92,
+    "Custom22",
+    "CUSTOM"
+   ],
+   [
+    93,
+    "Custom23",
+    "CUSTOM"
+   ],
+   [
+    94,
+    "Custom24",
+    "CUSTOM"
+   ],
+   [
+    95,
+    "Custom25",
+    "CUSTOM"
+   ],
+   [
+    96,
+    "Custom26",
+    "CUSTOM"
+   ],
+   [
+    97,
+    "Custom27",
+    "CUSTOM"
+   ],
+   [
+    98,
+    "Custom28",
+    "CUSTOM"
+   ],
+   [
+    99,
+    "Custom29",
+    "CUSTOM"
+   ],
+   [
+    100,
+    "Custom30",
+    "CUSTOM"
+   ],
+   [
+    101,
+    "Custom31",
+    "CUSTOM"
+   ],
+   [
+    102,
+    "Custom32",
+    "CUSTOM"
+   ],
+   [
+    103,
+    "Custom33",
+    "CUSTOM"
+   ],
+   [
+    104,
+    "Custom34",
+    "CUSTOM"
+   ],
+   [
+    105,
+    "Custom35",
+    "CUSTOM"
+   ],
+   [
+    106,
+    "Custom36",
+    "CUSTOM"
+   ],
+   [
+    107,
+    "Custom37",
+    "CUSTOM"
+   ],
+   [
+    108,
+    "Custom38",
+    "CUSTOM"
+   ],
+   [
+    109,
+    "Custom39",
+    "CUSTOM"
+   ],
+   [
+    110,
+    "Custom40",
+    "CUSTOM"
+   ],
+   [
+    111,
+    "Custom41",
+    "CUSTOM"
+   ],
+   [
+    112,
+    "Custom42",
+    "CUSTOM"
+   ],
+   [
+    113,
+    "Custom43",
+    "CUSTOM"
+   ],
+   [
+    114,
+    "Custom44",
+    "CUSTOM"
+   ],
+   [
+    115,
+    "Custom45",
+    "CUSTOM"
+   ],
+   [
+    116,
+    "Custom46",
+    "CUSTOM"
+   ],
+   [
+    117,
+    "Custom47",
+    "CUSTOM"
+   ],
+   [
+    118,
+    "Custom48",
+    "CUSTOM"
+   ],
+   [
+    119,
+    "Custom49",
+    "CUSTOM"
+   ],
+   [
+    120,
+    "Custom50",
+    "CUSTOM"
+   ],
+   [
+    121,
+    "Custom51",
+    "CUSTOM"
+   ],
+   [
+    122,
+    "Custom52",
+    "CUSTOM"
+   ],
+   [
+    123,
+    "Custom53",
+    "CUSTOM"
+   ],
+   [
+    124,
+    "Custom54",
+    "CUSTOM"
+   ],
+   [
+    125,
+    "Custom55",
+    "CUSTOM"
+   ],
+   [
+    126,
+    "Custom56",
+    "CUSTOM"
+   ],
+   [
+    127,
+    "Custom57",
+    "CUSTOM"
+   ],
+   [
+    128,
+    "Custom58",
+    "CUSTOM"
+   ],
+   [
+    129,
+    "Custom59",
+    "CUSTOM"
+   ],
+   [
+    130,
+    "Custom60",
+    "CUSTOM"
+   ],
+   [
+    131,
+    "Custom61",
+    "CUSTOM"
+   ],
+   [
+    132,
+    "Custom62",
+    "CUSTOM"
+   ],
+   [
+    133,
+    "Custom63",
+    "CUSTOM"
+   ],
+   [
+    134,
+    "Custom64",
+    "CUSTOM"
+   ],
+   [
+    135,
+    "Custom65",
+    "CUSTOM"
+   ],
+   [
+    136,
+    "Custom66",
+    "CUSTOM"
+   ],
+   [
+    137,
+    "Custom67",
+    "CUSTOM"
+   ],
+   [
+    138,
+    "Custom68",
+    "CUSTOM"
+   ],
+   [
+    139,
+    "Custom69",
+    "CUSTOM"
+   ],
+   [
+    140,
+    "Custom70",
+    "CUSTOM"
+   ],
+   [
+    141,
+    "Custom71",
+    "CUSTOM"
+   ],
+   [
+    142,
+    "Custom72",
+    "CUSTOM"
+   ],
+   [
+    143,
+    "Custom73",
+    "CUSTOM"
+   ],
+   [
+    144,
+    "Custom74",
+    "CUSTOM"
+   ],
+   [
+    145,
+    "Custom75",
+    "CUSTOM"
+   ],
+   [
+    146,
+    "Custom76",
+    "CUSTOM"
+   ],
+   [
+    147,
+    "Custom77",
+    "CUSTOM"
+   ],
+   [
+    148,
+    "Custom78",
+    "CUSTOM"
+   ],
+   [
+    149,
+    "Custom79",
+    "CUSTOM"
+   ],
+   [
+    150,
+    "Custom80",
+    "CUSTOM"
+   ],
+   [
+    151,
+    "Custom81",
+    "CUSTOM"
+   ],
+   [
+    152,
+    "Custom82",
+    "CUSTOM"
+   ],
+   [
+    153,
+    "Custom83",
+    "CUSTOM"
+   ],
+   [
+    154,
+    "Custom84",
+    "CUSTOM"
+   ],
+   [
+    155,
+    "Custom85",
+    "CUSTOM"
+   ],
+   [
+    156,
+    "Custom86",
+    "CUSTOM"
+   ],
+   [
+    157,
+    "Custom87",
+    "CUSTOM"
+   ],
+   [
+    158,
+    "Custom88",
+    "CUSTOM"
+   ],
+   [
+    159,
+    "Custom89",
+    "CUSTOM"
+   ],
+   [
+    160,
+    "Custom90",
+    "CUSTOM"
+   ],
+   [
+    161,
+    "Custom91",
+    "CUSTOM"
+   ],
+   [
+    162,
+    "Custom92",
+    "CUSTOM"
+   ],
+   [
+    163,
+    "Custom93",
+    "CUSTOM"
+   ],
+   [
+    164,
+    "Custom94",
+    "CUSTOM"
+   ],
+   [
+    165,
+    "Custom95",
+    "CUSTOM"
+   ],
+   [
+    166,
+    "Custom96",
+    "CUSTOM"
+   ],
+   [
+    167,
+    "Custom97",
+    "CUSTOM"
+   ],
+   [
+    168,
+    "Custom98",
+    "CUSTOM"
+   ],
+   [
+    169,
+    "Custom99",
+    "CUSTOM"
+   ],
+   [
+    170,
+    "Custom100",
+    "CUSTOM"
+   ],
+   [
+    171,
+    "Custom101",
+    "CUSTOM"
+   ],
+   [
+    172,
+    "Custom102",
+    "CUSTOM"
+   ],
+   [
+    173,
+    "Custom103",
+    "CUSTOM"
+   ],
+   [
+    174,
+    "Custom104",
+    "CUSTOM"
+   ],
+   [
+    175,
+    "Custom105",
+    "CUSTOM"
+   ],
+   [
+    176,
+    "Custom106",
+    "CUSTOM"
+   ],
+   [
+    177,
+    "Custom107",
+    "CUSTOM"
+   ],
+   [
+    178,
+    "Custom108",
+    "CUSTOM"
+   ],
+   [
+    179,
+    "Custom109",
+    "CUSTOM"
+   ],
+   [
+    180,
+    "Custom110",
+    "CUSTOM"
+   ],
+   [
+    181,
+    "Custom111",
+    "CUSTOM"
+   ],
+   [
+    182,
+    "Custom112",
+    "CUSTOM"
+   ],
+   [
+    183,
+    "Custom113",
+    "CUSTOM"
+   ],
+   [
+    184,
+    "Custom114",
+    "CUSTOM"
+   ],
+   [
+    185,
+    "Custom115",
+    "CUSTOM"
+   ],
+   [
+    186,
+    "Custom116",
+    "CUSTOM"
+   ],
+   [
+    187,
+    "Custom117",
+    "CUSTOM"
+   ],
+   [
+    188,
+    "Custom118",
+    "CUSTOM"
+   ],
+   [
+    189,
+    "Custom119",
+    "CUSTOM"
+   ],
+   [
+    190,
+    "Custom120",
+    "CUSTOM"
+   ],
+   [
+    191,
+    "Custom121",
+    "CUSTOM"
+   ],
+   [
+    192,
+    "Custom122",
+    "CUSTOM"
+   ],
+   [
+    193,
+    "Custom123",
+    "CUSTOM"
+   ],
+   [
+    194,
+    "Custom124",
+    "CUSTOM"
+   ],
+   [
+    195,
+    "Custom125",
+    "CUSTOM"
+   ],
+   [
+    196,
+    "Custom126",
+    "CUSTOM"
+   ],
+   [
+    197,
+    "Custom127",
+    "CUSTOM"
+   ],
+   [
+    198,
+    "Custom128",
+    "CUSTOM"
+   ],
+   [
+    199,
+    "Custom129",
+    "CUSTOM"
+   ],
+   [
+    200,
+    "Custom130",
+    "CUSTOM"
+   ],
+   [
+    201,
+    "Custom131",
+    "CUSTOM"
+   ],
+   [
+    202,
+    "Custom132",
+    "CUSTOM"
+   ],
+   [
+    203,
+    "Custom133",
+    "CUSTOM"
+   ],
+   [
+    204,
+    "Custom134",
+    "CUSTOM"
+   ],
+   [
+    205,
+    "Custom135",
+    "CUSTOM"
+   ],
+   [
+    206,
+    "Custom136",
+    "CUSTOM"
+   ],
+   [
+    207,
+    "Custom137",
+    "CUSTOM"
+   ],
+   [
+    208,
+    "Custom138",
+    "CUSTOM"
+   ],
+   [
+    209,
+    "Custom139",
+    "CUSTOM"
+   ],
+   [
+    210,
+    "Custom140",
+    "CUSTOM"
+   ],
+   [
+    211,
+    "Custom141",
+    "CUSTOM"
+   ],
+   [
+    212,
+    "Custom142",
+    "CUSTOM"
+   ],
+   [
+    213,
+    "Custom143",
+    "CUSTOM"
+   ],
+   [
+    214,
+    "Custom144",
+    "CUSTOM"
+   ],
+   [
+    215,
+    "Custom145",
+    "CUSTOM"
+   ],
+   [
+    216,
+    "Custom146",
+    "CUSTOM"
+   ],
+   [
+    217,
+    "Custom147",
+    "CUSTOM"
+   ],
+   [
+    218,
+    "Custom148",
+    "CUSTOM"
+   ],
+   [
+    219,
+    "Custom149",
+    "CUSTOM"
+   ],
+   [
+    220,
+    "Custom150",
+    "CUSTOM"
+   ],
+   [
+    221,
+    "Custom151",
+    "CUSTOM"
+   ],
+   [
+    222,
+    "Custom152",
+    "CUSTOM"
+   ],
+   [
+    223,
+    "Custom153",
+    "CUSTOM"
+   ],
+   [
+    224,
+    "Custom154",
+    "CUSTOM"
+   ],
+   [
+    225,
+    "Custom155",
+    "CUSTOM"
+   ],
+   [
+    226,
+    "Custom156",
+    "CUSTOM"
+   ],
+   [
+    227,
+    "Custom157",
+    "CUSTOM"
+   ],
+   [
+    228,
+    "Custom158",
+    "CUSTOM"
+   ],
+   [
+    229,
+    "Custom159",
+    "CUSTOM"
+   ],
+   [
+    230,
+    "Custom160",
+    "CUSTOM"
+   ],
+   [
+    231,
+    "Custom161",
+    "CUSTOM"
+   ],
+   [
+    232,
+    "Custom162",
+    "CUSTOM"
+   ],
+   [
+    233,
+    "Custom163",
+    "CUSTOM"
+   ],
+   [
+    234,
+    "Custom164",
+    "CUSTOM"
+   ],
+   [
+    235,
+    "Custom165",
+    "CUSTOM"
+   ],
+   [
+    236,
+    "Custom166",
+    "CUSTOM"
+   ],
+   [
+    237,
+    "Custom167",
+    "CUSTOM"
+   ],
+   [
+    238,
+    "Custom168",
+    "CUSTOM"
+   ],
+   [
+    239,
+    "Custom169",
+    "CUSTOM"
+   ],
+   [
+    240,
+    "Custom170",
+    "CUSTOM"
+   ],
+   [
+    241,
+    "Custom171",
+    "CUSTOM"
+   ],
+   [
+    242,
+    "Custom172",
+    "CUSTOM"
+   ],
+   [
+    243,
+    "Custom173",
+    "CUSTOM"
+   ],
+   [
+    244,
+    "Custom174",
+    "CUSTOM"
+   ],
+   [
+    245,
+    "Custom175",
+    "CUSTOM"
+   ],
+   [
+    246,
+    "Custom176",
+    "CUSTOM"
+   ],
+   [
+    247,
+    "Custom177",
+    "CUSTOM"
+   ],
+   [
+    248,
+    "Custom178",
+    "CUSTOM"
+   ],
+   [
+    249,
+    "Custom179",
+    "CUSTOM"
+   ],
+   [
+    250,
+    "Custom180",
+    "CUSTOM"
+   ],
+   [
+    251,
+    "Custom181",
+    "CUSTOM"
+   ],
+   [
+    252,
+    "Custom182",
+    "CUSTOM"
+   ],
+   [
+    253,
+    "Custom183",
+    "CUSTOM"
+   ],
+   [
+    254,
+    "Custom184",
+    "CUSTOM"
+   ],
+   [
+    255,
+    "Custom185",
+    "CUSTOM"
+   ],
+   [
+    256,
+    "Custom186",
+    "CUSTOM"
+   ],
+   [
+    257,
+    "Custom187",
+    "CUSTOM"
+   ],
+   [
+    258,
+    "Custom188",
+    "CUSTOM"
+   ],
+   [
+    259,
+    "Custom189",
+    "CUSTOM"
+   ],
+   [
+    260,
+    "Custom190",
+    "CUSTOM"
+   ],
+   [
+    261,
+    "Custom191",
+    "CUSTOM"
+   ],
+   [
+    262,
+    "Custom192",
+    "CUSTOM"
+   ],
+   [
+    263,
+    "Custom193",
+    "CUSTOM"
+   ],
+   [
+    264,
+    "Custom194",
+    "CUSTOM"
+   ],
+   [
+    265,
+    "Custom195",
+    "CUSTOM"
+   ],
+   [
+    266,
+    "Custom196",
+    "CUSTOM"
+   ],
+   [
+    267,
+    "Custom197",
+    "CUSTOM"
+   ],
+   [
+    268,
+    "Custom198",
+    "CUSTOM"
+   ],
+   [
+    269,
+    "Custom199",
+    "CUSTOM"
+   ],
+   [
+    270,
+    "Custom200",
+    "CUSTOM"
+   ],
+   [
+    361,
+    "Dielectric1",
+    "OTHER"
+   ]
+  ]
+ },
+ "windowId": "76d4fb4b-0fb7-4e30-afe5-43ce92dcee2e"
+}

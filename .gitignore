@@ -18,3 +18,7 @@ Thumbs.db
 *.swp
 *~
 .claude/
+
+# Python caches and the EasyEDA bridge window id
+__pycache__/
+hardware/v4/.eda_window
