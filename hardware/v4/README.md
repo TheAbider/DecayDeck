@@ -180,9 +180,7 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
 
 **Next**
 
-- Order: JLC 4-layer, tented vias, assembly including the through-hole J1/J3/J4. Re-check stock when ordering, and
-  check part rotations in JLC's assembly preview before paying: every diode and LED (D1-D9, LED1, LED2), pin 1 of
-  every IC (U1-U12), the transistors, J1, J2 and BZ1.
+- Order at JLC with the settings under *Ordering* below.
 - Bought separately:
   - A 1S LiPo with a JST-PH plug and a built-in protection circuit, 1000 mAh or more (charge current is 0.81 A).
     Adafruit or SparkFun cells plug in as they come. With any other brand, check that the red wire sits on the
@@ -194,3 +192,40 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
   100 MΩ divider is leakage-sensitive), keep it away from SW1-3.
 - Case design: needs the tube end-cap measurements. Tube bay on the left, display window, light pipes for LED1/LED2, a window over the OPT3001, a vent by the BME280, a buzzer port, button caps, USB-C cutout, and plastic only near the antenna.
 - Firmware rewrite: LVGL UI, PCNT counting, HV control, web UI.
+- Case input: the USB-C front face stands 1.27 mm proud of the bottom board edge (HRO drawing: front face 2.60 mm
+  ahead of the front shell legs), and the button actuators reach the right edge.
+
+## Ordering (JLCPCB, one order)
+
+Upload `fab/2026-10-25/DecayDeck_v4_Gerber.zip`, switch on PCB Assembly, then upload the BOM and CPL from the same
+folder. JLC renames its options from time to time, so match these by intent.
+
+**PCB**
+
+| Option | Choice | Why |
+|---|---|---|
+| Layers / size / qty | 4, 66 × 111 mm (auto), 5 | |
+| Thickness | 1.6 mm | What the USB-C shell legs and headers are made for |
+| Stackup | JLC default (JLC04161H-7628) | No impedance control needed: USB is full speed only |
+| Surface finish | **ENIG** | Flat pads for the QFN/LGA parts (BQ24075, TPS63802, BME280, LIS2DH12, OPT3001, MAX17048); HASL is lumpy |
+| Solder mask | Green (or blue/purple), **not black** | Some black masks use carbon pigment, not wanted beside 400 V and 100 MΩ resistors |
+| Copper | 1 oz outer, 0.5 oz inner (defaults) | |
+| Via covering | **Tented** | Required: router vias sit under the ESP32 module |
+| Mark on PCB | Remove | A clean board; otherwise JLC prints an order number |
+| Confirm production file | **Yes** | You approve their processed Gerbers before fabrication |
+| Electrical test | Flying probe (default) | |
+| Everything else | Off (gold fingers, castellations, edge plating, impedance) | |
+
+**Assembly**
+
+| Option | Choice | Why |
+|---|---|---|
+| PCBA type | **Standard** | Handles the through-hole headers. JLC adds rails at the edge instead of drilling its own tooling holes into the board, as Economic can |
+| Side / qty | Top, 5 | Spares cost far less than a second order |
+| Edge rails / fiducials | Added by JLCPCB | The board is narrower than their line minimum. If their engineer asks, the USB-C and button overhangs are intended |
+| Confirm parts placement | **Yes** | Check the preview: D1-D9, LED1, LED2 polarity; pin 1 of U1-U12; Q1-Q8; J1, J2 and BZ1 orientation |
+| Board washing / conformal coating | **No** | Alps forbids solvent on the SKRTLAE010 buttons; coating would get into the buttons and connectors |
+| CPL rows without a part | Do not place | J5-J10 are wire pads (the CPL has 149 rows, the BOM 143 parts) |
+
+All 65 BOM lines match LCSC numbers that JLC stocks (1,800 or more of each on 2026-10-25). Any line JLC shows as
+short when ordering needs a decision before paying, never an automatic substitute.
