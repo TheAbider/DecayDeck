@@ -1,0 +1,4066 @@
+[
+ {
+  "des": "C2",
+  "id": "e944dcd89ef90da0",
+  "x": 133.8583,
+  "y": -2283.4646,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "CC2_SNS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C3",
+  "id": "e708fe85f34d9ce6",
+  "x": -259.8425,
+  "y": -2141.7323,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0805",
+  "pads": [
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "VBUS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C4",
+  "id": "6de0881082f5d9a8",
+  "x": -118.1102,
+  "y": -2141.7323,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "VBUS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C5",
+  "id": "ef7eac0a40d941b8",
+  "x": 94.4882,
+  "y": -787.4016,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0805",
+  "pads": [
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "VSYS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C6",
+  "id": "44384ae0664b2b17",
+  "x": -236.2205,
+  "y": -771.6535,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0805",
+  "pads": [
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "VBAT_P",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C7",
+  "id": "340a1f4f83273dab",
+  "x": 157.4803,
+  "y": -346.4567,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "VBAT_P",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C8",
+  "id": "8291aa3a2663d0b3",
+  "x": 503.937,
+  "y": -937.0079,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "C0805",
+  "pads": [
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "VSYS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C9",
+  "id": "26c19e0c32cf1351",
+  "x": 433.07090000000005,
+  "y": -937.0079,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "VSYS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C10",
+  "id": "a861e7c18e15c84c",
+  "x": 755.9055,
+  "y": -937.0079,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "C0805",
+  "pads": [
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C11",
+  "id": "0ea1e6b42e0cb981",
+  "x": 834.6457,
+  "y": -937.0079,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "C0805",
+  "pads": [
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C12",
+  "id": "47eba199a7177cd2",
+  "x": 905.5118,
+  "y": -937.0079,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C13",
+  "id": "eaabd997ed2f7226",
+  "x": 1220.4724,
+  "y": -2637.7953,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "ESP_EN",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C14",
+  "id": "63fa84a3d1c07b1c",
+  "x": 1220.4724,
+  "y": -2212.5984,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0805",
+  "pads": [
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C15",
+  "id": "fdbe21024922b42a",
+  "x": 1220.4724,
+  "y": -2377.9528,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C16",
+  "id": "d9978ddb2c3c4307",
+  "x": 1047.2441,
+  "y": 519.685,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "BTN_A",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C17",
+  "id": "14c0deda32d2716f",
+  "x": 1047.2441,
+  "y": 47.2441,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "BTN_B",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C18",
+  "id": "779a26effe26a33e",
+  "x": -1023.6220000000001,
+  "y": -157.4803,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C1206",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_VIN",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C19",
+  "id": "803668d8a7dd123b",
+  "x": -1023.6220000000001,
+  "y": -244.09449999999998,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "HV_VIN",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C20",
+  "id": "950e5e030ac0fc29",
+  "x": -732.2835,
+  "y": -102.3622,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "HV_BASE",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "HV_DRV",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C21",
+  "id": "c918c46ed6bbc948",
+  "x": -511.81100000000004,
+  "y": -196.8504,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C22",
+  "id": "481c61d296e67ddf",
+  "x": -251.9685,
+  "y": 488.18899999999996,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C23",
+  "id": "af84ffd7ca015ed5",
+  "x": -39.3701,
+  "y": 385.82679999999993,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "HV_REF",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C24",
+  "id": "6d566dae4367fae9",
+  "x": -1125.9843,
+  "y": 519.685,
+  "rot": 180,
+  "layer": 1,
+  "fp": "C1206",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_V1",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C25",
+  "id": "eae0d625daa7d289",
+  "x": -692.9134,
+  "y": 527.5591,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C1206",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "HV_M",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_SW",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C28",
+  "id": "71fa034464e52809",
+  "x": -188.9764,
+  "y": 661.4173,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "HV_FB",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C29",
+  "id": "e66fd2768104dc00",
+  "x": -850.3936999999999,
+  "y": -1251.9685,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "GM1_B",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C30",
+  "id": "f8f161aa4f5bb05a",
+  "x": -850.3936999999999,
+  "y": -700.7874000000002,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "GM2_B",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C31",
+  "id": "71595762bd296698",
+  "x": -377.9528,
+  "y": -803.1496,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C32",
+  "id": "8911d79791de3846",
+  "x": -881.8898,
+  "y": -1362.2047,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0805",
+  "pads": [
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C33",
+  "id": "377a11ef09e64ed8",
+  "x": -732.2835,
+  "y": -1362.2047,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C34",
+  "id": "0b6ce6b64b57cbcb",
+  "x": -1039.3701,
+  "y": -2078.7402,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C35",
+  "id": "ca7ef5613c795c55",
+  "x": 590.5512,
+  "y": 236.2205,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C36",
+  "id": "de0aa4a9e3b9c1b3",
+  "x": 259.8425,
+  "y": 259.8425,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "RTC_VB",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C37",
+  "id": "a81f2e4565b225ca",
+  "x": 582.6772,
+  "y": 551.1811,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C38",
+  "id": "27541761842cc7a3",
+  "x": 362.2047,
+  "y": 574.8031,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0805",
+  "pads": [
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C39",
+  "id": "d4750544c7144efa",
+  "x": -984.252,
+  "y": -1818.8976,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C40",
+  "id": "48fb4d4527ff0ed0",
+  "x": 102.3622,
+  "y": -1708.6614,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C0805",
+  "pads": [
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C41",
+  "id": "74a1492f9bacfde1",
+  "x": -62.99210000000001,
+  "y": -1866.1417000000001,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "D1",
+  "id": "892e316075303abf",
+  "x": 1031.4961,
+  "y": 1047.2441,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+  "pads": [
+   {
+    "primitiveId": "e9",
+    "net": "PWR_NG",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "PWR_BTN_SNS",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "PWR_BTN_N",
+    "padNumber": "3"
+   }
+  ]
+ },
+ {
+  "des": "D2",
+  "id": "33033cba176a6bf7",
+  "x": 803.1496,
+  "y": -551.1811,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+  "pads": [
+   {
+    "primitiveId": "e9",
+    "net": "PWR_HOLD",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "PWR_PFET",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "PWR_EN",
+    "padNumber": "3"
+   }
+  ]
+ },
+ {
+  "des": "D3",
+  "id": "5b010e0ebfcaef88",
+  "x": -102.3622,
+  "y": -1165.3543,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOD-323_L1.8-W1.3-LS2.5-RD",
+  "pads": [
+   {
+    "primitiveId": "e13",
+    "net": "CHG_N",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e14",
+    "net": "CHG_SNS",
+    "padNumber": "2"
+   }
+  ]
+ },
+ {
+  "des": "D4",
+  "id": "a63afdb007d23527",
+  "x": -925.1968999999999,
+  "y": 377.9528,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "SMA_L4.3-W2.6-LS5.2-RD",
+  "pads": [
+   {
+    "primitiveId": "e12",
+    "net": "HV_SW",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e13",
+    "net": "HV_V1",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "D5",
+  "id": "2e620e673fc3347e",
+  "x": -925.1968999999999,
+  "y": 661.4173,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "SMA_L4.3-W2.6-LS5.2-RD",
+  "pads": [
+   {
+    "primitiveId": "e12",
+    "net": "HV_V1",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e13",
+    "net": "HV_M",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "D6",
+  "id": "7a899806d3893b14",
+  "x": -692.9134,
+  "y": 850.3936999999999,
+  "rot": 180,
+  "layer": 1,
+  "fp": "SMA_L4.3-W2.6-LS5.2-RD",
+  "pads": [
+   {
+    "primitiveId": "e12",
+    "net": "HV_M",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e13",
+    "net": "HV_OUT",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "D7",
+  "id": "b7a17bfa68cc77f3",
+  "x": -421.2598,
+  "y": 551.1811,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SMA_L4.3-W2.6-LS5.2-RD",
+  "pads": [
+   {
+    "primitiveId": "e12",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e13",
+    "net": "HV_OUT",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "D8",
+  "id": "fa974e4ad6250852",
+  "x": -456.6929,
+  "y": -1708.6614,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOD-323_L1.8-W1.3-LS2.5-RD",
+  "pads": [
+   {
+    "primitiveId": "e13",
+    "net": "3V3",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e14",
+    "net": "BZ_DRV",
+    "padNumber": "2"
+   }
+  ]
+ },
+ {
+  "des": "D9",
+  "id": "a4411f3e61881bd0",
+  "x": 1173.2283,
+  "y": -944.8819000000001,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOD-323_L1.8-W1.3-LS2.5-RD",
+  "pads": [
+   {
+    "primitiveId": "e13",
+    "net": "3V3",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e14",
+    "net": "MOT_DRV",
+    "padNumber": "2"
+   }
+  ]
+ },
+ {
+  "des": "J2",
+  "id": "376c9ec528985bd4",
+  "x": -1000,
+  "y": -2503.937,
+  "rot": 0,
+  "layer": 1,
+  "fp": "CONN-SMD_P2.00_S2B-PH-SM4-TB-LF-SN",
+  "pads": [
+   {
+    "primitiveId": "e17",
+    "net": "BAT_RAW",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e18",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e19",
+    "net": "GND",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e20",
+    "net": "GND",
+    "padNumber": "4"
+   }
+  ]
+ },
+ {
+  "des": "J4",
+  "id": "bb91549992078bc1",
+  "x": 0,
+  "y": -1500,
+  "rot": 0,
+  "layer": 1,
+  "fp": "HDR-TH_20P-P2.54-V-F-2",
+  "pads": [
+   {
+    "primitiveId": "e27",
+    "net": "GND",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e28",
+    "net": "3V3",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e29",
+    "net": "DISP_3VO",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e30",
+    "net": "SPI_SCK_D",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e31",
+    "net": "SPI_MISO",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e32",
+    "net": "SPI_MOSI_D",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "e33",
+    "net": "TFT_CS",
+    "padNumber": "7"
+   },
+   {
+    "primitiveId": "e34",
+    "net": "TFT_DC",
+    "padNumber": "8"
+   },
+   {
+    "primitiveId": "e35",
+    "net": "TFT_RST",
+    "padNumber": "9"
+   },
+   {
+    "primitiveId": "e36",
+    "net": "TFT_BL",
+    "padNumber": "10"
+   },
+   {
+    "primitiveId": "e37",
+    "net": "GND",
+    "padNumber": "11"
+   },
+   {
+    "primitiveId": "e38",
+    "net": "TOUCH_INT",
+    "padNumber": "12"
+   },
+   {
+    "primitiveId": "e39",
+    "net": "I2C_SDA",
+    "padNumber": "13"
+   },
+   {
+    "primitiveId": "e40",
+    "net": "I2C_SCL",
+    "padNumber": "14"
+   },
+   {
+    "primitiveId": "e41",
+    "net": "DISP_3VO",
+    "padNumber": "15"
+   },
+   {
+    "primitiveId": "e42",
+    "net": "DISP_3VO",
+    "padNumber": "16"
+   },
+   {
+    "primitiveId": "e43",
+    "net": "DISP_3VO",
+    "padNumber": "17"
+   },
+   {
+    "primitiveId": "e44",
+    "net": "",
+    "padNumber": "18"
+   },
+   {
+    "primitiveId": "e45",
+    "net": "SD_CS",
+    "padNumber": "19"
+   },
+   {
+    "primitiveId": "e46",
+    "net": "SD_CD",
+    "padNumber": "20"
+   }
+  ]
+ },
+ {
+  "des": "J5",
+  "id": "e032a15390e65dc6",
+  "x": -1125.9843,
+  "y": 1275.5906,
+  "rot": 0,
+  "layer": 1,
+  "fp": "TESTPOINT-TH_BD3.2-D1.6",
+  "pads": [
+   {
+    "primitiveId": "e5",
+    "net": "GM1_ANODE",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "J6",
+  "id": "e9d283fbe726950a",
+  "x": -1125.9843,
+  "y": -1102.3622,
+  "rot": 0,
+  "layer": 1,
+  "fp": "TESTPOINT-TH_BD3.2-D1.6",
+  "pads": [
+   {
+    "primitiveId": "e5",
+    "net": "GM1_K",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "J7",
+  "id": "51c7a2d608d42fa6",
+  "x": -1125.9843,
+  "y": 1023.6220000000001,
+  "rot": 0,
+  "layer": 1,
+  "fp": "TESTPOINT-TH_BD3.2-D1.6",
+  "pads": [
+   {
+    "primitiveId": "e5",
+    "net": "GM2_ANODE",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "J8",
+  "id": "55bb3bc06503ae12",
+  "x": -1125.9843,
+  "y": -551.1811,
+  "rot": 0,
+  "layer": 1,
+  "fp": "TESTPOINT-TH_BD3.2-D1.6",
+  "pads": [
+   {
+    "primitiveId": "e5",
+    "net": "GM2_K",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "J9",
+  "id": "79004d18830a047b",
+  "x": 1173.2283,
+  "y": -826.7717,
+  "rot": 0,
+  "layer": 1,
+  "fp": "TESTPOINT-TH_BD3.2-D1.6",
+  "pads": [
+   {
+    "primitiveId": "e5",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "J10",
+  "id": "0674540f022a1fe4",
+  "x": 1173.2283,
+  "y": -1062.9921,
+  "rot": 0,
+  "layer": 1,
+  "fp": "TESTPOINT-TH_BD3.2-D1.6",
+  "pads": [
+   {
+    "primitiveId": "e5",
+    "net": "MOT_DRV",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "L1",
+  "id": "a36c6e59839b30d6",
+  "x": 629.9213,
+  "y": -803.1496,
+  "rot": 180,
+  "layer": 1,
+  "fp": "IND-SMD_L4.0-W4.0_XFL4020-102MEB",
+  "pads": [
+   {
+    "primitiveId": "e10",
+    "net": "BB_L1",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "BB_L2",
+    "padNumber": "2"
+   }
+  ]
+ },
+ {
+  "des": "L2",
+  "id": "847b8dae6c501c48",
+  "x": -1023.6220000000001,
+  "y": 102.3622,
+  "rot": 0,
+  "layer": 1,
+  "fp": "IND-SMD_L6.0-W6.0",
+  "pads": [
+   {
+    "primitiveId": "e5",
+    "net": "HV_SW",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e6",
+    "net": "HV_VIN",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "LED1",
+  "id": "962fab282ee2a411",
+  "x": -181.1024,
+  "y": -1866.1417000000001,
+  "rot": 0,
+  "layer": 1,
+  "fp": "LED-SMD_4P-L2.2-W2.0-P1.00_WS2815C-2020-4P",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "LED_DIN",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e9",
+    "net": "3V3",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "LED2",
+  "id": "2809447b6ee4913d",
+  "x": 102.3622,
+  "y": -1866.1417000000001,
+  "rot": 0,
+  "layer": 1,
+  "fp": "LED-SMD_L1.6-W0.8-R-RD",
+  "pads": [
+   {
+    "primitiveId": "e16",
+    "net": "CHG_N",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e17",
+    "net": "CHG_LED_A",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "NTC1",
+  "id": "b53812805184a552",
+  "x": 472.4409,
+  "y": -236.2205,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "BQ_TS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "Q1",
+  "id": "f80dfa692037229e",
+  "x": -645.6693,
+  "y": -2464.5669,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23_L2.9-W1.3-P1.90-LS2.4-BR",
+  "pads": [
+   {
+    "primitiveId": "e9",
+    "net": "VBAT_P",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "BAT_RAW",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "Q1_G",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "J1",
+  "id": "54f094ce480742ba",
+  "x": -196.8504,
+  "y": -2566.9291,
+  "rot": 0,
+  "layer": 1,
+  "fp": "USB-C_SMD-TYPE-C-31-M-12_1",
+  "pads": [
+   {
+    "primitiveId": "e27",
+    "net": "",
+    "padNumber": "B8"
+   },
+   {
+    "primitiveId": "e28",
+    "net": "CC1",
+    "padNumber": "A5"
+   },
+   {
+    "primitiveId": "e29",
+    "net": "USB_DN",
+    "padNumber": "B7"
+   },
+   {
+    "primitiveId": "e30",
+    "net": "USB_DP",
+    "padNumber": "A6"
+   },
+   {
+    "primitiveId": "e31",
+    "net": "USB_DN",
+    "padNumber": "A7"
+   },
+   {
+    "primitiveId": "e32",
+    "net": "USB_DP",
+    "padNumber": "B6"
+   },
+   {
+    "primitiveId": "e33",
+    "net": "",
+    "padNumber": "A8"
+   },
+   {
+    "primitiveId": "e34",
+    "net": "CC2",
+    "padNumber": "B5"
+   },
+   {
+    "primitiveId": "e35",
+    "net": "GND",
+    "padNumber": "A1B12"
+   },
+   {
+    "primitiveId": "e36",
+    "net": "GND",
+    "padNumber": "B1A12"
+   },
+   {
+    "primitiveId": "e37",
+    "net": "VBUS",
+    "padNumber": "B4A9"
+   },
+   {
+    "primitiveId": "e38",
+    "net": "VBUS",
+    "padNumber": "A4B9"
+   },
+   {
+    "primitiveId": "e57",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e58",
+    "net": "GND",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e59",
+    "net": "GND",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e60",
+    "net": "GND",
+    "padNumber": "3"
+   }
+  ]
+ },
+ {
+  "des": "Q2",
+  "id": "b8537a0c56e08d69",
+  "x": 629.9213,
+  "y": -551.1811,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23_L2.9-W1.3-P1.90-LS2.4-BR",
+  "pads": [
+   {
+    "primitiveId": "e9",
+    "net": "VSYS",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "PWR_PFET",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "PWR_NG",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "Q3",
+  "id": "eaa47cde7989c65d",
+  "x": -771.6535,
+  "y": 102.3622,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+  "pads": [
+   {
+    "primitiveId": "e9",
+    "net": "HV_BASE",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "HV_SW",
+    "padNumber": "3"
+   }
+  ]
+ },
+ {
+  "des": "Q4",
+  "id": "5e748eea28b01361",
+  "x": -748.0315,
+  "y": -1110.2362,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+  "pads": [
+   {
+    "primitiveId": "e9",
+    "net": "GM1_B",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "GM1_C",
+    "padNumber": "3"
+   }
+  ]
+ },
+ {
+  "des": "Q5",
+  "id": "5b3f6f26c6b7616f",
+  "x": -748.0315,
+  "y": -559.0551,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23-3_L2.9-W1.6-P1.90-LS2.8-BR",
+  "pads": [
+   {
+    "primitiveId": "e9",
+    "net": "GM2_B",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "GM2_C",
+    "padNumber": "3"
+   }
+  ]
+ },
+ {
+  "des": "Q6",
+  "id": "e1ad826bca5cd1c0",
+  "x": -299.2126,
+  "y": -1708.6614,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR",
+  "pads": [
+   {
+    "primitiveId": "e9",
+    "net": "BZ_G",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "BZ_DRV",
+    "padNumber": "3"
+   }
+  ]
+ },
+ {
+  "des": "Q7",
+  "id": "787ac1c54fe62c43",
+  "x": 1007.874,
+  "y": -1062.9921,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR",
+  "pads": [
+   {
+    "primitiveId": "e9",
+    "net": "MOT_G",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "MOT_DRV",
+    "padNumber": "3"
+   }
+  ]
+ },
+ {
+  "des": "Q8",
+  "id": "38599380f19a3bfa",
+  "x": 220.4724,
+  "y": -1118.1102,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR",
+  "pads": [
+   {
+    "primitiveId": "e9",
+    "net": "CHG_FAST",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "BQ_EN1",
+    "padNumber": "3"
+   }
+  ]
+ },
+ {
+  "des": "R1",
+  "id": "ab55ea8eb93dfd18",
+  "x": -385.82679999999993,
+  "y": -2283.4646,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "CC1",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C1",
+  "id": "ea4cfdb18e63534d",
+  "x": -527.5591,
+  "y": -2283.4646,
+  "rot": 90,
+  "layer": 1,
+  "fp": "C0603",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "CC1_SNS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R2",
+  "id": "c03a353d1ee2f562",
+  "x": -7.874,
+  "y": -2283.4646,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "CC2",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R3",
+  "id": "ff5f4827bb094da8",
+  "x": -456.6929,
+  "y": -2283.4646,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "CC1_SNS",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "CC1",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R4",
+  "id": "0c85f1ef0359ef1f",
+  "x": 62.99210000000001,
+  "y": -2283.4646,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "CC2_SNS",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "CC2",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R5",
+  "id": "a9f08427fbc84088",
+  "x": -78.7402,
+  "y": -1023.6220000000001,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "BQ_ISET",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R6",
+  "id": "b8d486283b5b25cf",
+  "x": -212.5984,
+  "y": -1023.6220000000001,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "BQ_ILIM",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R7",
+  "id": "6417ba242415a448",
+  "x": 55.1181,
+  "y": -1023.6220000000001,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "BQ_TMR",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R8",
+  "id": "21cb8a71f4d7e964",
+  "x": 102.3622,
+  "y": -1968.5039000000002,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "CHG_LED_A",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "VSYS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R9",
+  "id": "12def601d1fc2577",
+  "x": 55.1181,
+  "y": -1165.3543,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "CHG_SNS",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R10",
+  "id": "e2bfc9738b1d320e",
+  "x": 188.9764,
+  "y": -952.7558999999999,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "BQ_EN2",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "CHG_FAST",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R11",
+  "id": "fa8f15eeded5f9d6",
+  "x": 259.8425,
+  "y": -952.7558999999999,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "CHG_FAST",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R12",
+  "id": "bddf2102fe253edc",
+  "x": 94.4882,
+  "y": -1251.9685,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "BQ_EN1",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "VSYS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R13",
+  "id": "96d669f4db7ab243",
+  "x": -645.6693,
+  "y": -2590.5512,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "Q1_G",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R14",
+  "id": "b5cfd6b224121da3",
+  "x": 629.9213,
+  "y": -425.1969,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "PWR_NG",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "VSYS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R15",
+  "id": "635397f7b82d3be0",
+  "x": 1031.4961,
+  "y": 937.0079,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "PWR_BTN_N",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "VSYS",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R16",
+  "id": "ef3e6df952602ea6",
+  "x": 1031.4961,
+  "y": 858.2677,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "PWR_BTN_SNS",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R17",
+  "id": "08021a7c75401244",
+  "x": 803.1496,
+  "y": -677.1654,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "PWR_EN",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R18",
+  "id": "7e1cfd3b351eae73",
+  "x": 629.9213,
+  "y": -677.1654,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "PWR_HOLD",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R19",
+  "id": "00bb55d9b00c19d3",
+  "x": 692.9134,
+  "y": -1078.7402,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "BB_FB",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R22",
+  "id": "643fa470c9ba050b",
+  "x": 1220.4724,
+  "y": -2527.5591,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "ESP_EN",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R23",
+  "id": "bb993d7f961fbb53",
+  "x": 1047.2441,
+  "y": 598.4252,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "BTN_A",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R24",
+  "id": "3fac2e91f804ffdb",
+  "x": 1047.2441,
+  "y": 125.9843,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "BTN_B",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R25",
+  "id": "cbdd00a2cbfb3bae",
+  "x": -732.2835,
+  "y": -31.4961,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "HV_BASE",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_DRV",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R26",
+  "id": "88210e760c9dd505",
+  "x": -645.6693,
+  "y": -102.3622,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_BASE",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R27",
+  "id": "86612b94fe9ddd26",
+  "x": -377.9528,
+  "y": -110.2362,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_PWM",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R28",
+  "id": "dc6c085d090f005b",
+  "x": -39.3701,
+  "y": 511.81100000000004,
+  "rot": 180,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "HV_REF",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_REF_PWM",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R30",
+  "id": "5fc1dec8682ccb80",
+  "x": -157.4803,
+  "y": 1220.4724,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "HV_D1",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "HV_OUT",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R31",
+  "id": "89bad5b55d69e489",
+  "x": -157.4803,
+  "y": 1023.6220000000001,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "HV_D2",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "HV_D1",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R32",
+  "id": "70ee7fb760700079",
+  "x": -157.4803,
+  "y": 826.7717,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "HV_FB",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "HV_D2",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R33",
+  "id": "78fadd74e12daf99",
+  "x": -259.8425,
+  "y": 661.4173,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_FB",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R34",
+  "id": "0f5074de0865e077",
+  "x": -118.1102,
+  "y": 661.4173,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "HV_FB_ADC",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_FB",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R35",
+  "id": "57a3efbb25bbcc8f",
+  "x": -661.4173,
+  "y": 1275.5906,
+  "rot": 180,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "GM1_AM",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "HV_OUT",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R36",
+  "id": "ccc4b21c6689e702",
+  "x": -881.8898,
+  "y": 1275.5906,
+  "rot": 180,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "GM1_ANODE",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "GM1_AM",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R37",
+  "id": "bda3fd9d66e09571",
+  "x": -960.6299,
+  "y": -1062.9921,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "GM1_K",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R38",
+  "id": "9fc4c7f10489b913",
+  "x": -960.6299,
+  "y": -1149.6063,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GM1_B",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "GM1_K",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R39",
+  "id": "b7a95a4866b89bc3",
+  "x": -614.1732,
+  "y": -1047.2441,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GM1_C",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R40",
+  "id": "80c6b7551b5a49ad",
+  "x": -661.4173,
+  "y": 1023.6220000000001,
+  "rot": 180,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "GM2_AM",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "HV_OUT",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R41",
+  "id": "71e77540ae5b720b",
+  "x": -881.8898,
+  "y": 1023.6220000000001,
+  "rot": 180,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "GM2_ANODE",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "GM2_AM",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R42",
+  "id": "73cf0bd8b71b96a8",
+  "x": -960.6299,
+  "y": -511.81100000000004,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "GM2_K",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R43",
+  "id": "936e4af28b97ff8d",
+  "x": -960.6299,
+  "y": -598.4252,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GM2_B",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "GM2_K",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R44",
+  "id": "36eaa08ef62a4567",
+  "x": -614.1732,
+  "y": -496.063,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GM2_C",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R45",
+  "id": "f98a5442cdf41558",
+  "x": 716.5354,
+  "y": -1637.7953,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "SPI_SCK_D",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "SPI_SCK",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R46",
+  "id": "197bf0a2f39f74db",
+  "x": 881.8898,
+  "y": -1637.7953,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "SPI_MOSI_D",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "SPI_MOSI",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R47",
+  "id": "2105e25e6690315a",
+  "x": -196.8504,
+  "y": -1370.0787,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "TOUCH_INT",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R48",
+  "id": "18b9f060a0e924ed",
+  "x": 748.0315,
+  "y": -1370.0787,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "SD_CD",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R49",
+  "id": "8048f59c1947cc75",
+  "x": 267.7165,
+  "y": -1874.0157,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "I2C_SDA",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R50",
+  "id": "4e4d37f1181ff85e",
+  "x": 338.5827,
+  "y": -1874.0157,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "I2C_SCL",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R51",
+  "id": "fefb03a873ce77fb",
+  "x": 330.7087,
+  "y": 259.8425,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "RTC_VB",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "VBAT_P",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R52",
+  "id": "09d58dc6eee47773",
+  "x": 472.4409,
+  "y": 133.8583,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "RTC_INT",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R53",
+  "id": "280e7be241c1f339",
+  "x": -157.4803,
+  "y": -1708.6614,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "BZ_G",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "BUZZER",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R54",
+  "id": "96acf941d7128af0",
+  "x": -39.3701,
+  "y": -1708.6614,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "BZ_G",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R55",
+  "id": "931fa896701304fe",
+  "x": 1007.874,
+  "y": -1181.1024,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "MOT_G",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "VIBRATE",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R56",
+  "id": "1315678b04551f5e",
+  "x": 1007.874,
+  "y": -1259.8425,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "MOT_G",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R57",
+  "id": "968357f070e08b65",
+  "x": -314.9606,
+  "y": -1866.1417000000001,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "LED_DIN",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "LED_DATA",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "SW1",
+  "id": "86470886fa8ecbad",
+  "x": 1220.4724,
+  "y": 1102.3622,
+  "rot": 90,
+  "layer": 1,
+  "fp": "KEY-SMD_SKRTLAE010",
+  "pads": [
+   {
+    "primitiveId": "e18",
+    "net": "",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e19",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e20",
+    "net": "PWR_BTN_N",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e21",
+    "net": "",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e22",
+    "net": "",
+    "padNumber": "5"
+   }
+  ]
+ },
+ {
+  "des": "SW2",
+  "id": "be1e330f1d311f59",
+  "x": 1220.4724,
+  "y": 551.1811,
+  "rot": 90,
+  "layer": 1,
+  "fp": "KEY-SMD_SKRTLAE010",
+  "pads": [
+   {
+    "primitiveId": "e18",
+    "net": "",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e19",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e20",
+    "net": "BTN_A",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e21",
+    "net": "",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e22",
+    "net": "",
+    "padNumber": "5"
+   }
+  ]
+ },
+ {
+  "des": "SW3",
+  "id": "4ca4695396602d93",
+  "x": 1220.4724,
+  "y": 78.7402,
+  "rot": 90,
+  "layer": 1,
+  "fp": "KEY-SMD_SKRTLAE010",
+  "pads": [
+   {
+    "primitiveId": "e18",
+    "net": "",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e19",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e20",
+    "net": "BTN_B",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e21",
+    "net": "",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e22",
+    "net": "",
+    "padNumber": "5"
+   }
+  ]
+ },
+ {
+  "des": "U1",
+  "id": "bab68fb8744d84cb",
+  "x": 767.7165,
+  "y": -2090.5512,
+  "rot": 180,
+  "layer": 1,
+  "fp": "WIRELM-SMD_ESP32-S3-WROOM-1",
+  "pads": [
+   {
+    "primitiveId": "e54",
+    "net": "GND",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e55",
+    "net": "3V3",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e56",
+    "net": "ESP_EN",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e57",
+    "net": "GM1_OUT",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e58",
+    "net": "GM2_OUT",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e59",
+    "net": "HV_PWM",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "e60",
+    "net": "HV_REF_PWM",
+    "padNumber": "7"
+   },
+   {
+    "primitiveId": "e61",
+    "net": "PWR_HOLD",
+    "padNumber": "8"
+   },
+   {
+    "primitiveId": "e62",
+    "net": "PWR_BTN_SNS",
+    "padNumber": "9"
+   },
+   {
+    "primitiveId": "e63",
+    "net": "TFT_BL",
+    "padNumber": "10"
+   },
+   {
+    "primitiveId": "e64",
+    "net": "CHG_FAST",
+    "padNumber": "11"
+   },
+   {
+    "primitiveId": "e65",
+    "net": "BUZZER",
+    "padNumber": "12"
+   },
+   {
+    "primitiveId": "e66",
+    "net": "USB_DN",
+    "padNumber": "13"
+   },
+   {
+    "primitiveId": "e67",
+    "net": "USB_DP",
+    "padNumber": "14"
+   },
+   {
+    "primitiveId": "e68",
+    "net": "CC2_SNS",
+    "padNumber": "15"
+   },
+   {
+    "primitiveId": "e69",
+    "net": "",
+    "padNumber": "16"
+   },
+   {
+    "primitiveId": "e70",
+    "net": "VIBRATE",
+    "padNumber": "17"
+   },
+   {
+    "primitiveId": "e71",
+    "net": "TFT_CS",
+    "padNumber": "18"
+   },
+   {
+    "primitiveId": "e72",
+    "net": "SPI_MOSI",
+    "padNumber": "19"
+   },
+   {
+    "primitiveId": "e73",
+    "net": "SPI_SCK",
+    "padNumber": "20"
+   },
+   {
+    "primitiveId": "e74",
+    "net": "SPI_MISO",
+    "padNumber": "21"
+   },
+   {
+    "primitiveId": "e75",
+    "net": "TFT_DC",
+    "padNumber": "22"
+   },
+   {
+    "primitiveId": "e76",
+    "net": "RTC_INT",
+    "padNumber": "23"
+   },
+   {
+    "primitiveId": "e77",
+    "net": "LED_DATA",
+    "padNumber": "24"
+   },
+   {
+    "primitiveId": "e78",
+    "net": "IMU_INT",
+    "padNumber": "25"
+   },
+   {
+    "primitiveId": "e79",
+    "net": "",
+    "padNumber": "26"
+   },
+   {
+    "primitiveId": "e80",
+    "net": "BTN_A",
+    "padNumber": "27"
+   },
+   {
+    "primitiveId": "e81",
+    "net": "CHG_SNS",
+    "padNumber": "28"
+   },
+   {
+    "primitiveId": "e82",
+    "net": "I2C_SDA",
+    "padNumber": "29"
+   },
+   {
+    "primitiveId": "e83",
+    "net": "I2C_SCL",
+    "padNumber": "30"
+   },
+   {
+    "primitiveId": "e84",
+    "net": "TOUCH_INT",
+    "padNumber": "31"
+   },
+   {
+    "primitiveId": "e85",
+    "net": "SD_CS",
+    "padNumber": "32"
+   },
+   {
+    "primitiveId": "e86",
+    "net": "SD_CD",
+    "padNumber": "33"
+   },
+   {
+    "primitiveId": "e87",
+    "net": "TFT_RST",
+    "padNumber": "34"
+   },
+   {
+    "primitiveId": "e88",
+    "net": "BTN_B",
+    "padNumber": "35"
+   },
+   {
+    "primitiveId": "e89",
+    "net": "",
+    "padNumber": "36"
+   },
+   {
+    "primitiveId": "e90",
+    "net": "",
+    "padNumber": "37"
+   },
+   {
+    "primitiveId": "e91",
+    "net": "CC1_SNS",
+    "padNumber": "38"
+   },
+   {
+    "primitiveId": "e92",
+    "net": "HV_FB_ADC",
+    "padNumber": "39"
+   },
+   {
+    "primitiveId": "e93",
+    "net": "GND",
+    "padNumber": "40"
+   },
+   {
+    "primitiveId": "e94",
+    "net": "GND",
+    "padNumber": "41"
+   },
+   {
+    "primitiveId": "e95",
+    "net": "GND",
+    "padNumber": "41"
+   },
+   {
+    "primitiveId": "e96",
+    "net": "GND",
+    "padNumber": "41"
+   },
+   {
+    "primitiveId": "e97",
+    "net": "GND",
+    "padNumber": "41"
+   },
+   {
+    "primitiveId": "e98",
+    "net": "GND",
+    "padNumber": "41"
+   },
+   {
+    "primitiveId": "e99",
+    "net": "GND",
+    "padNumber": "41"
+   },
+   {
+    "primitiveId": "e100",
+    "net": "GND",
+    "padNumber": "41"
+   },
+   {
+    "primitiveId": "e101",
+    "net": "GND",
+    "padNumber": "41"
+   },
+   {
+    "primitiveId": "e102",
+    "net": "GND",
+    "padNumber": "41"
+   }
+  ]
+ },
+ {
+  "des": "U12",
+  "id": "68a0d73d6ae7327f",
+  "x": -196.8504,
+  "y": -2307.0866,
+  "rot": 90,
+  "layer": 1,
+  "fp": "SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BL",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "USB_DN",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e9",
+    "net": "USB_DP",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e10",
+    "net": "USB_DP",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "VBUS",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "USB_DN",
+    "padNumber": "6"
+   }
+  ]
+ },
+ {
+  "des": "U2",
+  "id": "e15d1673854d1aa2",
+  "x": -78.7402,
+  "y": -866.1417,
+  "rot": 0,
+  "layer": 1,
+  "fp": "QFN-16_L3.0-W3.0-P0.50-TL-EP1.7",
+  "pads": [
+   {
+    "primitiveId": "e30",
+    "net": "BQ_TS",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e31",
+    "net": "VBAT_P",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e32",
+    "net": "VBAT_P",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e33",
+    "net": "GND",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e34",
+    "net": "BQ_EN2",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e35",
+    "net": "BQ_EN1",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "e36",
+    "net": "PWR_NG",
+    "padNumber": "7"
+   },
+   {
+    "primitiveId": "e37",
+    "net": "GND",
+    "padNumber": "8"
+   },
+   {
+    "primitiveId": "e38",
+    "net": "CHG_N",
+    "padNumber": "9"
+   },
+   {
+    "primitiveId": "e39",
+    "net": "VSYS",
+    "padNumber": "10"
+   },
+   {
+    "primitiveId": "e40",
+    "net": "VSYS",
+    "padNumber": "11"
+   },
+   {
+    "primitiveId": "e41",
+    "net": "BQ_ILIM",
+    "padNumber": "12"
+   },
+   {
+    "primitiveId": "e42",
+    "net": "VBUS",
+    "padNumber": "13"
+   },
+   {
+    "primitiveId": "e43",
+    "net": "BQ_TMR",
+    "padNumber": "14"
+   },
+   {
+    "primitiveId": "e44",
+    "net": "GND",
+    "padNumber": "15"
+   },
+   {
+    "primitiveId": "e45",
+    "net": "BQ_ISET",
+    "padNumber": "16"
+   },
+   {
+    "primitiveId": "e46",
+    "net": "GND",
+    "padNumber": "17"
+   }
+  ]
+ },
+ {
+  "des": "U3",
+  "id": "71f3efeacbc3c8d4",
+  "x": 629.9213,
+  "y": -944.8819000000001,
+  "rot": 90,
+  "layer": 1,
+  "fp": "VSON-10_L3.0-W2.0-P0.50-TL",
+  "pads": [
+   {
+    "primitiveId": "e13",
+    "net": "VSYS",
+    "padNumber": "10"
+   },
+   {
+    "primitiveId": "e14",
+    "net": "BB_L1",
+    "padNumber": "9"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "8"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "BB_L2",
+    "padNumber": "7"
+   },
+   {
+    "primitiveId": "e17",
+    "net": "3V3",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "e18",
+    "net": "ESP_EN",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e19",
+    "net": "BB_FB",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e20",
+    "net": "GND",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e21",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e22",
+    "net": "PWR_EN",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "U4",
+  "id": "ddf5d5e62b9d6c2c",
+  "x": 157.4803,
+  "y": -236.2205,
+  "rot": 0,
+  "layer": 1,
+  "fp": "TDFN-8_L2.0-W2.0-P0.50-BL-EP1.2",
+  "pads": [
+   {
+    "primitiveId": "ie12",
+    "net": "GND",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "ie13",
+    "net": "VBAT_P",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "ie14",
+    "net": "VBAT_P",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "ie15",
+    "net": "GND",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "ie16",
+    "net": "BAT_ALRT",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "ie17",
+    "net": "GND",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "ie18",
+    "net": "I2C_SCL",
+    "padNumber": "7"
+   },
+   {
+    "primitiveId": "ie19",
+    "net": "I2C_SDA",
+    "padNumber": "8"
+   },
+   {
+    "primitiveId": "ie20",
+    "net": "GND",
+    "padNumber": "9"
+   }
+  ]
+ },
+ {
+  "des": "U5",
+  "id": "f82d0c7fbf1235a1",
+  "x": -1133.8583,
+  "y": -2078.7402,
+  "rot": 90,
+  "layer": 1,
+  "fp": "LGA-8_BME280_BL",
+  "pads": [
+   {
+    "primitiveId": "e45",
+    "net": "I2C_SCL",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e46",
+    "net": "I2C_SDA",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e47",
+    "net": "3V3",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e48",
+    "net": "GND",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e49",
+    "net": "3V3",
+    "padNumber": "8"
+   },
+   {
+    "primitiveId": "e50",
+    "net": "GND",
+    "padNumber": "7"
+   },
+   {
+    "primitiveId": "e51",
+    "net": "3V3",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "e52",
+    "net": "GND",
+    "padNumber": "5"
+   }
+  ]
+ },
+ {
+  "des": "U6",
+  "id": "b5e3d57767b67820",
+  "x": 472.4409,
+  "y": 236.2205,
+  "rot": 0,
+  "layer": 1,
+  "fp": "DFN-8_L3.2-W1.5-P0.9-BL",
+  "pads": [
+   {
+    "primitiveId": "e12",
+    "net": "RTC_VB",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e13",
+    "net": "I2C_SDA",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e14",
+    "net": "RTC_INT",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "GND",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "GND",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e17",
+    "net": "3V3",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "e18",
+    "net": "",
+    "padNumber": "7"
+   },
+   {
+    "primitiveId": "e19",
+    "net": "I2C_SCL",
+    "padNumber": "8"
+   }
+  ]
+ },
+ {
+  "des": "U7",
+  "id": "8a472a50c912aa9e",
+  "x": 472.4409,
+  "y": 551.1811,
+  "rot": 0,
+  "layer": 1,
+  "fp": "LGA-12_L2.0-W2.0-P0.50-BL",
+  "pads": [
+   {
+    "primitiveId": "e16",
+    "net": "IMU_INT",
+    "padNumber": "12"
+   },
+   {
+    "primitiveId": "e17",
+    "net": "",
+    "padNumber": "11"
+   },
+   {
+    "primitiveId": "e18",
+    "net": "3V3",
+    "padNumber": "10"
+   },
+   {
+    "primitiveId": "e19",
+    "net": "3V3",
+    "padNumber": "9"
+   },
+   {
+    "primitiveId": "e20",
+    "net": "GND",
+    "padNumber": "8"
+   },
+   {
+    "primitiveId": "e21",
+    "net": "GND",
+    "padNumber": "7"
+   },
+   {
+    "primitiveId": "e22",
+    "net": "GND",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "e23",
+    "net": "GND",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e24",
+    "net": "I2C_SDA",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e25",
+    "net": "3V3",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e26",
+    "net": "3V3",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e27",
+    "net": "I2C_SCL",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "U8",
+  "id": "873486320e90a167",
+  "x": -1086.6142,
+  "y": -1818.8976,
+  "rot": 0,
+  "layer": 1,
+  "fp": "USON6_L2.1-W2.1-P0.65-BL-EP",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "I2C_SCL",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e13",
+    "net": "GND",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e14",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "3V3",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "I2C_SDA",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "e17",
+    "net": "GND",
+    "padNumber": "7"
+   }
+  ]
+ },
+ {
+  "des": "U9",
+  "id": "bd6dd766afc1ff9c",
+  "x": -157.4803,
+  "y": 488.18899999999996,
+  "rot": 0,
+  "layer": 1,
+  "fp": "TSOT-23-5_L2.9-W1.6-P0.95-LS2.8-BL",
+  "pads": [
+   {
+    "primitiveId": "e17",
+    "net": "HV_COMP",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e18",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e19",
+    "net": "HV_REF",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e20",
+    "net": "HV_FB",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e21",
+    "net": "3V3",
+    "padNumber": "5"
+   }
+  ]
+ },
+ {
+  "des": "U10",
+  "id": "ec3c46e7b16049d4",
+  "x": -511.81100000000004,
+  "y": -78.7402,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR",
+  "pads": [
+   {
+    "primitiveId": "e14",
+    "net": "3V3",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e15",
+    "net": "HV_DRV",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e16",
+    "net": "GND",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e17",
+    "net": "HV_COMP",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e18",
+    "net": "HV_PWM",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "U11",
+  "id": "778506db68b53333",
+  "x": -472.4409,
+  "y": -803.1496,
+  "rot": 0,
+  "layer": 1,
+  "fp": "SOT-363_L2.1-W1.3-P0.65-LS2.2-BL",
+  "pads": [
+   {
+    "primitiveId": "e4",
+    "net": "GM1_OUT",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "e5",
+    "net": "3V3",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e6",
+    "net": "GM2_OUT",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e7",
+    "net": "GM2_C",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e9",
+    "net": "GM1_C",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "BZ1",
+  "id": "242310045492fbb0",
+  "x": -669.2913,
+  "y": -1968.5039000000002,
+  "rot": 0,
+  "layer": 1,
+  "fp": "BUZ-SMD_4P-L8.5-W8.5-P8.50-TL",
+  "pads": [
+   {
+    "primitiveId": "e10",
+    "net": "3V3",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e11",
+    "net": "BZ_DRV",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e13",
+    "net": "",
+    "padNumber": "4"
+   }
+  ]
+ },
+ {
+  "des": "C26",
+  "id": "3045d34d48e9d6db",
+  "x": -417.3228,
+  "y": 850.3936999999999,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C1812",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_OUT",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "C27",
+  "id": "8b8f0044344b8a57",
+  "x": -417.3228,
+  "y": 692.9134,
+  "rot": 0,
+  "layer": 1,
+  "fp": "C1812",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_OUT",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R21",
+  "id": "3e61dee4512c2a83",
+  "x": -1204.7244,
+  "y": -141.7323,
+  "rot": 90,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "HV_VIN",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "3V3",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "J3",
+  "id": "3b66e5fb750107f4",
+  "x": 0,
+  "y": 1500,
+  "rot": 0,
+  "layer": 1,
+  "fp": "HDR-TH_20P-P2.54-V-F-2",
+  "pads": [
+   {
+    "primitiveId": "e27",
+    "net": "GND",
+    "padNumber": "1"
+   },
+   {
+    "primitiveId": "e28",
+    "net": "3V3",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e29",
+    "net": "",
+    "padNumber": "3"
+   },
+   {
+    "primitiveId": "e30",
+    "net": "",
+    "padNumber": "4"
+   },
+   {
+    "primitiveId": "e31",
+    "net": "",
+    "padNumber": "5"
+   },
+   {
+    "primitiveId": "e32",
+    "net": "",
+    "padNumber": "6"
+   },
+   {
+    "primitiveId": "e33",
+    "net": "",
+    "padNumber": "7"
+   },
+   {
+    "primitiveId": "e34",
+    "net": "",
+    "padNumber": "8"
+   },
+   {
+    "primitiveId": "e35",
+    "net": "",
+    "padNumber": "9"
+   },
+   {
+    "primitiveId": "e36",
+    "net": "",
+    "padNumber": "10"
+   },
+   {
+    "primitiveId": "e37",
+    "net": "",
+    "padNumber": "11"
+   },
+   {
+    "primitiveId": "e38",
+    "net": "GND",
+    "padNumber": "12"
+   },
+   {
+    "primitiveId": "e39",
+    "net": "",
+    "padNumber": "13"
+   },
+   {
+    "primitiveId": "e40",
+    "net": "",
+    "padNumber": "14"
+   },
+   {
+    "primitiveId": "e41",
+    "net": "",
+    "padNumber": "15"
+   },
+   {
+    "primitiveId": "e42",
+    "net": "",
+    "padNumber": "16"
+   },
+   {
+    "primitiveId": "e43",
+    "net": "",
+    "padNumber": "17"
+   },
+   {
+    "primitiveId": "e44",
+    "net": "",
+    "padNumber": "18"
+   },
+   {
+    "primitiveId": "e45",
+    "net": "",
+    "padNumber": "19"
+   },
+   {
+    "primitiveId": "e46",
+    "net": "",
+    "padNumber": "20"
+   }
+  ]
+ },
+ {
+  "des": "R20",
+  "id": "452db71fe4834439",
+  "x": 566.9291,
+  "y": -1078.7402,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "BB_FB",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R29",
+  "id": "dbb760bd2f8f8341",
+  "x": -39.3701,
+  "y": 448.8189,
+  "rot": 0,
+  "layer": 1,
+  "fp": "R0603",
+  "pads": [
+   {
+    "primitiveId": "e7",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e8",
+    "net": "HV_REF",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R58",
+  "id": "36ddc4f6803510db",
+  "x": 23.622,
+  "y": 1220.4724,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "HV_B1",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "HV_OUT",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R59",
+  "id": "ab791962dded9855",
+  "x": 23.622,
+  "y": 1023.6220000000001,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "HV_B2",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "HV_B1",
+    "padNumber": "1"
+   }
+  ]
+ },
+ {
+  "des": "R60",
+  "id": "af674644fff718dc",
+  "x": 23.622,
+  "y": 826.7717,
+  "rot": -90.00000000000001,
+  "layer": 1,
+  "fp": "R1206",
+  "pads": [
+   {
+    "primitiveId": "e11",
+    "net": "GND",
+    "padNumber": "2"
+   },
+   {
+    "primitiveId": "e12",
+    "net": "HV_B2",
+    "padNumber": "1"
+   }
+  ]
+ }
+]
