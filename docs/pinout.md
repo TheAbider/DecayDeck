@@ -1,97 +1,119 @@
-# DecayDeck — Pinout Reference
+# DecayDeck v4 — Pinout Reference
 
-Generated from the EasyEDA Pro board source and `firmware/include/pins.h`. Every row below was cross-checked against the actual board netlist.
+Generated from `hardware/v4/design.py`, the netlist source of truth. The PCB matches it pin for pin
+(`verify_pcb.py`), and so does the schematic (`sch_check.py`).
 
-## ESP32-S3-WROOM-1-N4 GPIO Assignments
+## ESP32-S3-WROOM-1-N16R2 GPIO map
 
-| GPIO | Module pin | Function | Net Name | Direction |
-|---|---|---|---|---|
-| 0 | 27 | Boot select | BOOT | Input (strap) |
-| 1 | 39 | I²C data | I2C_SDA | Bidir |
-| 2 | 38 | I²C clock | I2C_SCL | Output |
-| 3 | 15 | Touch interrupt | TOUCH_INT | Input |
-| 4 | 4 | GM tube 1 pulse (STS-5) | GM_INT1 | Input (ISR) |
-| 5 | 5 | GM tube 2 pulse (SI-3BG) | GM_INT2 | Input (ISR) |
-| 6 | 6 | HV boost enable | HV_EN | Output |
-| 7 | 7 | HV voltage sense | HV_SENSE | ADC Input |
-| 8 | 12 | Buzzer driver | BUZZER | Output |
-| 9 | 17 | Vibration motor | VIBRATE | Output |
-| 10 | 18 | TFT chip select | TFT_CS | Output |
-| 11 | 19 | TFT data/command | TFT_DC | Output |
-| 12 | 20 | TFT reset | TFT_RST | Output |
-| 13 | 21 | TFT backlight | TFT_BL | PWM Output |
-| 14 | 22 | SPI MOSI | SPI_MOSI | Output |
-| 15 | 8 | SPI clock | SPI_SCK | Output |
-| 16 | 9 | SPI MISO | SPI_MISO | Input |
-| 17 | 10 | SD card CS | SD_CS | Output |
-| 18 | 11 | Battery alert | BAT_ALRT | Input |
-| 19 | 13 | USB D− | USB_DN | Fixed (USB PHY) |
-| 20 | 14 | USB D+ | USB_DP | Fixed (USB PHY) |
-| 21 | 23 | WS2812 LED data | LED_DATA | Output |
-| 36 | 29 | TP4056 charging status | CHRG_STAT | Input |
-| 37 | 30 | TP4056 standby status | STDBY_STAT | Input |
-| 38 | 31 | SD card detect | SD_CD | Input (pullup) |
-| 47 | 24 | Button 1 | BTN1 | Input (pullup) |
-| 48 | 25 | Button 2 | BTN2 | Input (pullup) |
+16 MB flash and 2 MB quad PSRAM. On this variant IO35-IO37 are free; the octal-PSRAM R8 variants use them.
+The module pin number is in brackets.
 
-**Strapping pins used:** GPIO0 (boot select, pulled high via R7 10 kΩ), GPIO3 (TOUCH_INT, JTAG_SEL — acceptable because FT6206 IRQ is open-drain and idles high).
-
-**Available / unused GPIOs on the ESP32-S3-WROOM-1-N4 module:** GPIO35, GPIO39, GPIO40, GPIO41, GPIO42, GPIO45, GPIO46, plus UART0 pins GPIO43 (TX) and GPIO44 (RX).
-
-**Not available on the module (internal flash SPI — do not use):** GPIO26, GPIO27, GPIO28, GPIO29, GPIO30, GPIO31, GPIO32.
-
-## Display (Adafruit 2090)
-
-J4 is the bottom header (active signals). J3 is the top header (mechanical support only — pins 1 and 12 are GND, all others NC).
-
-| J4 Pin | Signal | Connection |
+| GPIO | Net | Function |
 |---|---|---|
-| 1 | GND | Ground |
-| 2 | Vin | VIN_SW (battery through switch) |
-| 3 | 3Vo | NC (display's internal 3.3 V not used) |
-| 4 | CLK | SPI_SCK (GPIO15) |
-| 5 | MISO | SPI_MISO (GPIO16) |
-| 6 | MOSI | SPI_MOSI (GPIO14) |
-| 7 | CS | TFT_CS (GPIO10) |
-| 8 | D/C | TFT_DC (GPIO11) |
-| 9 | RST | TFT_RST (GPIO12) |
-| 10 | Lite | TFT_BL (GPIO13) |
-| 11 | GND | Ground |
-| 12 | IRQ | TOUCH_INT (GPIO3) |
-| 13 | SDA | I2C_SDA (GPIO1) |
-| 14 | SCL | I2C_SCL (GPIO2) |
-| 15–18 | IM0–3 | NC on host. **Close jumpers IM1 / IM2 / IM3 on the back of the Adafruit 2090 to select SPI mode** — the shield ships in 8-bit parallel mode and the firmware drives SPI. |
-| 19 | CCS | SD_CS (GPIO17) |
-| 20 | CD | SD_CD (GPIO38) |
+| IO0 [27] | BTN_A | Button A, and BOOT when held at power-up (SW2) |
+| IO1 [39] | HV_FB_ADC | HV feedback, ADC1_0 (HV_OUT / 301) |
+| IO2 [38] | CC1_SNS | USB-C CC1 level, ADC1_1 (source current rating) |
+| IO3 [15] | CC2_SNS | USB-C CC2 level, ADC1_2 |
+| IO4 [4] | GM1_OUT | STS-5 pulses (to PCNT) |
+| IO5 [5] | GM2_OUT | SI-3BG pulses (to PCNT) |
+| IO6 [6] | HV_PWM | HV boost drive (gated in hardware by the comparator) |
+| IO7 [7] | HV_REF_PWM | HV set point (PWM through an RC filter) |
+| IO8 [12] | BUZZER | Buzzer MOSFET |
+| IO9 [17] | VIBRATE | Vibration motor MOSFET |
+| IO10 [18] | TFT_CS | Display chip select |
+| IO11 [19] | SPI_MOSI | SPI MOSI (33 Ω series) |
+| IO12 [20] | SPI_SCK | SPI clock (33 Ω series) |
+| IO13 [21] | SPI_MISO | SPI MISO |
+| IO14 [22] | TFT_DC | Display data / command |
+| IO15 [8] | PWR_HOLD | Soft-power latch. Firmware sets it high first thing at boot |
+| IO16 [9] | PWR_BTN_SNS | POWER button sense (low = pressed) |
+| IO17 [10] | TFT_BL | Display backlight (PWM) |
+| IO18 [11] | CHG_FAST | Charger input limit: 0 = USB 500 mA, 1 = 1.24 A |
+| IO19 [13] | USB D− | Native USB |
+| IO20 [14] | USB D+ | Native USB |
+| IO21 [23] | RTC_INT | RV-3032 interrupt |
+| IO35 [28] | CHG_SNS | Charging (low = charging) |
+| IO36 [29] | I2C_SDA | I²C data |
+| IO37 [30] | I2C_SCL | I²C clock |
+| IO38 [31] | TOUCH_INT | Touch controller interrupt |
+| IO39 [32] | SD_CS | microSD chip select |
+| IO40 [33] | SD_CD | microSD card detect |
+| IO41 [34] | TFT_RST | Display reset |
+| IO42 [35] | BTN_B | Button B (SW3) |
+| IO47 [24] | LED_DATA | WS2812B RGB LED |
+| IO48 [25] | IMU_INT | Accelerometer interrupt |
+| EN [3] | ESP_EN | Released by the TPS63802 power-good |
 
-## External Connectors
+The following pins are left open:
+- IO45 and IO46, which are strapping pins.
+- IO43 and IO44 (UART0). Flashing and the console run over USB (USB-Serial-JTAG).
 
-| Connector | Pin 1 | Pin 2 | Notes |
+All analog inputs are on ADC1, so they keep working with WiFi on.
+
+## I²C bus (3.3 V, 4.7 kΩ pull-ups)
+
+| Address | Device |
+|---|---|
+| 0x19 | LIS2DH12 accelerometer (SA0 high) |
+| 0x36 | MAX17048 fuel gauge |
+| 0x38 | FT6206 touch controller (on the display) |
+| 0x44 | OPT3001 ambient light (ADDR to GND) |
+| 0x51 | RV-3032-C7 real-time clock |
+| 0x76 | BME280 temperature / humidity / pressure (SDO to GND) |
+
+## Display: Adafruit 2090 on J4 and J3
+
+The 2090 plugs in face up on two 1×20 female headers, 8.5 mm tall, at its two short edges. Nylon M2.5 × 11 mm
+standoffs go at its four corner holes. In the table, the 2090 net is Adafruit's net name in their board file, and
+the SPI role is the ILI9341's pin function in 4-wire serial mode (IM = 1110).
+
+| J4 pin | 2090 net | SPI role | Our net |
 |---|---|---|---|
-| J1 (USB-C) | See USB-C pinout | — | Full 14-pad Type-C: VBUS, GND, CC1, CC2, D+, D−, shield. Supports charging AND native USB programming. |
-| J2 (JST-PH 2.0) | VBAT (+) | GND (−) | Single-cell LiPo. Planned: 105070 3500 mAh. |
-| J5 (STS-5 header) | Anode (HV via R17A + R17B series, 9.4 MΩ) | Cathode sense (R18 + C18) | 2-pin 2.54 mm. Two 4.7 MΩ 0805 in series — each sees ~200 V across, well inside the 0805 working-voltage rating. |
-| J6 (SI-3BG header) | Anode (HV via R22A + R22B series, 1.02 MΩ) | Cathode sense (R23 + C19) | 2-pin 2.54 mm. Two 510 kΩ 0805 in series — each sees ~200 V across. |
-| J7 (Motor header) | Q6 collector (−) | VIN_SW (+) | 2-pin 2.54 mm. 1030 coin motor, flyback diode D5 on board. |
+| 1 | GND | | GND |
+| 2 | +5V (Vin) | supply | 3V3 |
+| 3 | VCC (3Vo) | regulator output | DISP_3VO |
+| 4 | LCD_RS_5V | SPI clock | SPI_SCK_D |
+| 5 | SDO | MISO | SPI_MISO |
+| 6 | SDI_5V | MOSI | SPI_MOSI_D |
+| 7 | LCD_CS_5V | chip select | TFT_CS |
+| 8 | LCD_WR_5V | data / command | TFT_DC |
+| 9 | LCD_RST_5V | reset | TFT_RST |
+| 10 | LCD_LITE | backlight | TFT_BL |
+| 11 | GND | | GND |
+| 12 | CTP_IRQ | touch interrupt | TOUCH_INT |
+| 13 | SDA_5V | touch I²C | I2C_SDA |
+| 14 | SCL_5V | touch I²C | I2C_SCL |
+| 15, 16, 17 | IM3, IM2, IM1 | mode select, tied high | DISP_3VO (so no solder jumpers on the 2090) |
+| 18 | IM0 | mode select, low | open (pulled down on the 2090) |
+| 19 | SD_CS_5V | microSD select | SD_CS |
+| 20 | CARDDET | card detect | SD_CD |
 
-## I²C Bus Devices
+J3 carries GND (pins 1 and 12) and Vin (pin 2) and holds the display's other edge. Its other pins are the 2090's
+parallel bus and stay unconnected.
 
-All on shared bus (GPIO1/GPIO2), 4.7 kΩ pullups to 3V3 (R8, R9).
+## Off-board connections
 
-| Address | Device | Function |
+| Pads | Net | Connects to |
 |---|---|---|
-| 0x36 | MAX17048 (U5) | Battery fuel gauge (SOC, alert) |
-| 0x38 | FT6206 (on Adafruit 2090) | Capacitive touch controller |
-| 0x76 | BME280 (U6) | Temperature / humidity / pressure |
+| J2 pin 1 (silkscreen +) | BAT_RAW | LiPo + (red). Adafruit and SparkFun plugs fit as they come |
+| J2 pin 2 (silkscreen −) | GND | LiPo − (black) |
+| J5 (STS-5 +) | GM1_ANODE | STS-5 anode, through 9.4 MΩ |
+| J6 (STS-5 −) | GM1_K | STS-5 cathode (sensed) |
+| J7 (SI-3BG +) | GM2_ANODE | SI-3BG anode, through 4.4 MΩ |
+| J8 (SI-3BG −) | GM2_K | SI-3BG cathode (sensed) |
+| J9 (M+) | 3V3 | Vibration motor + |
+| J10 (M−) | MOT_DRV | Vibration motor − (MOSFET low side) |
+| J1 | USB-C | 5 V in (5.1 kΩ Rd), USB 2.0 full-speed data |
 
-No address conflicts.
+The tube anodes carry about 400 V. Use silicone wire rated 600 V or more for J5 and J7.
 
-## Power Domains
+## Buttons and indicators
 
-| Net | Source | Consumers | Voltage range |
-|---|---|---|---|
-| USB_5V | J1 VBUS | U3 (TP4056), U2 (USBLC6), C1 | 4.75–5.25 V |
-| VBAT | J2 battery or TP4056 BAT pin | U5 (MAX17048), SW1 | 3.0–4.2 V |
-| VIN_SW | SW1 output | U4 (LDO in), J4 pin 2, U7 (555) + C21 bypass, BZ1, J7 (motor), D5 cathode | 3.0–4.2 V |
-| 3V3 | U4 (LDO out) | U1 (ESP32-S3), U6 (BME280), LED3 (WS2812), all pullups, I²C pulls | 3.3 V |
-| HV_OUT | U7 boost stage | R15A (divider), C16, R17A, R22A | ~400 V DC |
+| Part | Where | Function |
+|---|---|---|
+| SW1 | Right edge, top | POWER: hold about 1 s to turn on. Firmware turns off on a long press |
+| SW2 | Right edge, middle | A, and BOOT when held at power-up |
+| SW3 | Right edge, bottom | B |
+| LED1 | Chin, below the display | WS2812B RGB status LED |
+| LED2 | Chin, below the display | Red charge LED (on while charging) |
+| BZ1 | Chin | Magnetic buzzer (count clicks, alarms) |

@@ -126,6 +126,16 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
 8. `pours.py create` makes Inner1 GND, Inner2 3V3, outer GND, and the inner keepout under the anode chains. `rebuild_pours.py` fills them. The API can't fill pours it created, so the script sends the editor its own Shift+B. If the editor's copper worker has hung, the script saves the PCB, reopens the tab and retries. `fills.py` reads the poured copper back as geometry, and `connectivity.py --pours` checks every net against that real copper instead of assuming the planes join everything.
 9. `drc.py` runs DRC; `fix_drc1.py` and `fix_drc2.py` hold the fixes it led to. `export_fab.py` writes the Gerber zip, BOM and CPL into `fab/<date>/`.
 10. `fix_review.py check|apply` holds the pre-order review's two fixes (below). It edits PCB pad nets directly, so after it, `fetch_footprints.py` must be re-run before `connectivity.py` (which reads pad nets from `footprints.json`).
+11. `sch_pretty.py check|push` redraws the schematic page for people.
+    - Each block is drawn as code: an IC with its support parts wired round it, power and ground symbols, and net
+      labels between blocks. The blocks are framed and titled and packed onto the A1 sheet, clear of the title block.
+    - `check` rebuilds the connectivity from the drawing and compares it with `design.py` pin for pin. It rejects
+      any overlap between symbols, wires, labels, part names, values and notes, and it places each part's name and
+      value in the first clear spot.
+    - `push` moves the existing parts and never re-creates them, so the PCB's link to the schematic holds. It reads
+      every pin position back before drawing anything.
+    - `sch_check.py` then exports the netlist from EasyEDA and checks it against `design.py`.
+    - `sch_export.py pdf` exports the sheet.
 
 ## Status (2026-10-25)
 
@@ -135,6 +145,7 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
 - v4 architecture and parts, all stock-checked at JLC.
 - Netlist spec, plus an independent review with all three findings fixed.
 - Schematic: 149 parts, matches the spec. PCB: 149 parts, pin-for-pin match.
+- Schematic redrawn for people (2026-10-25), on an A1 sheet inside the frame (`sch_pretty.py`, below).
 - Placement verified to 0.003 mm; 0 overlap / HV / keepout problems.
 - Display fit and height clearance proven.
 - Board, rules, plane fanout (142 vias), HV copper (hand-routed), low-voltage routing (autorouter).
