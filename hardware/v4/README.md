@@ -128,6 +128,10 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
 7. `hv_route.py push` lays the HV copper. `route.py rest` autoroutes everything else on Top + Bottom. `connectivity.py` checks every net is joined; it doesn't trust the router's own report.
 8. `pours.py create` makes Inner1 GND, Inner2 3V3, outer GND, and the inner keepout under the anode chains. `rebuild_pours.py` fills them. The API can't fill pours it created, so the script sends the editor its own Shift+B. If the editor's copper worker has hung, the script saves the PCB, reopens the tab and retries. `fills.py` reads the poured copper back as geometry, and `connectivity.py --pours` checks every net against that real copper instead of assuming the planes join everything.
 9. `drc.py` runs DRC; `fix_drc1.py` and `fix_drc2.py` hold the fixes it led to. `export_fab.py` writes the Gerber zip, BOM and CPL into `fab/<date>/`.
+   `gerber_check.py` then checks the zip on its own: it draws the copper from the Gerbers, joins the layers through
+   the drill files, and confirms that every net of the flying-probe netlist inside the zip is one piece of copper with
+   no shorts, and that this netlist matches `design.py` pin for pin. `--open`, `--short` and `--no-vias` damage the
+   copper on purpose, to prove the check fails when it should.
 10. `fix_review.py check|apply` holds the pre-order review's two fixes (below). It edits PCB pad nets directly, so after it, `fetch_footprints.py` must be re-run before `connectivity.py` (which reads pad nets from `footprints.json`).
 11. `sch_pretty.py check|push` redraws the schematic page for people.
     - Each block is drawn as code: an IC with its support parts wired round it, power and ground symbols, and net
@@ -154,7 +158,7 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
 12. `sim/` simulates the HV supply and the tube pulse chain in ngspice, from a netlist generated out of `design.py`
     (see [`sim/README.md`](sim/README.md)).
 
-## Status (2026-10-25)
+## Status (2026-10-26)
 
 **Done**
 
@@ -213,6 +217,23 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
   - Drill: 247 vias of 0.3 mm. Plated holes: 4 USB-C shell slots (0.8 x 1.2 / 1.5 mm), 40 header holes of 1.02 mm, 6 of 1.6 mm. Unplated: 4 mounting holes of 2.7 mm, 6 button bosses, 2 USB-C pegs. No stray hole under the U2 thermal pad or the USB-C pins.
   - BOM: 65 lines, 143 parts, every line with an LCSC number. J5-J10 are wire pads, so they're left out.
   - CPL: 149 rows, all on top.
+- **Second pre-order check (2026-10-26).** All clean; nothing on the board changed.
+  - Parts: JLC's own record for each of the 65 LCSC numbers names the BOM's manufacturer part and package
+    (`stock_check.py` now checks the part number too). U1 really is the N16R2, whose quad PSRAM leaves IO35-37 free
+    for CHG_SNS and I²C (the R8 modules take them).
+  - Ratings: L2 saturates at 400 mA against an HV pulse peak near 135 mA. Every HV resistor is a 200 V part carrying
+    at most about 180 V, even at the clamp. C24/C25 are 1 kV and C26/C27 2 kV.
+  - TPS63802, against TI's datasheet: R20 is under TI's 100 kΩ limit for the low-side resistor, L1 is the inductor TI
+    uses, and PG is open-drain pulled up to 3V3.
+  - BQ24075: every programming resistor is in range, and EN1/EN2 are both driven (TI: never leave them open). The
+    safety timer slows with the charge current, so a slow USB500 charge doesn't time out.
+  - ESP32-S3, against Espressif's datasheets: every strapping pin is at its default (GPIO0 has the BOOT pull-up), and
+    each used pin's power-up glitch is harmless; HV can't run while HV_REF is 0.
+  - `gerber_check.py`: no opens and no shorts over all 1013 probe pins and 297 plated holes, and the zip's netlist
+    matches `design.py` on all 438 pins. The probe file calls PWR_BTN_SNS "NET_3", because the export renames net
+    names over 10 characters; it's the same three pins.
+  - The BOM, CPL and `design.py` agree: 143 parts, 149 placements, all on top. Every polarity label is next to its own
+    pad. NTC1 is 21 mm from the charger, too far for the charger's heat to pause charging.
 
 **Next**
 
@@ -229,7 +250,10 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
 - Bring-up: Alps says don't clean the switches with solvent. If the HV area gets an IPA wash to clear flux (the
   100 MΩ divider is leakage-sensitive), keep it away from SW1-3.
 - Case design: the tube sizes are in from the passports (above); measure the real tubes before printing. Tube bay on the left, display window, 3.0 mm holes for the LED1/LED2/OPT3001 light pipes, a vent by the BME280, a buzzer port, button caps, the USB-C cutout, the battery bay behind the board (Adafruit #328), and plastic only near the antenna. TI says a light pipe narrows the OPT3001's view: fine for screen auto-brightness (relative light), not for calibrated lux.
-- Firmware rewrite: LVGL UI, PCNT counting, HV control, web UI.
+- Firmware rewrite: LVGL UI, PCNT counting, HV control, web UI. Build for 16 MB flash and 2 MB quad PSRAM, and keep
+  USB on the chip's Serial/JTAG (Arduino *USB Mode: Hardware CDC and JTAG*; v3 used TinyUSB). v4 has no reset
+  button, and the Serial/JTAG block can reset the chip into the bootloader by itself, unless the firmware disables it
+  or puts the chip to sleep.
 - Case input: the USB-C front face stands 1.27 mm proud of the bottom board edge (HRO drawing: front face 2.60 mm
   ahead of the front shell legs), and the button actuators reach the right edge.
 
@@ -237,6 +261,9 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
 
 Upload `fab/2026-10-25/DecayDeck_v4_Gerber.zip`, switch on PCB Assembly, then upload the BOM and CPL from the same
 folder. JLC renames its options from time to time, so match these by intent.
+
+Right before paying, run `python stock_check.py` (stock, and each LCSC number still the BOM's part) and
+`python gerber_check.py` (the zip's copper against its own netlist and `design.py`). Both must end with exit code 0.
 
 **PCB**
 
