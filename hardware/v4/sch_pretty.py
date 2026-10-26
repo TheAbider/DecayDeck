@@ -11,11 +11,16 @@ reads clean.
 
 usage: python sch_pretty.py check [preview.png]   -> validate and draw a preview
        python sch_pretty.py push                   -> validate, then rebuild the schematic page in EasyEDA
-After a push, `python sch_check.py` re-exports the netlist from EasyEDA and checks it against design.py.
+       python sch_pretty.py freeze                 -> pin every block where EasyEDA has it (sch_layout.json)
+       python sch_pretty.py attrs                  -> re-place only text: names, values, symbol names, labels
+       python sch_pretty.py labels                 -> re-place only the net labels
+After a push, `python sch_check.py` re-exports the netlist from EasyEDA and checks it against design.py, and
+`python sch_lint.py --api` reads the real geometry back (sch_geometry.json), which the text placement then uses.
 """
 import csv
 import io
 import json
+import re
 import sys
 
 from check_spec import resolved_nets
@@ -592,8 +597,65 @@ def _abox(px, py, al, w):
     return (x0, y0, x0 + w, y0 + TH)
 
 
+def _geometry():
+    """The last real geometry EasyEDA reported (sch_lint.py --api): symbol boxes as drawn, flag / label / note text
+    boxes, and the real attribute font size. A part's box is only used while the part still sits where it was."""
+    try:
+        d = json.load(open("sch_geometry.json", encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    g = {"body": {}, "fixed": [], "flags": {}, "cw": None, "th": None}
+    for ref, kind, box, x, y, rot, mir in d["bodies"]:
+        if box and kind == "part":
+            g["body"][ref] = (tuple(box), (x, y, rot, mir))
+        elif box:
+            g["fixed"].append((f"{kind} at {round(x)},{round(y)}", "symbol", tuple(box)))
+            g["flags"][(round(x, 2), round(y, 2))] = tuple(box)
+    widths, heights = [], []
+    for name, kind, box in d["texts"]:
+        if not box:
+            continue
+        ref, key = (name.split(" ", 1) + [""])[:2]
+        if kind == "part":
+            s = ref if key == "Designator" else VALUES.get(ref, "") if key == "Name" else ""
+            if s and box[2] - box[0] >= box[3] - box[1]:          # horizontal text only
+                widths.append((box[2] - box[0]) / len(s))
+                heights.append(box[3] - box[1])
+        else:
+            g["fixed"].append((name, kind, tuple(box)))
+    if widths:
+        widths.sort()
+        heights.sort()
+        g["cw"] = widths[int(len(widths) * 0.9)] + 0.3     # 90th percentile per character, plus a hair
+        g["th"] = heights[int(len(heights) * 0.9)] + 0.5
+    return g
+
+
+GEO = _geometry()
+
+
+def real_body(S, ref):
+    """The symbol's real box (pins included) if EasyEDA reported it at this position, else the estimate."""
+    if GEO and ref in GEO["body"]:
+        box, at = GEO["body"][ref]
+        x, y, rot, mir = S.parts[ref]
+        if (round(at[0], 2), round(at[1], 2), round(at[2]) % 360, bool(at[3])) == (round(x, 2), round(y, 2), round(rot) % 360, bool(mir)):
+            return box
+    return part_body(S, ref)
+
+
+def text_w(s):
+    return (GEO["cw"] if GEO and GEO["cw"] else CW) * len(s)
+
+
+def text_h():
+    return GEO["th"] if GEO and GEO["th"] else TH
+
+
 def attr_candidates(S, ref):
     """Designator / value placements to try, best first: list of ((x, y, align), (x, y, align))."""
+    if GEO and ref in GEO["body"] and real_body(S, ref) is GEO["body"][ref][0]:
+        return _real_candidates(S, ref)
     x, y = S.parts[ref][:2]
     b = part_body(S, ref)
     ax = is_axial(S, ref)
@@ -620,24 +682,149 @@ def attr_candidates(S, ref):
             ((x0 - 4, y - 8, 7), (x0 - 4, y - 8 - TH, 7))]              # left, lower
 
 
+def _real_candidates(S, ref):
+    """Candidates just outside the symbol's real box (2 units clear), best first."""
+    x0, y0, x1, y1 = real_body(S, ref)
+    cx, cy, g, h = (x0 + x1) / 2, (y0 + y1) / 2, 2, text_h()
+    ax = is_axial(S, ref)
+    if ax == "h":
+        return [((cx, y1 + g, 6), (cx, y0 - g, 4)), ((cx, y1 + g + h, 6), (cx, y1 + g, 6)),
+                ((cx, y0 - g, 4), (cx, y0 - g - h, 4)),
+                ((x1 + g, y1 + g, 3), (x1 + g, y1 + g + h, 3)), ((x0 - g, y1 + g + h, 9), (x0 - g, y1 + g, 9)),
+                ((x1 + g, y0 - g, 1), (x1 + g, y0 - g - h, 1)), ((x0 - g, y0 - g, 7), (x0 - g, y0 - g - h, 7))]
+    if ax == "v":
+        return [((x1 + g, cy + 1, 3), (x1 + g, cy - 1, 1)), ((x0 - g, cy + 1, 9), (x0 - g, cy - 1, 7)),
+                ((x1 + g, cy + 1 + h, 3), (x1 + g, cy + 1, 3)), ((x0 - g, cy - 1, 7), (x0 - g, cy - 1 - h, 7)),
+                ((x1 + g, y1, 3), (x1 + g, y1 - h - 2, 3)), ((x0 - g, y1, 9), (x0 - g, y1 - h - 2, 9)),
+                ((x1 + g, y0 + h + 2, 3), (x1 + g, y0, 3)), ((x0 - g, y0 + h + 2, 9), (x0 - g, y0, 9)),
+                ((x1 + g, cy, 2), (x0 - g, cy, 8)), ((x0 - g, cy, 8), (x1 + g, cy, 2)),
+                ((cx, y1 + g, 6), (cx, y0 - g, 4))]
+    return [((x0, y1 + g, 3), (x0, y0 - g, 1)), ((x0, y1 + g + h, 3), (x0, y1 + g, 3)),
+            ((x0, y0 - g, 1), (x0, y0 - g - h, 1)), ((x1 + g, cy + 1, 3), (x1 + g, cy - 1, 1)),
+            ((x0 - g, cy + 1, 9), (x0 - g, cy - 1, 7)), ((x1 + g, y1 + g, 3), (x1 + g, y1 + g + h, 3)),
+            ((x0 - g, y0 - g, 7), (x0 - g, y0 - g - h, 7)), ((x1 + g, y0 - g, 1), (x1 + g, y0 - g - h, 1)),
+            ((x0 - g, y1 + g + h, 9), (x0 - g, y1 + g, 9)), ((x1, y1 + g, 9), (x1, y0 - g, 7)),
+            ((x1 + g, y1, 3), (x1 + g, y1 - h - 2, 3)), ((x0 - g, y1, 9), (x0 - g, y1 - h - 2, 9))]
+
+
+def _tbox(px, py, al, w):
+    """Text box for an anchor and alignment, at the real text height."""
+    h = text_h()
+    x0 = px - w / 2 if al in (4, 5, 6) else (px - w if al in (7, 8, 9) else px)
+    y0 = py - h if al in (1, 4, 7) else (py - h / 2 if al in (2, 5, 8) else py)
+    return (x0, y0, x0 + w, y0 + h)
+
+
 def attr_layout(S, ref):
     """Designator and value text: {"des"|"val": (x, y, align, box)}."""
-    wd, wv = CW * len(ref), CW * len(VALUES.get(ref, ""))
+    wd, wv = text_w(ref), text_w(VALUES.get(ref, ""))
     d, v = S.attr.get(ref) or attr_candidates(S, ref)[0]
-    return {"des": (*d, _abox(*d, wd)), "val": (*v, _abox(*v, wv))}
+    return {"des": (*d, _tbox(*d, wd)), "val": (*v, _tbox(*v, wv))}
+
+
+def flag_body(f):
+    """A net symbol's real box, if EasyEDA reported one at this spot."""
+    return GEO["flags"].get((round(f[2], 2), round(f[3], 2))) if GEO else None
+
+
+def flag_text_candidates(f, fb):
+    """Spots for a power symbol's name, best first, kept horizontal: beyond the symbol, then beside it."""
+    kind, net, x, y, rot, d = f
+    x0, y0, x1, y1 = fb
+    cx, cy, g = (x0 + x1) / 2, (y0 + y1) / 2, 2
+    above, below = (cx, y1 + g, 6), (cx, y0 - g, 4)
+    right, left = (x1 + g, cy, 2), (x0 - g, cy, 8)
+    return {"U": [above, right, left], "D": [below, right, left], "R": [right, above, below],
+            "L": [left, above, below]}[d]
+
+
+def place_flag_texts(S):
+    """Ground symbols lose their 'GND' text (the symbol says it); each power symbol's name gets a clear spot."""
+    S.flag_text = {}
+    if not GEO:
+        return
+    boxes = [(r, "body", real_body(S, r)) for r in S.parts] + [b for b in GEO["fixed"] if b[1] != "netflag"]
+    segs = [(a, b) for _, a, b, _ in S.segs]
+    placed = []
+    for f in S.flags:
+        fb = flag_body(f)
+        key = (round(f[2], 2), round(f[3], 2))
+        if f[0] == "Ground":
+            S.flag_text[key] = None          # hide
+            continue
+        if fb is None:
+            continue                         # not measured yet: leave EasyEDA's own placement
+        w = text_w(f[1])
+        cands = flag_text_candidates(f, fb)
+        pick = cands[0]
+        for c in cands:
+            bx = _tbox(*c, w)
+            if not (any(boxes_hit(bx, ob) for _, _, ob in boxes) or any(boxes_hit(bx, ob) for ob in placed)
+                    or any(_seg_box(a, b, bx) for a, b in segs)):
+                pick = c
+                break
+        S.flag_text[key] = pick
+        placed.append(_tbox(*pick, w))
+
+
+def flag_text_items(S):
+    """[x, y, None (hide) | [x, y, align]] for each net symbol whose name has a decision."""
+    out = []
+    for f in S.flags:
+        key = (round(f[2], 2), round(f[3], 2))
+        if key in getattr(S, "flag_text", {}):
+            t = S.flag_text[key]
+            out.append([f[2], f[3], list(t) if t else None])
+    return out
+
+
+def flag_text_boxes(S):
+    out = []
+    for f in S.flags:
+        t = getattr(S, "flag_text", {}).get((round(f[2], 2), round(f[3], 2)))
+        if t:
+            out.append((f"{f[1]} symbol", "flag name", _tbox(*t, text_w(f[1]))))
+    return out
+
+
+def attr_obstacles(S):
+    """Everything a part's name or value must stay clear of: every symbol (its own too), the net symbols and their
+    text, net labels, notes, block frames' edges and wires. Real geometry where EasyEDA has reported it."""
+    boxes = [(r, "body", real_body(S, r)) for r in S.parts]
+    if GEO:
+        boxes += [b for b in GEO["fixed"] if b[1] != "netflag"] + flag_text_boxes(S)
+    else:
+        boxes += [b for b in all_boxes(S, attrs=False) if b[1] != "body"]
+    segs = [(a, b) for _, a, b, _ in S.segs]
+    for x0, y0, x1, y1 in S.rects:
+        c = [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]
+        segs += [(c[i], c[(i + 1) % 4]) for i in range(4)]
+    return boxes, segs
+
+
+def _seg_box(a, b, box):
+    """Axis-aligned segment against a box interior (touching an edge is fine)."""
+    x0, y0, x1, y1 = box
+    if a[0] == b[0]:
+        return x0 < a[0] < x1 and max(min(a[1], b[1]), y0) < min(max(a[1], b[1]), y1)
+    if a[1] == b[1]:
+        return y0 < a[1] < y1 and max(min(a[0], b[0]), x0) < min(max(a[0], b[0]), x1)
+    return False
 
 
 def place_attrs(S):
     """Give every part's name and value the first candidate spot that touches nothing else."""
     S.attr = {}
-    fixed = [b for b in all_boxes(S, attrs=False)]
+    boxes, segs = attr_obstacles(S)
 
     def free(ref, placed):
-        wd, wv = CW * len(ref), CW * len(VALUES.get(ref, ""))
+        wd, wv = text_w(ref), text_w(VALUES.get(ref, ""))
         out = []
         for d, v in attr_candidates(S, ref):
-            bd, bv = _abox(*d, wd), _abox(*v, wv)
-            hit = any(boxes_hit(bx, ob) for bx in (bd, bv) for o, k, ob in fixed if not (o == ref and k == "body"))                 or any(boxes_hit(bx, ob) for bx in (bd, bv) for ob in placed)                 or any(seg_hits_box(a, b, bx) for bx in (bd, bv) for _, a, b, _ in S.segs)
+            bd, bv = _tbox(*d, wd), _tbox(*v, wv)
+            hit = boxes_hit(bd, bv) or any(boxes_hit(bx, ob) for bx in (bd, bv) for _, _, ob in boxes) \
+                or any(boxes_hit(bx, ob) for bx in (bd, bv) for ob in placed) \
+                or any(_seg_box(a, b, bx) for bx in (bd, bv) for a, b in segs)
             if not hit:
                 out.append((d, v, bd, bv))
         return out
@@ -650,10 +837,34 @@ def place_attrs(S):
             d, v, bd, bv = ok[0]
         else:
             d, v = attr_candidates(S, ref)[0]
-            wd, wv = CW * len(ref), CW * len(VALUES.get(ref, ""))
-            bd, bv = _abox(*d, wd), _abox(*v, wv)
+            bd, bv = _tbox(*d, text_w(ref)), _tbox(*v, text_w(VALUES.get(ref, "")))
         S.attr[ref] = (d, v)
         placed += [bd, bv]
+
+
+def attr_errors(S):
+    """Names and values against everything else, using the real geometry where known."""
+    boxes, segs = attr_obstacles(S)
+    boxes = [b for b in boxes if b[1] != "flag name"]      # power symbol names are checked as text below
+    errs, mine = [], []
+    for ref in S.parts:
+        for key, (px, py, al, box) in attr_layout(S, ref).items():
+            mine.append((ref, key, box))
+    mine += flag_text_boxes(S)
+    for i, (ref, key, box) in enumerate(mine):
+        for owner, kind, ob in boxes:
+            if boxes_hit(box, ob):
+                errs.append(f"{ref} {key} on {owner} {kind}")
+        for a, b in segs:
+            if _seg_box(a, b, box):
+                errs.append(f"{ref} {key} crossed by a line {a}-{b}")
+                break
+        for ref2, key2, box2 in mine[i + 1:]:
+            if boxes_hit(box, box2):
+                errs.append(f"{ref} {key} on {ref2} {key2}")
+        if not (INNER[0] <= box[0] and INNER[1] <= box[1] and box[2] <= INNER[2] and box[3] <= INNER[3]):
+            errs.append(f"{ref} {key} outside the frame")
+    return errs
 
 
 def flag_box(kind, net, x, y, rot, d):
@@ -783,8 +994,9 @@ def check(S, full=True):
         missing = sorted(set(PARTS) - set(S.parts))
         if missing:
             errs.append(f"not placed: {missing}")
-    # reads clean: nothing overlaps, no wire runs through a symbol, label, name or note
-    boxes = all_boxes(S)
+    # reads clean: nothing overlaps, no wire runs through a symbol, label, name or note. With EasyEDA's real geometry
+    # on hand, names / values / power-symbol names are checked against it (attr_errors) instead of the estimates.
+    boxes = all_boxes(S, attrs=not GEO)
     for i in range(len(boxes)):
         for j in range(i + 1, len(boxes)):
             if boxes[i][0] == boxes[j][0]:
@@ -798,6 +1010,8 @@ def check(S, full=True):
         for owner, kind, box in boxes:
             if seg_hits_box(a, b, box):
                 errs.append(f"{net} wire {a}-{b} crosses {owner} {kind}")
+    if GEO:
+        errs += attr_errors(S)
     return errs
 
 
@@ -811,7 +1025,51 @@ def bbox(S):
     return min(b[0] for b in bs), min(b[1] for b in bs), max(b[2] for b in bs), max(b[3] for b in bs)
 
 
+LAYOUT = "sch_layout.json"   # each block's offset and frame as pushed: re-placing text never moves a block
+
+
+def freeze_from_geometry():
+    """Record where every block sits in EasyEDA now (from sch_geometry.json), so later builds keep it there."""
+    d = json.load(open("sch_geometry.json", encoding="utf-8"))
+    at = {b[0]: (b[3], b[4]) for b in d["bodies"] if b[1] == "part"}
+    rects = [(r[0] + 0.5, r[1] + 0.5, r[2] - 0.5, r[3] - 0.5) for r in d["rects"] if r]
+    out = {}
+    for name, fn in BLOCKS.items():
+        S = Sheet()
+        fn(S)
+        offs = {(round(at[r][0] - p[0], 3), round(at[r][1] - p[1], 3)) for r, p in S.parts.items()}
+        assert len(offs) == 1, (name, offs)
+        dx, dy = offs.pop()
+        S.shift(dx, dy)
+        rect = [r for r in rects if all(r[0] <= p[0] <= r[2] and r[1] <= p[1] <= r[3] for p in S.parts.values())]
+        assert len(rect) == 1, (name, rect)
+        out[name] = [dx, dy, [round(v) for v in rect[0]]]
+    json.dump(out, open(LAYOUT, "w", encoding="utf-8"), indent=1)
+    return out
+
+
 def build(only=None):
+    try:
+        frozen = None if only else json.load(open(LAYOUT, encoding="utf-8"))
+    except (OSError, ValueError):
+        frozen = None
+    if frozen:
+        master, report = Sheet(), []
+        for row in ROWS:
+            for name in row:
+                S = Sheet()
+                title, notes = BLOCKS[name](S)
+                dx, dy, (fx0, fy0, fx1, fy1) = frozen[name]
+                S.shift(dx, dy)
+                S.rects.append([fx0, fy0, fx1, fy1])
+                S.text(fx0 + 10, fy1 - 20, title, 12, True)
+                for i, n in enumerate(notes):
+                    S.text(fx0 + 10, fy1 - 34 - 13 * i, n, 8)
+                master.merge(S)
+                report.append((name, fx1 - fx0, fy1 - fy0, fx0, fy0))
+        place_flag_texts(master)
+        place_attrs(master)
+        return master, report
     blocks = []                        # per row: [(name, Sheet, title, notes, w, h, x0, y1)]
     for row in ROWS:
         rb = []
@@ -920,7 +1178,8 @@ return out;
 """
 IDS_JS = r"""
 const out = {};
-for (const c of await eda.sch_PrimitiveComponent.getAll('part')) out[c.getState_Designator()] = c.getState_PrimitiveId();
+for (const c of await eda.sch_PrimitiveComponent.getAll('part'))
+  out[c.getState_Designator()] = [c.getState_PrimitiveId(), c.getState_X(), c.getState_Y(), c.getState_Rotation(), !!c.getState_Mirror()];
 return out;
 """
 MOVE_JS = r"""
@@ -940,20 +1199,90 @@ return out;
 """
 WIRES_JS = r"""
 let n = 0;
-for (const [net, line, lab, lx, ly, al] of __ITEMS__) {
-  const w = await eda.sch_PrimitiveWire.create(line, net);
-  if (!w) continue;
-  n++;
-  const at = (await eda.sch_PrimitiveAttribute.getAll(w.getState_PrimitiveId())).find(a => a.getState_Key() === 'Name');
-  if (at) await eda.sch_PrimitiveAttribute.modify(at.getState_PrimitiveId(),
-    lab ? { valueVisible: true, x: lx, y: ly, alignMode: al, rotation: 0 } : { valueVisible: false });
+const fails = [];
+for (const [net, lines] of __ITEMS__) {
+  let ok = false;
+  try { ok = !!(await eda.sch_PrimitiveWire.create(lines, net)); } catch (e) { }
+  if (!ok) {
+    ok = true;
+    for (const l of lines) {
+      for (let i = 0; i + 3 < l.length; i += 2) {
+        let w = null;
+        try { w = await eda.sch_PrimitiveWire.create([l[i], l[i + 1], l[i + 2], l[i + 3]], net); } catch (e) { fails.push([net, l.slice(i, i + 4), String(e)]); }
+        if (!w) ok = false;
+      }
+    }
+  }
+  if (ok) n++;
 }
-return n;
+return { islands: n, fails };
+"""
+# Attribute positions (part names / values, net labels) are written with y negated: sch_PrimitiveAttribute.modify
+# takes y downwards, unlike every other schematic call. Writing +y put each label mirrored below the sheet.
+# create() merges same-net polylines into one wire, and every merged piece brings its own visible Name attribute.
+# So after all wires exist, sweep every wire: show exactly the labels the layout asks for, hide every other Name.
+LABELS_JS = r"""
+const hit = (l, i, x, y) => Math.min(l[i], l[i + 2]) - 0.01 <= x && x <= Math.max(l[i], l[i + 2]) + 0.01 &&
+  Math.min(l[i + 1], l[i + 3]) - 0.01 <= y && y <= Math.max(l[i + 1], l[i + 3]) + 0.01;
+const on = (line, x, y) => {
+  if (!Array.isArray(line[0])) {                        // read back flat: [x1, y1, x2, y2] per segment
+    for (let i = 0; i + 3 < line.length; i += 4) if (hit(line, i, x, y)) return true;
+    return false;
+  }
+  for (const l of line) for (let i = 0; i + 3 < l.length; i += 2) if (hit(l, i, x, y)) return true;
+  return false;
+};
+const labels = __ITEMS__, used = new Set(), out = { shown: 0, hidden: 0, created: 0 };
+let wires = [];
+for (let t = 0; t < 20 && !wires.length; t++) {         // right after a big create the list can come back empty
+  wires = await eda.sch_PrimitiveWire.getAll();
+  if (!wires.length) await new Promise(r => setTimeout(r, 1000));
+}
+out.wires = wires.length;
+job.total = wires.length;
+for (const w of wires) {
+  const net = w.getState_Net(), line = w.getState_Line(), mine = [];
+  labels.forEach((L, i) => { if (!used.has(i) && L[0] === net && on(line, L[1], L[2])) { used.add(i); mine.push(L); } });
+  const names = (await eda.sch_PrimitiveAttribute.getAll(w.getState_PrimitiveId())).filter(a => a.getState_Key() === 'Name');
+  for (let i = 0; i < names.length; i++) {
+    const L = mine[i], id = names[i].getState_PrimitiveId();
+    if (L) { await eda.sch_PrimitiveAttribute.modify(id, { valueVisible: true, x: L[3], y: -L[4], alignMode: L[5], rotation: 0 }); out.shown += 1; }
+    else if (names[i].getState_ValueVisible() !== false) { await eda.sch_PrimitiveAttribute.modify(id, { valueVisible: false }); out.hidden += 1; }
+  }
+  for (const L of mine.slice(names.length)) {
+    const a = await eda.sch_PrimitiveAttribute.createNetLabel(L[1], L[2], net);
+    if (a) { await eda.sch_PrimitiveAttribute.modify(a.getState_PrimitiveId(), { x: L[3], y: -L[4], alignMode: L[5], rotation: 0 }); out.created += 1; }
+  }
+  job.n += 1;
+}
+out.unplaced = labels.filter((L, i) => !used.has(i));
+return out;
 """
 FLAGS_JS = r"""
 let n = 0;
 for (const [kind, net, x, y, rot] of __ITEMS__) {
-  if (await eda.sch_PrimitiveComponent.createNetFlag(kind, net, x, y, rot)) n++;
+  // createNetFlag turns the other way from everything else (it reads back as 360 - rot): pass it mirrored
+  if (await eda.sch_PrimitiveComponent.createNetFlag(kind, net, x, y, (360 - rot) % 360)) n++;
+}
+return n;
+"""
+FLAGTEXT_JS = r"""
+let n = 0;
+const want = __ITEMS__;
+const flags = (await eda.sch_PrimitiveComponent.getAll()).filter(c => c.getState_ComponentType() === 'netflag');
+job.total = flags.length;
+for (const c of flags) {
+  const w = want.find(([x, y]) => Math.abs(x - c.getState_X()) < 0.01 && Math.abs(y - c.getState_Y()) < 0.01);
+  if (w) {
+    const t = w[2];
+    for (const a of await eda.sch_PrimitiveAttribute.getAll(c.getState_PrimitiveId())) {
+      if (!a.getState_ValueVisible() && !a.getState_KeyVisible()) continue;
+      if (t === null) await eda.sch_PrimitiveAttribute.modify(a.getState_PrimitiveId(), { valueVisible: false, keyVisible: false });
+      else await eda.sch_PrimitiveAttribute.modify(a.getState_PrimitiveId(), { x: t[0], y: -t[1], alignMode: t[2], rotation: 0 });
+      n += 1;
+    }
+  }
+  job.n += 1;
 }
 return n;
 """
@@ -963,7 +1292,7 @@ for (const [id, d, v] of __ITEMS__) {
   for (const a of await eda.sch_PrimitiveAttribute.getAll(id)) {
     const k = a.getState_Key();
     const t = k === 'Designator' ? d : (k === 'Name' ? v : null);
-    if (t) { await eda.sch_PrimitiveAttribute.modify(a.getState_PrimitiveId(), { x: t[0], y: t[1], alignMode: t[2], rotation: 0 }); n++; }
+    if (t) { await eda.sch_PrimitiveAttribute.modify(a.getState_PrimitiveId(), { x: t[0], y: -t[1], alignMode: t[2], rotation: 0 }); n++; }
   }
 }
 return n;
@@ -1005,21 +1334,80 @@ def _detached(body, what, total=None):
                 raise SystemExit(f"{what} failed: {st['error']}")
             return st.get("result")
         if total:
-            print(f"  {what}: {st.get('n', 0)}/{total}", flush=True)
+            print(f"  {what}: {st.get('n', 0)}/{st.get('total') or total}", flush=True)
 
 
 def _batches(js, items, what, size=None):
-    body = js.replace("let n = 0;", "let n = 0; job.total = __ITEMS__.length;") \
-             .replace("n++;", "n++; job.n = n;").replace("__ITEMS__", json.dumps(items))
+    body = js.replace("let n = 0;", "let n = 0; job.total = __ITEMS__.length;")
+    body = re.sub(r"(?<![\w.])n\+\+;", "n++; job.n = n;", body).replace("__ITEMS__", json.dumps(items))
     return _detached(OPEN + body, what, len(items))
+
+
+def wire_islands(S):
+    """Each net's connected wire pieces as one create() call: [net, polylines, labels]. Polylines break at pins and
+    symbols, so every connection lands on a polyline end; a label is (net, end x, end y, text x, text y, align)."""
+    terms = {S.pin(r, p["num"])[:2] for r in S.parts for p in sym_pins(r)} | {(f[2], f[3]) for f in S.flags}
+    parent = {}
+
+    def find(k):
+        parent.setdefault(k, k)
+        while parent[k] != k:
+            parent[k] = parent[parent[k]]
+            k = parent[k]
+        return k
+
+    for net, a, b, lab in S.segs:
+        parent[find(a)] = find(b)
+    groups = {}
+    for net, a, b, lab in S.segs:
+        groups.setdefault((net, find(a)), []).append((a, b, lab))
+    out = []
+    for (net, _), segs in sorted(groups.items(), key=lambda g: (g[0][0], g[1][0][0])):
+        adj = {}
+        for i, (a, b, _) in enumerate(segs):
+            adj.setdefault(a, []).append(i)
+            adj.setdefault(b, []).append(i)
+        used, lines = set(), []
+
+        def walk(p, i):
+            pts = [p]
+            while True:
+                used.add(i)
+                a, b, _ = segs[i]
+                p = b if a == p else a
+                pts.append(p)
+                nxt = [j for j in adj[p] if j not in used]
+                if len(adj[p]) != 2 or p in terms or not nxt:
+                    return pts
+                i = nxt[0]
+
+        for p in adj:
+            if len(adj[p]) != 2 or p in terms:
+                for i in adj[p]:
+                    if i not in used:
+                        lines.append(walk(p, i))
+        for i in range(len(segs)):
+            if i not in used:
+                lines.append(walk(segs[i][0], i))
+        labels = []
+        for a, b, lab in segs:
+            if lab:
+                assert a[1] == b[1], ("vertical label", net, a, b)
+                right = b[0] > a[0]
+                labels.append([net, b[0], b[1], b[0] + (3 if right else -3), b[1], 2 if right else 8])
+        out.append([net, [[c for pt in pts for c in pt] for pts in lines], labels])
+    return out
 
 
 def push(S):
     """Rebuild the page: clear wires / symbols / texts / frames, move every part, verify its pins, then draw."""
     print("clear:", _detached(OPEN + CLEAR_JS, "clear"))
-    ids = _detached(OPEN + IDS_JS, "ids")
+    have = _detached(OPEN + IDS_JS, "ids")
+    ids = {r: v[0] for r, v in have.items()}
     refs = sorted(S.parts)
-    print("moved:", _batches(MOVE_JS, [[ids[r], *S.parts[r][:3], bool(S.parts[r][3])] for r in refs], "move"))
+    moves = [[ids[r], *S.parts[r][:3], bool(S.parts[r][3])] for r in refs
+             if [round(v, 2) for v in have[r][1:4]] != [round(v, 2) for v in S.parts[r][:3]] or have[r][4] != bool(S.parts[r][3])]
+    print("moved:", _batches(MOVE_JS, moves, "move") if moves else 0)
     bad = []
     got = _detached(OPEN + PINS_JS.replace("__ITEMS__", json.dumps([[r, ids[r]] for r in refs])), "pins")
     for r, pins in got.items():
@@ -1030,16 +1418,11 @@ def push(S):
     if bad:
         raise SystemExit(f"pin positions differ from the layout, nothing drawn: {bad[:10]}")
     print("every pin is where the layout expects it")
-    wires = []
-    for net, a, b, lab in S.segs:
-        if lab:
-            assert a[1] == b[1], ("vertical label", net, a, b)
-            right = b[0] > a[0]
-            wires.append([net, [a[0], a[1], b[0], b[1]], True, b[0] + (3 if right else -3), b[1], 2 if right else 8])
-        else:
-            wires.append([net, [a[0], a[1], b[0], b[1]], False, 0, 0, 0])
-    print("wires:", _batches(WIRES_JS, wires, "wires"))
+    isl = wire_islands(S)
+    print("wires:", _batches(WIRES_JS, [i[:2] for i in isl], "wires"))
+    print("labels:", _batches(LABELS_JS, [L for i in isl for L in i[2]], "labels"))
     print("symbols:", _batches(FLAGS_JS, [f[:5] for f in S.flags], "symbols"))
+    print("symbol names:", _batches(FLAGTEXT_JS, flag_text_items(S), "symbol names"))
     attrs = []
     for r in refs:
         lay = attr_layout(S, r)
@@ -1066,6 +1449,19 @@ def main():
         print("  ", e)
     if sys.argv[1] == "check":
         render(S, sys.argv[2] if len(sys.argv) > 2 else "sch_preview.png")
+    if sys.argv[1] == "freeze":                       # keep every block where EasyEDA has it now
+        print("frozen:", freeze_from_geometry())
+    if sys.argv[1] in ("labels", "attrs"):            # redo only the text placement on the page as drawn
+        if sys.argv[1] == "attrs":
+            if errs:
+                raise SystemExit("not pushed: the text placement must check clean")
+            print("symbol names:", _batches(FLAGTEXT_JS, flag_text_items(S), "symbol names"))
+            ids = {r: v[0] for r, v in _detached(OPEN + IDS_JS, "ids").items()}
+            attrs = [[ids[r], list(attr_layout(S, r)["des"][:3]), list(attr_layout(S, r)["val"][:3])] for r in sorted(S.parts)]
+            print("names/values:", _batches(ATTRS_JS, attrs, "names"))
+        isl = wire_islands(S)
+        print("labels:", _batches(LABELS_JS, [L for i in isl for L in i[2]], "labels"))
+        print("saved:", _detached(OPEN + "return await eda.sch_Document.save();", "save"))
     if sys.argv[1] == "push":
         if errs or only:
             raise SystemExit("not pushed: the layout must check clean, all blocks")

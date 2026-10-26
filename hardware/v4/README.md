@@ -86,7 +86,10 @@ IPC-2221B table 6-1, 301-500 V, uncoated:
 
 - Assert **PWR_HOLD (IO15)** first thing at boot. The power latch only holds once it is high.
 - **RV-3032:** write EEPROM C0h with BSM = 10 (level switching mode). The factory default is 00, switchover disabled. DSM would lock out I²C, because the cell sits above the 3V3 rail. Keep TCM = 00, trickle charger off: the backup pin is the LiPo. Disable CLKOUT.
-- **HV:** set HV_REF first, then start HV_PWM, and ramp up. The hardware ceiling is set by R28/R29. Run at about 400 V. The STS-5 works at 360-440 V (5-10 MΩ load) and the SI-3BG at 380-410 V, so one rail suits both. Keep the PWM on-time short enough that L2's peak current (3.38 V × t_on / 1 mH) stays well under its saturation current.
+- **HV:** set HV_REF first, then start HV_PWM, and ramp up. The hardware ceiling is set by R28/R29 (436 V). Run at about 400 V. The STS-5 works at 360-440 V (5-10 MΩ load) and the SI-3BG at 380-410 V, so one rail suits both. From the simulation ([`sim/results.md`](sim/results.md)):
+  - Drive HV_PWM from LEDC at **2 kHz with 40 µs pulses**: 1.6 mA from 3V3 (1.3 mA with R25 at 150 Ω), 3 V ripple, 4× headroom, L2 peaks at 120 mA (Isat 400 mA). Don't use short fast pulses: 10 kHz / 10 µs takes 6.5 mA, because Q3 turns off slowly and the coil's energy goes into it.
+  - Never set HV_PWM as a plain high output. Held high, Q3 stays on and pulls about 170 mA (it survives; the battery doesn't). A reset or crash leaves the pin to R27, which pulls it low.
+  - Read HV_FB on the ADC and stop HV_PWM above about 450 V. If the comparator ever failed, only the SMAJ440A would limit HV, at about 515 V, which is above both tubes' working range. Q3 still sees only about 260 V there.
 - **Charge-sleep mode:** while USB is present, 3V3 stays on (PGOOD). Hold IO17 (TFT_BL) low and IO18 (CHG_FAST) in deep sleep with GPIO hold.
 - **Display rotation:** the 2090 is mounted with JP2 (the signal header) toward the chin. Pick the ILI9341 rotation so the image's top is the J3 end.
 - There is no UART header. Flashing and console go over USB (USB-Serial-JTAG); hold A/BOOT (SW2, IO0) while plugging in for download mode.
@@ -135,7 +138,14 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
     - `push` moves the existing parts and never re-creates them, so the PCB's link to the schematic holds. It reads
       every pin position back before drawing anything.
     - `sch_check.py` then exports the netlist from EasyEDA and checks it against `design.py`.
-    - `sch_export.py pdf` exports the sheet.
+    - `sch_lint.py --api` reads every symbol's, name's, label's and note's real bounding box back from EasyEDA and
+      reports text outside the frame, text on text, text on a symbol and lines through text. It saves that geometry
+      to `sch_geometry.json`; `sch_pretty.py freeze` then pins every block where it sits (`sch_layout.json`), and
+      `sch_pretty.py attrs` re-places only the text against the real geometry, never moving a part or a wire.
+      `sch_lint.py <pdf>` runs the same checks on an exported PDF.
+    - `sch_export.py pdf` exports the sheet. EasyEDA only renders it while its window is on screen.
+12. `sim/` simulates the HV supply and the tube pulse chain in ngspice, from a netlist generated out of `design.py`
+    (see [`sim/README.md`](sim/README.md)).
 
 ## Status (2026-10-25)
 
@@ -192,16 +202,18 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
 **Next**
 
 - Order at JLC with the settings under *Ordering* below.
-- Bought separately:
-  - A 1S LiPo with a JST-PH plug and a built-in protection circuit, 1000 mAh or more (charge current is 0.81 A).
-    Adafruit or SparkFun cells plug in as they come. With any other brand, check that the red wire sits on the
-    silkscreen + before plugging in.
+- Bought separately (details in [`docs/assembly.md`](../../docs/assembly.md)):
+  - Battery: Adafruit #328, 2500 mAh, 50 × 60 × 7.3 mm, JST-PH in Adafruit's polarity (J2 is laid out for it).
+    Rated for 1.2 A charge against the board's 0.81 A. Nothing under about 1700 mAh: Adafruit's 1200 mAh cell is
+    rated for 500 mA.
+  - Light pipes: VCC LFB063CTP, 3 mm frosted, 15.9 mm (LED1, LED2, OPT3001).
   - A 3 V coin vibration motor (J9/J10).
   - Four nylon M2.5 × 11 mm standoffs and screws for the 2090.
-  - Tube holders.
+- Tube sizes for the case (passports; measure the real ones too): STS-5 110 ± 2.5 mm, body 10-12 mm, end pins
+  about Ø6 mm; SI-3BG 56 ± 5 mm, body Ø10 max, caps Ø6.5 × 7.4 mm.
 - Bring-up: Alps says don't clean the switches with solvent. If the HV area gets an IPA wash to clear flux (the
   100 MΩ divider is leakage-sensitive), keep it away from SW1-3.
-- Case design: needs the tube end-cap measurements. Tube bay on the left, display window, light pipes for LED1/LED2, a window over the OPT3001, a vent by the BME280, a buzzer port, button caps, USB-C cutout, and plastic only near the antenna.
+- Case design: the tube sizes are in from the passports (above); measure the real tubes before printing. Tube bay on the left, display window, 3.0 mm holes for the LED1/LED2/OPT3001 light pipes, a vent by the BME280, a buzzer port, button caps, the USB-C cutout, the battery bay behind the board (Adafruit #328), and plastic only near the antenna. TI says a light pipe narrows the OPT3001's view: fine for screen auto-brightness (relative light), not for calibrated lux.
 - Firmware rewrite: LVGL UI, PCNT counting, HV control, web UI.
 - Case input: the USB-C front face stands 1.27 mm proud of the bottom board edge (HRO drawing: front face 2.60 mm
   ahead of the front shell legs), and the button actuators reach the right edge.
