@@ -217,16 +217,17 @@ def block_usb(S):
         S.chain(("J1", n)).go(15)
     S.wire("GND", (-50, -25), (-50, -35), (-50, -45), (-50, -55), (-50, -70))
     S.chain((-50, -70), "D", "GND").gnd()
-    S.chain(("J1", "A1B12")).go(10)                           # GND bus x 45, VBUS bus x 55
-    S.chain(("J1", "B1A12")).go(10)
-    S.wire("GND", (45, 55), (45, -55), (45, -75))
-    S.chain((45, -75), "D", "GND").gnd()
-    S.chain(("J1", "A4B9")).go(20)
-    S.chain(("J1", "B4A9")).go(20)
-    S.wire("VBUS", (55, -45), (55, 45), (55, 80))
-    S.chain((55, 80), "U", "VBUS").pwr()
+    # GND bus x 60, VBUS bus x 67: clear of the long paired pin numbers (A1B12 ...) drawn past the pin tips
+    S.chain(("J1", "A1B12")).go(25)
+    S.chain(("J1", "B1A12")).go(25)
+    S.wire("GND", (60, 55), (60, -55), (60, -75))
+    S.chain((60, -75), "D", "GND").gnd()
+    S.chain(("J1", "A4B9")).go(32)
+    S.chain(("J1", "B4A9")).go(32)
+    S.wire("VBUS", (67, -45), (67, 45), (67, 80))
+    S.chain((67, 80), "U", "VBUS").pwr()
     for pin, ny, rd, rs, cf in (("A5", 100, "R1", "R3", "C1"), ("B5", -110, "R2", "R4", "C2")):
-        c = S.chain(("J1", pin)).to(x=75).turn("U" if ny > 0 else "D").to(y=ny).turn("R").go(25)
+        c = S.chain(("J1", pin)).to(x=85).turn("U" if ny > 0 else "D").to(y=ny).turn("R").go(15)
         c.fork("D").go(10).part(rd, "1").go(10).gnd()
         n = c.go(10).part(rs, "1").go(10)
         n.fork("D").go(10).part(cf, "1").go(10).gnd()
@@ -682,9 +683,18 @@ def attr_candidates(S, ref):
             ((x0 - 4, y - 8, 7), (x0 - 4, y - 8 - TH, 7))]              # left, lower
 
 
-def _real_candidates(S, ref):
-    """Candidates just outside the symbol's real box (2 units clear), best first."""
+def full_extent(S, ref):
+    """The symbol as drawn: its body plus its own pins and pin numbers / names, which reach beyond the body box."""
     x0, y0, x1, y1 = real_body(S, ref)
+    for owner, kind, b in pin_boxes():
+        if owner == ref:
+            x0, y0, x1, y1 = min(x0, b[0]), min(y0, b[1]), max(x1, b[2]), max(y1, b[3])
+    return x0, y0, x1, y1
+
+
+def _real_candidates(S, ref):
+    """Candidates just outside the symbol as drawn (body, pins, pin numbers), 2 units clear, best first."""
+    x0, y0, x1, y1 = full_extent(S, ref) if is_axial(S, ref) is None else real_body(S, ref)
     cx, cy, g, h = (x0 + x1) / 2, (y0 + y1) / 2, 2, text_h()
     ax = is_axial(S, ref)
     if ax == "h":
@@ -743,7 +753,8 @@ def place_flag_texts(S):
     S.flag_text = {}
     if not GEO:
         return
-    boxes = [(r, "body", real_body(S, r)) for r in S.parts] + [b for b in GEO["fixed"] if b[1] != "netflag"]
+    boxes = [(r, "body", real_body(S, r)) for r in S.parts] + [b for b in GEO["fixed"] if b[1] != "netflag"] \
+        + pin_boxes()
     segs = [(a, b) for _, a, b, _ in S.segs]
     placed = []
     for f in S.flags:
@@ -787,12 +798,21 @@ def flag_text_boxes(S):
     return out
 
 
+def pin_boxes():
+    """Every pin line and pin number / name as EasyEDA draws them (a part's reported box is its body only)."""
+    if not GEO:
+        return []
+    from sch_lint import pin_obstacles
+    return pin_obstacles()
+
+
 def attr_obstacles(S):
-    """Everything a part's name or value must stay clear of: every symbol (its own too), the net symbols and their
-    text, net labels, notes, block frames' edges and wires. Real geometry where EasyEDA has reported it."""
+    """Everything a part's name or value must stay clear of: every symbol (its own too) with its pins and pin
+    numbers, the net symbols and their text, net labels, notes, block frames' edges and wires. Real geometry where
+    EasyEDA has reported it."""
     boxes = [(r, "body", real_body(S, r)) for r in S.parts]
     if GEO:
-        boxes += [b for b in GEO["fixed"] if b[1] != "netflag"] + flag_text_boxes(S)
+        boxes += [b for b in GEO["fixed"] if b[1] != "netflag"] + flag_text_boxes(S) + pin_boxes()
     else:
         boxes += [b for b in all_boxes(S, attrs=False) if b[1] != "body"]
     segs = [(a, b) for _, a, b, _ in S.segs]
@@ -1278,7 +1298,7 @@ for (const c of flags) {
     for (const a of await eda.sch_PrimitiveAttribute.getAll(c.getState_PrimitiveId())) {
       if (!a.getState_ValueVisible() && !a.getState_KeyVisible()) continue;
       if (t === null) await eda.sch_PrimitiveAttribute.modify(a.getState_PrimitiveId(), { valueVisible: false, keyVisible: false });
-      else await eda.sch_PrimitiveAttribute.modify(a.getState_PrimitiveId(), { x: t[0], y: -t[1], alignMode: t[2], rotation: 0 });
+      else await eda.sch_PrimitiveAttribute.modify(a.getState_PrimitiveId(), { x: t[0], y: -t[1], alignMode: t[2], rotation: 0, fontSize: null });
       n += 1;
     }
   }
@@ -1292,7 +1312,7 @@ for (const [id, d, v] of __ITEMS__) {
   for (const a of await eda.sch_PrimitiveAttribute.getAll(id)) {
     const k = a.getState_Key();
     const t = k === 'Designator' ? d : (k === 'Name' ? v : null);
-    if (t) { await eda.sch_PrimitiveAttribute.modify(a.getState_PrimitiveId(), { x: t[0], y: -t[1], alignMode: t[2], rotation: 0 }); n++; }
+    if (t) { await eda.sch_PrimitiveAttribute.modify(a.getState_PrimitiveId(), { x: t[0], y: -t[1], alignMode: t[2], rotation: 0, fontSize: null }); n++; }
   }
 }
 return n;
@@ -1420,7 +1440,6 @@ def push(S):
     print("every pin is where the layout expects it")
     isl = wire_islands(S)
     print("wires:", _batches(WIRES_JS, [i[:2] for i in isl], "wires"))
-    print("labels:", _batches(LABELS_JS, [L for i in isl for L in i[2]], "labels"))
     print("symbols:", _batches(FLAGS_JS, [f[:5] for f in S.flags], "symbols"))
     print("symbol names:", _batches(FLAGTEXT_JS, flag_text_items(S), "symbol names"))
     attrs = []
@@ -1430,6 +1449,8 @@ def push(S):
     print("names/values:", _batches(ATTRS_JS, attrs, "names"))
     print("texts + frames:", _detached(OPEN + TEXTS_JS.replace("__TEXTS__", json.dumps(S.texts))
                                        .replace("__RECTS__", json.dumps(S.rects)), "texts"))
+    # last: run straight after the wires, the sweep's 192 hidden Names were all showing again by the end of the push
+    print("labels:", _batches(LABELS_JS, [L for i in isl for L in i[2]], "labels"))
     print("saved:", _detached(OPEN + "return await eda.sch_Document.save();", "save"))
 
 

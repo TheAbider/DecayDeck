@@ -138,12 +138,19 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
     - `push` moves the existing parts and never re-creates them, so the PCB's link to the schematic holds. It reads
       every pin position back before drawing anything.
     - `sch_check.py` then exports the netlist from EasyEDA and checks it against `design.py`.
-    - `sch_lint.py --api` reads every symbol's, name's, label's and note's real bounding box back from EasyEDA and
-      reports text outside the frame, text on text, text on a symbol and lines through text. It saves that geometry
-      to `sch_geometry.json`; `sch_pretty.py freeze` then pins every block where it sits (`sch_layout.json`), and
-      `sch_pretty.py attrs` re-places only the text against the real geometry, never moving a part or a wire.
+    - `sch_lint.py --api` reads every symbol's, pin's, name's, label's and note's real bounding box back from
+      EasyEDA and reports text outside the frame, text on text, text on a symbol, its pins or pin numbers, and lines
+      through text or symbols. It saves that geometry to `sch_geometry.json`. A part's box is its body only, so
+      the pins come separately, and the pin numbers and names (which EasyEDA gives no box for) come from one
+      exported PDF via `sch_lint.py --pintext <pdf>` (`sch_pintext.json`); they never move when text does.
+      `sch_pretty.py freeze` pins every block where it sits (`sch_layout.json`), and `sch_pretty.py attrs`
+      re-places only the text against all of that, never moving a part or a wire. Names and values are written at
+      the default font size (some library parts came with larger or smaller ones).
       `sch_lint.py <pdf>` runs the same checks on an exported PDF.
-    - `sch_export.py pdf` exports the sheet. EasyEDA only renders it while its window is on screen.
+    - `sch_export.py pdf` exports the sheet. EasyEDA only renders it while its window is on screen. The export
+      also draws some of the wire names the editor hides, often on top of pin numbers, so the script deletes
+      exactly those text objects (the hidden names' anchors come from the last `sch_lint.py --api`). It writes
+      nothing if any other glyph or line would change.
 12. `sim/` simulates the HV supply and the tube pulse chain in ngspice, from a netlist generated out of `design.py`
     (see [`sim/README.md`](sim/README.md)).
 

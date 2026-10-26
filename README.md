@@ -8,7 +8,8 @@ and a LiPo with a proper power path. The current hardware is **v4**, in [`hardwa
 | Part | State |
 |---|---|
 | v4 hardware | Done and checked:<br>• DRC clean; every net connected, checked against the real poured copper.<br>• Pinouts checked against datasheets; display fit proven.<br>• Fab files for JLCPCB in [`hardware/v4/fab/2026-10-25`](hardware/v4/fab/2026-10-25), with the [order settings](hardware/v4/README.md#ordering-jlcpcb-one-order). |
-| Schematic | Being redrawn for people on an A1 sheet ([`sch_pretty.py`](hardware/v4/sch_pretty.py)). |
+| Schematic | Redrawn for people on an A1 sheet ([`sch_pretty.py`](hardware/v4/sch_pretty.py)), checked pin for pin against the design and for clean text against EasyEDA's real geometry. |
+| Simulation | The HV supply and the tube pulse chain in ngspice, built from the design's own netlist ([`hardware/v4/sim`](hardware/v4/sim), [results](hardware/v4/sim/results.md)). |
 | Firmware | The code in [`firmware/`](firmware) is for v3 and does not match v4's pins or power design. A v4 rewrite is next. |
 | Case | 3D-printed, designed around the board and the tubes. Next after firmware. |
 
@@ -52,6 +53,15 @@ results and what's left.
 - A WiFi dashboard and JSON API.
 - Battery state from the fuel gauge, and a charge-aware power-off mode.
 
+## What the simulation found
+
+Most hobby Geiger counters make their HV with the same circuit: a small 400 V NPN (FMMT458, MPSA44) switching a millihenry inductor. Simulated here with the transistor fitted to its datasheet, its slow turn-off decides how much current the supply wastes:
+
+- Short, fast pulses burn most of the inductor's energy in the transistor. 10 kHz / 10 µs took 6.5 mA from 3.3 V for the same 400 V that 2 kHz / 40 µs made from 1.6 mA.
+- A stiffer base drive pulls the stored charge out faster. Changing the base resistor from 330 Ω to 150 Ω cut it to 1.3 mA.
+
+The benches ([`hardware/v4/sim`](hardware/v4/sim)) build their netlist from [`design.py`](hardware/v4/design.py) and run on the free ngspice. To try your own values, change them there.
+
 ## Project layout
 
 ```
@@ -59,6 +69,7 @@ hardware/v4/            v4 board, designed as code (EasyEDA Pro)
   design.py             netlist: the source of truth
   README.md             design notes, pipeline, review results, ordering settings
   fab/2026-10-25/       Gerber zip, BOM and pick-and-place for JLCPCB
+  sim/                  ngspice benches for the HV supply and the tube pulse chain
   *.py                  build / check / export scripts (pipeline in the v4 README)
 docs/
   pinout.md             v4 GPIO map, display headers, I²C addresses, off-board pads
