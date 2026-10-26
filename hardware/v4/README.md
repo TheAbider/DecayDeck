@@ -87,7 +87,7 @@ IPC-2221B table 6-1, 301-500 V, uncoated:
 - Assert **PWR_HOLD (IO15)** first thing at boot. The power latch only holds once it is high.
 - **RV-3032:** write EEPROM C0h with BSM = 10 (level switching mode). The factory default is 00, switchover disabled. DSM would lock out I²C, because the cell sits above the 3V3 rail. Keep TCM = 00, trickle charger off: the backup pin is the LiPo. Disable CLKOUT.
 - **HV:** set HV_REF first, then start HV_PWM, and ramp up. The hardware ceiling is set by R28/R29 (436 V). Run at about 400 V. The STS-5 works at 360-440 V (5-10 MΩ load) and the SI-3BG at 380-410 V, so one rail suits both. From the simulation ([`sim/results.md`](sim/results.md)):
-  - Drive HV_PWM from LEDC at **2 kHz with 40 µs pulses**: 1.6 mA from 3V3 (1.3 mA with R25 at 150 Ω), 3 V ripple, 4× headroom, L2 peaks at 120 mA (Isat 400 mA). Don't use short fast pulses: 10 kHz / 10 µs takes 6.5 mA, because Q3 turns off slowly and the coil's energy goes into it.
+  - Drive HV_PWM from LEDC at **2 kHz with 40 µs pulses**: 1.3 mA from 3V3, 3.4 V ripple, 5× headroom, L2 peaks at 122 mA (Isat 400 mA). Don't use short fast pulses: they take several times more (6.5 mA at 10 kHz / 10 µs on the first design), because Q3 turns off slowly and the coil's energy goes into it. R25 is 150 Ω for the same reason (330 Ω in the first design lost about 20 % more).
   - Never set HV_PWM as a plain high output. Held high, Q3 stays on and pulls about 170 mA (it survives; the battery doesn't). A reset or crash leaves the pin to R27, which pulls it low.
   - Read HV_FB on the ADC and stop HV_PWM above about 450 V. If the comparator ever failed, only the SMAJ440A would limit HV, at about 515 V, which is above both tubes' working range. Q3 still sees only about 260 V there.
 - **Charge-sleep mode:** while USB is present, 3V3 stays on (PGOOD). Hold IO17 (TFT_BL) low and IO18 (CHG_FAST) in deep sleep with GPIO hold.
@@ -155,7 +155,13 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
 - v4 architecture and parts, all stock-checked at JLC.
 - Netlist spec, plus an independent review with all three findings fixed.
 - Schematic: 149 parts, matches the spec. PCB: 149 parts, pin-for-pin match.
-- Schematic redrawn for people (2026-10-25), on an A1 sheet inside the frame (`sch_pretty.py`, below).
+- Schematic redrawn for people (2026-10-25), on an A1 sheet inside the frame (`sch_pretty.py`, below). Its text is
+  placed against EasyEDA's real geometry: `sch_lint.py --api` finds 0 problems (nothing outside the frame, nothing
+  overlapping, no text on a symbol, no line through text or a symbol), and `sch_check.py` 0 netlist mismatches.
+- Simulation (2026-10-25, `sim/`): the HV supply and the tube pulse chain in ngspice, from `design.py`. It found
+  that Q3's slow turn-off made the HV supply's draw depend heavily on the pulse timing, which set the firmware's
+  HV_PWM (2 kHz, 40 µs) and moved R25 from 330 Ω to 150 Ω (value only, same 0603 footprint). Faults stay
+  inside the parts' ratings; the tube chain gives one clean pulse per count with no false counts.
 - Placement verified to 0.003 mm; 0 overlap / HV / keepout problems.
 - Display fit and height clearance proven.
 - Board, rules, plane fanout (142 vias), HV copper (hand-routed), low-voltage routing (autorouter).
@@ -193,7 +199,9 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
     - `connectivity.py` and `connectivity.py --pours`: every net joined.
     - Fill clearance: nothing closer than 0.15 mm.
     - Placement 0 problems; the 2090 overlay 0.000 mm; height check PASS (5.2 mm).
-- Exports in `fab/2026-10-25/` (re-exported after the review; the earlier set had the reversed battery), audited:
+- Exports in `fab/2026-10-25/` (re-exported after the review, which fixed the reversed battery, and again for R25 =
+  150 Ω: against the previous set the BOM changed one line (R25, C23138 to C22808), the CPL only R25's value and
+  part number, and the Gerbers are geometrically identical layer by layer), audited:
   - Gerber zip: 4 copper layers, both inner planes poured, and the outline.
   - Drill: 247 vias of 0.3 mm. Plated holes: 4 USB-C shell slots (0.8 x 1.2 / 1.5 mm), 40 header holes of 1.02 mm, 6 of 1.6 mm. Unplated: 4 mounting holes of 2.7 mm, 6 button bosses, 2 USB-C pegs. No stray hole under the U2 thermal pad or the USB-C pins.
   - BOM: 65 lines, 143 parts, every line with an LCSC number. J5-J10 are wire pads, so they're left out.

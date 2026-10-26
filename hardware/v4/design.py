@@ -86,7 +86,8 @@ PARTS = {
     "C19": ("C14663", "100nF", "hv", True),
     "L2": ("C2997659", "1mH", "hv", True),
     "Q3": ("C116737", "FMMT458TA", "hv", True),
-    "R25": ("C23138", "330R", "hv", True),          # base drive
+    "R25": ("C22808", "150R", "hv", True),          # base drive: 150R pulls Q3's stored charge out fast enough to
+                                                     # turn off cleanly; 330R lost ~20 % more (sim/results.md)
     "C20": ("C1588", "1nF", "hv", True),            # speed-up across R25
     "R26": ("C25804", "10k", "hv", True),           # base pull-down
     "U10": ("C7666", "SN74LVC1G08", "hv", True),    # HV_DRV = HV_PWM AND HV_COMP

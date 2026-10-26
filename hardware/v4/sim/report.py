@@ -17,15 +17,27 @@ def load(name):
         return None
 
 
+def names():
+    """Drive labels by index, from hv.DRIVES: the JSON keeps whatever label was current when it ran."""
+    import hv
+    return list(hv.DRIVES)
+
+
 def main():
+    label = names()
     out = ["# Simulation results", "",
            "Written by `report.py` from the last run of each bench. Currents are what the HV supply takes from the 3V3 "
            "rail, base drive included; the battery sees about the same divided by the buck-boost's ~90 % efficiency.",
            ""]
-    rows = [load(f"compare_{d}_{t}.json") for d in range(6) for t in range(5)]
-    rows = [r for r in rows if r]
+    rows = []
+    for d in range(len(label)):
+        for t in range(5):
+            r = load(f"compare_{d}_{t}.json")
+            if r:
+                r["drive"] = label[d]
+                rows.append(r)
     if rows:
-        out += ["## Headline: as designed vs R25 at 150 Ω", "",
+        out += ["## Headline: the first design vs the board as built (R25 at 150 Ω)", "",
                 "Steady state at 400 V over a 160 ms window (enough pulses to trust the averages). Tubes connected, idle.", "",
                 "| Base drive | HV_PWM | 3V3 current | Efficiency | Ripple | Pulses used | False counts |",
                 "|---|---|---|---|---|---|---|"]
@@ -35,8 +47,10 @@ def main():
         out += ["", "The sweep below uses a 30 ms window: at 2 kHz only a handful of pulses land in it, so differences "
                 "under ~10 % between rows there are noise.", ""]
     sweep = []
-    for i in range(20):
-        sweep += load(f"sweep_{i}.json") or []
+    for i in range(len(label)):
+        for r in load(f"sweep_{i}.json") or []:
+            r["drive"] = label[i]
+            sweep.append(r)
     if sweep:
         out += ["## HV supply at 400 V: base drive and pulse timing", "",
                 "Each row is a steady-state run at 400 V with both tubes connected and idle. *Pulses used* is the share of "
@@ -48,10 +62,11 @@ def main():
                        f"{r['eff'] * 100:.0f} % | {r['ripple']:.1f} V | {r['pass'] * 100:.0f} % | {r['il_max_ma']:.0f} mA | "
                        f"{r['vsw_max']:.0f} V | {r.get('false_counts', '-')} |")
         out.append("")
-    for d in range(20):
+    for d in range(len(label)):
         st = load(f"hv_startup_{d}.json")
         if not st:
             continue
+        st["drive"] = label[d]
         s, t = st["steady"], st["startup"]
         out += [f"## Start-up and one pulse: {st['drive']}", "",
                 f"- From 0 V: 95 % of 400 V in {t['t95_ms']:.0f} ms, settling at {t['final']:.1f} V with "
@@ -61,10 +76,11 @@ def main():
                 f"{s['eff'] * 100:.0f} % efficient; tube cathode pickup from the switching {s['k_peak_mv']:.0f} mV "
                 f"(a count needs ~600 mV); {s['false_counts']} false counts.", "",
                 f"![start-up](results/hv_startup_{d}.png)", "", f"![one pulse](results/hv_pulse_{d}.png)", ""]
-    for d in range(20):
+    for d in range(len(label)):
         ft = load(f"hv_faults_{d}.json")
         if not ft:
             continue
+        ft["drive"] = label[d]
         out += [f"## Faults: {ft['drive']}", "", "| Case | HV max | Q3 VCE max | L2 peak | 3V3 draw | R21 | Q3 |",
                 "|---|---|---|---|---|---|---|"]
         for r in ft["faults"]:

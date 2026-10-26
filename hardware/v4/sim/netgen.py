@@ -46,6 +46,15 @@ def spice_value(text):
     return num + UNITS.get(unit, "")
 
 
+MULT = {"p": 1e-12, "n": 1e-9, "u": 1e-6, "m": 1e-3, "k": 1e3, "Meg": 1e6, "G": 1e9, "": 1.0}
+
+
+def value_of(ref):
+    """design.py's value for a part as a number (ohms, farads, henries)."""
+    m = re.fullmatch(r"([\d.]+)(Meg|[pnumkG]?)", spice_value(PARTS[ref][1]))
+    return float(m.group(1)) * MULT[m.group(2)]
+
+
 def node(net):
     return "0" if net == "GND" else net
 

@@ -26,6 +26,31 @@ CALLS = {
 }
 
 
+def align_cpl(out):
+    """The CPL's Device column names the library device each part was placed from. A part re-valued in place keeps
+    its old device's name there (R25: 330R -> 150R), so wherever that name's part number (before any _Cxxxx
+    suffix) disagrees with the BOM, write the BOM's. Everything else in the file is left byte for byte."""
+    bom = open(os.path.join(out, "DecayDeck_v4_BOM.csv"), "rb").read().decode("utf-16").split("\n")
+    mpn = {}
+    for line in bom[1:]:
+        f = line.split("\t")
+        if len(f) > 6:
+            for d in f[3].split(","):
+                mpn[d.strip()] = f[6]
+    path = os.path.join(out, "DecayDeck_v4_CPL.csv")
+    lines = open(path, "rb").read().decode("utf-16").split("\n")
+    for i, line in enumerate(lines[1:], 1):
+        f = line.split("\t")             # the CPL quotes every field; the BOM quotes none
+        if len(f) < 2:
+            continue
+        ref, dev = f[0].strip('"'), f[1].strip('"')
+        if ref in mpn and dev.split("_C")[0] != mpn[ref]:
+            print(f"CPL {ref}: device {dev} -> {mpn[ref]} (as the BOM)")
+            f[1] = f'"{mpn[ref]}"' if f[1].startswith('"') else mpn[ref]
+            lines[i] = "\t".join(f)
+    open(path, "wb").write("\n".join(lines).encode("utf-16"))
+
+
 def main():
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     out = os.path.join("fab", datetime.date.today().isoformat())
@@ -43,6 +68,7 @@ def main():
         with open(path, "wb") as f:
             f.write(base64.b64decode(res["b64"]))
         print(key, path, res["size"], "bytes")
+    align_cpl(out)
 
 
 if __name__ == "__main__":
