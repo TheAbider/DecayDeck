@@ -1,0 +1,86 @@
+* DecayDeck v4 simulation models (ngspice).
+* Logic outputs draw the current they source from their VCC pin while driving high, so a bench's 3V3 current
+* includes them. (Driving low, current pulled out of the pin by a load below ground comes from GND.)
+* Datasheet-fitted where the vendor model isn't freely downloadable; fit_models.py checks each fit against its
+* datasheet table. The Vishay US1M model is fetched from vishay.com on first run (vendor/us1m.lib).
+
+* ---------------------------------------------------------------------------------------------------------------
+* FMMT458 (Diodes) 400 V NPN, the HV switch. Fitted to DS33088 Rev. 8: hFE 100-300 at 50 mA, VCE(sat) <= 0.2 V at
+* 20 mA / 2 mA and <= 0.5 V at 50 mA / 6 mA, VBE(sat) <= 0.9 V, Cobo <= 5 pF at 20 V, fT >= 50 MHz,
+* ton 135 ns / toff 2.26 us (IC 50 mA, IB1 5 mA, IB2 -10 mA). BVCEO 400 V is not modelled: the benches check VCE.
+.model FMMT458 NPN(IS=4e-14 NF=1 BF=230 VAF=300 IKF=0.05 ISE=2e-14 NE=1.6 BR=2 NR=1 VAR=30 IKR=0.02
++ RB=12 RE=0.3 RC=5 CJE=60p VJE=0.75 MJE=0.33 CJC=16p VJC=0.6 MJC=0.4 TF=2.2n TR=3.9u XTB=1.5)
+
+* BC847C (Nexperia / onsemi class), the tube pulse buffer. Fitted to the datasheet: hFE 420-800 at 2 mA,
+* VCE(sat) <= 0.25 V at 10 mA / 0.5 mA, Cob 1.5 pF, fT >= 100 MHz.
+.model BC847C NPN(IS=2e-14 NF=1 BF=600 VAF=60 IKF=0.15 ISE=1e-14 NE=1.5 BR=8 NR=1 VAR=10 IKR=0.1
++ RB=10 RE=0.6 RC=0.8 CJE=11p VJE=0.75 MJE=0.33 CJC=4p VJC=0.55 MJC=0.38 TF=0.45n TR=80n XTB=1.5)
+
+* ---------------------------------------------------------------------------------------------------------------
+* SMAJ440A (Littelfuse) unidirectional TVS: VRWM 440 V (IR <= 1 uA), VBR 492-543 V at 1 mA, VC 713 V at 0.6 A.
+* Pins as the symbol: 1 = K, 2 = A.
+.subckt SMAJ440A k a params: vbr=515
+D1 a k DTVSF
+D2 m k DTVSZ
+R2 m a 320
+Rl k a 4G
+.model DTVSF D(IS=1e-12 N=1.5 RS=0.1 CJO=40p M=0.33 VJ=0.7)
+.model DTVSZ D(IS=1e-14 N=1 BV={vbr} IBV=1m NBV=1 CJO=1p)
+.ends
+
+* ---------------------------------------------------------------------------------------------------------------
+* TLV7011 (TI) push-pull comparator: 260 ns, 5 uA, 4.2 mV input hysteresis. Pins: 1 OUT, 2 VEE, 3 IN+, 4 IN-, 5 VCC.
+.subckt TLV7011 out vee inp inn vcc
+Rq vcc vee 660k
+B1 x vee V = V(vcc,vee) * (0.5 + 0.5 * tanh((V(inp,inn) + 0.0042 * (V(y,vee) / (V(vcc,vee) + 1e-6) - 0.5)) / 0.0002))
+R1 x y 1k
+C1 y vee 220p
+E1 z vee y vee 1
+Vs z z2 0
+R2 z2 out 100
+Bs vcc vee I = max(I(Vs), 0) * V(z,vee) / (V(vcc,vee) + 1e-6)
+Ci1 inp vee 2p
+Ci2 inn vee 2p
+.ends
+
+* SN74LVC1G08 (TI) 2-input AND. Pins: 1 A, 2 B, 3 GND, 4 Y, 5 VCC. ~4 ns, ~25 ohm output (24 mA at 3.3 V).
+.subckt SN74LVC1G08 a b gnd y vcc
+Rq vcc gnd 1Meg
+Ca a gnd 3p
+Cb b gnd 3p
+B1 x gnd V = V(vcc,gnd) * (0.5 + 0.5 * tanh((V(a,gnd) - 0.5 * V(vcc,gnd)) / 0.05)) * (0.5 + 0.5 * tanh((V(b,gnd) - 0.5 * V(vcc,gnd)) / 0.05))
+R1 x x2 1k
+C1 x2 gnd 4p
+E1 x3 gnd x2 gnd 1
+Vs x3 x4 0
+R2 x4 y 25
+Bs vcc gnd I = max(I(Vs), 0) * V(x3,gnd) / (V(vcc,gnd) + 1e-6)
+.ends
+
+* 74LVC2G17 (Nexperia) dual Schmitt buffer. Pins: 1 1A, 2 GND, 3 2A, 4 2Y, 5 VCC, 6 1Y.
+* Thresholds at 3.3 V: VT+ ~1.75 V, VT- ~1.05 V (datasheet typ).
+.subckt 74LVC2G17 a1 gnd a2 y2 vcc y1
+Rq vcc gnd 1Meg
+X1 a1 y1 gnd vcc SCHMITT_LVC
+X2 a2 y2 gnd vcc SCHMITT_LVC
+.ends
+.subckt SCHMITT_LVC a y gnd vcc
+Ca a gnd 3p
+B1 x gnd V = V(vcc,gnd) * (0.5 + 0.5 * tanh((V(a,gnd) - (1.4 - 0.35 * (2 * V(s,gnd) / (V(vcc,gnd) + 1e-6) - 1))) / 0.02))
+R1 x s 1k
+C1 s gnd 4p
+E1 x3 gnd s gnd 1
+Vs x3 x4 0
+R2 x4 y 25
+Bs vcc gnd I = max(I(Vs), 0) * V(x3,gnd) / (V(vcc,gnd) + 1e-6)
+.ends
+
+* ---------------------------------------------------------------------------------------------------------------
+* Geiger-Mueller tube, behavioural. A count is a 0 -> 1 step on `trg` (a PWL source in the bench): while trg is high
+* the tube conducts, discharging its own capacitance toward the extinction voltage with time constant rd*ca (the
+* avalanche plus ion collection), then quenches. Between counts the tube is an open circuit plus its capacitance.
+* The cathode current is what the board senses.
+.subckt GMTUBE an k trg params: ca=5p vext=330 rd=4Meg
+Ca an k {ca}
+Bt an k I = V(trg) * max(V(an,k) - {vext}, 0) / {rd}
+.ends

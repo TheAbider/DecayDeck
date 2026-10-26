@@ -1,7 +1,9 @@
 """Export the schematic from EasyEDA: SVG / PNG picture or the netlist, run detached so a slow export can outlast
 the bridge's 30 s request limit.
 
-usage: python sch_export.py svg|png|pdf|netlist OUT_FILE
+usage: python sch_export.py svg|png|pdf|netlist OUT_FILE [--resume]
+A PDF of the whole sheet takes minutes while the EasyEDA window is hidden; --resume picks up the export already
+running instead of starting another.
 """
 import base64
 import json
@@ -40,9 +42,10 @@ return { done: true, error: s.error, result: s.result };
 """
 
 
-def export(kind, out):
-    print(run(START.replace("__PAGE__", SCH_PAGE).replace("__CALL__", CALLS[kind]), retry_on_drop=False).get("result"))
-    for _ in range(80):
+def export(kind, out, resume=False):
+    if not resume:
+        print(run(START.replace("__PAGE__", SCH_PAGE).replace("__CALL__", CALLS[kind]), retry_on_drop=False).get("result"))
+    for _ in range(300):
         time.sleep(3)
         st = (run(POLL, timeout=60) or {}).get("result")
         if not st:
@@ -59,4 +62,4 @@ def export(kind, out):
 
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    export(sys.argv[1], sys.argv[2])
+    export(sys.argv[1], sys.argv[2], "--resume" in sys.argv[3:])

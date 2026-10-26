@@ -26,8 +26,9 @@ headers J3/J4.
 | Part | Notes |
 |---|---|
 | Adafruit 2090 display | 2.8" TFT, capacitive touch, microSD. It comes with the male header strip |
-| LiPo, 1 cell, JST-PH 2.0 mm plug, built-in protection, 1000 mAh or more | The charge current is 0.81 A. Adafruit and SparkFun cells plug in as they come. With any other brand, check the red wire lands on the silkscreen + before plugging in |
-| STS-5 and SI-3BG tubes | Plus holders (designed into the case) |
+| **Battery: Adafruit #328**, 2500 mAh LiPo (DigiKey 1528-1840-ND, Mouser 485-328) | 50 × 60 × 7.3 mm (drawing max 50.5 × 62.5 × 8.1), 100 mm lead, JST-PH in Adafruit's polarity, which is what J2 is laid out for. Built-in protection. Adafruit rates it to 1.2 A charge; the board charges at 0.81 A. It sits behind the board, under the display. Don't fit a smaller cell than about 1700 mAh: Adafruit's 1200 mAh #258 is rated for 500 mA |
+| 3-4 light pipes, **VCC LFB063CTP** (DigiKey LFB063CTP-ND) | 3 mm, frosted dome, 15.9 mm long. Press into 3.0 mm holes in the case front over LED1 (the frosting blends the RGB colours), LED2 and the OPT3001. A 19 mm LFB075CTP is the fallback if the display stack measures taller than expected. Clear printed plastic makes a poor light pipe: layer lines scatter the light |
+| STS-5 and SI-3BG tubes | STS-5: 110 ± 2.5 mm overall, body 10-12 mm (sources differ), brass end pins about Ø6 mm. SI-3BG: 56 ± 5 mm, glass body Ø10 max, nickel end caps Ø6.5 × 7.4 mm. The + end (anode) is marked on each tube. Holders are part of the case |
 | Silicone hookup wire, 600 V or more | For the tube anodes (J5, J7) |
 | 3 V coin vibration motor | Goes on J9 (+) / J10 (−) |
 | 4 nylon M2.5 × 11 mm standoffs with screws | Hold the display at the header height |

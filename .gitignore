@@ -22,3 +22,5 @@ Thumbs.db
 # Python caches and the EasyEDA bridge window id
 __pycache__/
 hardware/v4/.eda_window
+hardware/v4/sim/vendor/
+hardware/v4/sim/results/*.json
