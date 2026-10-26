@@ -155,9 +155,20 @@ def plot_pulses(cols, path, title):
 
 
 # Base-drive variants are value-only changes (same 0603 footprints): R25 base resistor, C20 speed-up capacitor.
-DRIVES = {"R25 330R, C20 1nF (as designed)": {}, "R25 150R, C20 1nF": {"R25": 150 / 330},
-          "R25 100R, C20 1nF": {"R25": 100 / 330}, "R25 330R, C20 4.7nF": {"C20": 4.7},
-          "R25 150R, C20 4.7nF": {"R25": 150 / 330, "C20": 4.7}, "R25 100R, C20 4.7nF": {"R25": 100 / 330, "C20": 4.7}}
+# Base-drive options, as absolute values (same 0603 footprints): R25 base resistor, C20 speed-up capacitor.
+# Index 1 is the board as built; index 0 is the first design, before the simulation moved R25 to 150R.
+DRIVES = {"R25 330R, C20 1nF (first design)": {"R25": 330, "C20": 1e-9},
+          "R25 150R, C20 1nF (as built)": {"R25": 150, "C20": 1e-9},
+          "R25 100R, C20 1nF": {"R25": 100, "C20": 1e-9}, "R25 330R, C20 4.7nF": {"R25": 330, "C20": 4.7e-9},
+          "R25 150R, C20 4.7nF": {"R25": 150, "C20": 4.7e-9}, "R25 100R, C20 4.7nF": {"R25": 100, "C20": 4.7e-9}}
+AS_BUILT = 1
+
+
+def factors(values):
+    """Absolute part values -> netgen's scale factors against design.py's values."""
+    return {ref: v / netgen.value_of(ref) for ref, v in values.items()}
+
+
 TIMINGS = [(10e3, 10e-6), (5e3, 20e-6), (2e3, 40e-6), (2e3, 60e-6), (1e3, 100e-6)]
 
 
@@ -165,12 +176,12 @@ def sweep(only=None):
     """One drive (by its index in DRIVES) or all of them; each drive writes results/sweep_<index>.json."""
     import json
     rows = []
-    for i, (name, scale) in enumerate(DRIVES.items()):
+    for i, (name, values) in enumerate(DRIVES.items()):
         if only is not None and i != only:
             continue
         mine = []
-        for hz, ton in (TIMINGS if not scale else TIMINGS[1:4]):
-            r, _ = steady(hz, ton, scale=scale)
+        for hz, ton in (TIMINGS if i == 0 else TIMINGS[1:4]):
+            r, _ = steady(hz, ton, scale=factors(values))
             r["drive"] = name
             rows.append(r)
             mine.append(r)
@@ -182,7 +193,7 @@ def sweep(only=None):
     return rows
 
 
-FIRMWARE = (2e3, 40e-6)          # HV_PWM the firmware will use: the sweep's best for the board as built
+FIRMWARE = (2e3, 40e-6)          # HV_PWM the firmware will use: the best timing for the board as built
 
 
 def faults(scale=None):
@@ -213,8 +224,8 @@ def faults(scale=None):
 
 
 def main():
-    """sweep [i]: one base drive (index into DRIVES) or all. startup / faults take the drive index too
-    (default 0, as designed), so a value change can be checked end to end before it goes on the board."""
+    """sweep [i]: one base drive (index into DRIVES) or all. startup / faults / compare take the drive index too
+    (default AS_BUILT), so a value change can be checked end to end before it goes on the board."""
     import json
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     what = sys.argv[1] if len(sys.argv) > 1 else "all"
@@ -223,8 +234,9 @@ def main():
     report = {}
     if what in ("sweep", "all"):
         report["sweep"] = sweep(idx)
-    d = idx or 0
-    name, scale = list(DRIVES.items())[d]
+    d = AS_BUILT if idx is None else idx
+    name, values = list(DRIVES.items())[d]
+    scale = factors(values)
     if what in ("startup", "all"):
         hz, ton = FIRMWARE
         r, cols = startup(hz, ton, scale=scale)

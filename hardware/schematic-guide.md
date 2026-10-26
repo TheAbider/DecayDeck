@@ -86,7 +86,10 @@ its backup switchover to level mode once: the factory default disables it.
     R28/R29 set its ceiling at 3.38 × 75/175 × 301 = 436 V.
   - The SN74LVC1G08 ANDs the comparator output with HV_PWM (IO6), so drive pulses stop as soon as HV reaches the
     reference.
-  - The pulses reach Q3's base through R25 330 Ω, with C20 across it to speed up switching.
+  - The pulses reach Q3's base through R25 150 Ω, with C20 across it to speed up switching. 150 Ω pulls Q3's stored
+    charge out fast enough for a clean turn-off: the simulation had 330 Ω losing about 20 % more
+    ([`v4/sim/results.md`](v4/sim/results.md)).
+  - Firmware drives HV_PWM at 2 kHz with 40 µs pulses: about 1.3 mA from 3V3 at 400 V.
 - **Bleeder:** 3 × 47 MΩ empties the HV in about 2 s after power-off.
 
 ## GM tubes (J5-J8, Q4, Q5, U11)
