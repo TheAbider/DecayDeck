@@ -10,6 +10,7 @@ usage: python sch_lint.py [schematic.pdf]   (no argument: export a fresh PDF fir
                                              instead; works while the window is hidden, when PDF export stalls;
                                              saves it to sch_geometry.json)
        python sch_lint.py --cached         (re-check the last saved geometry)
+       python sch_lint.py --pintext X.pdf  (record where the pin numbers and names are drawn: sch_pintext.json)
 Exit 1 when anything is found.
 """
 import os
@@ -70,7 +71,7 @@ def load(fn):
 
 API_JS = r"""
 const bb = async (id) => { const b = await eda.sch_Primitive.getPrimitivesBBox([id]); return b ? [b.minX, b.minY, b.maxX, b.maxY] : null; };
-const out = { bodies: [], texts: [], wires: [], rects: [] };
+const out = { bodies: [], pins: [], texts: [], wires: [], rects: [] };
 const comps = await eda.sch_PrimitiveComponent.getAll();
 const wires = await eda.sch_PrimitiveWire.getAll();
 job.total = comps.length + wires.length;
@@ -79,6 +80,9 @@ for (const c of comps) {
   if (kind !== 'sheet') {
     const id = c.getState_PrimitiveId(), ref = c.getState_Designator() || kind;
     out.bodies.push([ref, kind, await bb(id), c.getState_X(), c.getState_Y(), c.getState_Rotation(), !!c.getState_Mirror()]);
+    if (kind === 'part')        // a part's box is its body only: its pins (and their numbers) reach beyond it
+      for (const p of (await eda.sch_PrimitiveComponent.getAllPinsByPrimitiveId(id)) || [])
+        out.pins.push([ref, p.getState_PinNumber(), p.getState_Rotation(), await bb(p.getState_PrimitiveId())]);
     for (const a of await eda.sch_PrimitiveAttribute.getAll(id))
       if (a.getState_ValueVisible() || a.getState_KeyVisible()) out.texts.push([ref + ' ' + a.getState_Key(), kind, await bb(a.getState_PrimitiveId())]);
   }
@@ -121,6 +125,56 @@ def load_api(cached=False):
         segs += [(c[i], c[(i + 1) % 4]) for i in range(4)]
     bodies = [(b[0], b[1], tuple(b[2])) for b in d["bodies"] if b[2]]
     return texts, segs, bodies
+
+
+PINTEXT = "sch_pintext.json"   # pin numbers and names as drawn (EasyEDA reports no box for them)
+
+
+def _dist(p, a, b):
+    ax, ay, bx, by, px, py = a[0], a[1], b[0], b[1], p[0], p[1]
+    dx, dy = bx - ax, by - ay
+    t = 0.0 if dx == dy == 0 else max(0.0, min(1.0, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy)))
+    return ((px - ax - t * dx) ** 2 + (py - ay - t * dy) ** 2) ** 0.5
+
+
+def pin_texts(pdf):
+    """Pin numbers and names from an exported PDF: each text span equal to a pin's number or name and within 12
+    units of that pin. Pin text never moves when names, values or labels do, so one export serves every later
+    re-placement. Needs the pins in sch_geometry.json (sch_lint.py --api)."""
+    import json
+    from design import PARTS
+    geo = json.load(open(GEOMETRY, encoding="utf-8"))
+    syms = json.load(open("symbols.json", encoding="utf-8"))
+    pins = []
+    for ref, num, rot, b in geo.get("pins", []):
+        if not b or ref not in PARTS:
+            continue
+        labels = {num} | {p["name"] for p in syms[PARTS[ref][0]]["pins"] if p["num"] == num}
+        x0, y0, x1, y1 = b
+        if y1 - y0 > x1 - x0:
+            seg = (((x0 + x1) / 2, y0), ((x0 + x1) / 2, y1))
+        else:
+            seg = ((x0, (y0 + y1) / 2), (x1, (y0 + y1) / 2))
+        pins.append((ref, labels, seg))
+    texts, _ = load(pdf)
+    out = []
+    for t, box in texts:
+        c = ((box[0] + box[2]) / 2, (box[1] + box[3]) / 2)
+        hits = sorted((_dist(c, *seg), ref) for ref, labels, seg in pins if t in labels)
+        if hits and hits[0][0] <= 12:
+            out.append([hits[0][1], t, [round(v, 2) for v in box]])
+    json.dump(out, open(PINTEXT, "w", encoding="utf-8"))
+    return out
+
+
+def pin_obstacles(geo=None):
+    """(ref, kind, box) for every pin line and every pin number / name, from sch_geometry.json + sch_pintext.json."""
+    import json
+    geo = geo or json.load(open(GEOMETRY, encoding="utf-8"))
+    out = [(ref, "pin", tuple(b)) for ref, num, rot, b in geo.get("pins", []) if b]
+    if os.path.exists(PINTEXT):
+        out += [(ref, f"pin text {t}", tuple(b)) for ref, t, b in json.load(open(PINTEXT, encoding="utf-8"))]
+    return out
 
 
 def ink(box):
@@ -174,13 +228,16 @@ def lint(texts, segs, bodies=()):
         tb = ink(b)
         for ref, kind, sb in bodies:
             own = t.split(" ")[0] == ref and kind in ("netflag", "netport")
-            if not own and overlap(tb, (sb[0] + 0.5, sb[1] + 0.5, sb[2] - 0.5, sb[3] - 0.5)):
+            box = sb if kind == "pin" else (sb[0] + 0.5, sb[1] + 0.5, sb[2] - 0.5, sb[3] - 0.5)  # a pin is a line
+            if not own and overlap(tb, box):
                 problems.append(("text on a symbol", t, b, f"{ref} ({kind})"))
     for t, b in texts:
         if not inside(b, INNER):
             problems.append(("outside the frame", t, b, None))
     for ref, kind, sb in bodies:   # wires end on a symbol's pin tips, at its box edge: none may run inside it
-        core = (sb[0] + 1, sb[1] + 1, sb[2] - 1, sb[3] - 1)
+        # a pin number is text standing on its own pin line, and the wire leaving that pin carries the line on
+        # (USB-C's A1B12 runs past the tip): test its ink band, as for any other text
+        core = ink(sb) if kind.startswith("pin text") else (sb[0] + 1, sb[1] + 1, sb[2] - 1, sb[3] - 1)
         if core[0] >= core[2] or core[1] >= core[3]:
             continue
         for p, q in segs:
@@ -216,8 +273,12 @@ def lint(texts, segs, bodies=()):
 def main(fn=None):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     bodies = ()
+    if fn == "--pintext":                            # python sch_lint.py --pintext exported.pdf
+        print(len(pin_texts(sys.argv[2])), "pin numbers / names found in", sys.argv[2])
+        return 0
     if fn in ("--api", "--cached"):
         texts, segs, bodies = load_api(cached=fn == "--cached")
+        bodies = list(bodies) + pin_obstacles()
     else:
         if not fn:
             from sch_export import export
