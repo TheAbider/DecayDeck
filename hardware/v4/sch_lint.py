@@ -14,6 +14,7 @@ usage: python sch_lint.py [schematic.pdf]   (no argument: export a fresh PDF fir
 Exit 1 when anything is found.
 """
 import os
+import re
 import sys
 import tempfile
 
@@ -27,13 +28,34 @@ SHRINK_Y, SHRINK_X = 0.22, 0.5                # text boxes include line spacing:
 GRID = 40
 
 
-def load(fn):
-    page = fitz.open(fn)[0]
-    drawings = page.get_drawings()
+def _frame(drawings):
     frame = next((g["rect"] for g in drawings
                   if abs(g["rect"].width - SHEET_W * SCALE) < 3 and abs(g["rect"].height - SHEET_H * SCALE) < 3), None)
     if frame is None:
         raise SystemExit("no A1 sheet frame found in the PDF")
+    return frame
+
+
+def spans(page, frame):
+    """Every text span that isn't blank: (text, box in drawing units, its glyphs as (char, PDF bbox))."""
+    out = []
+    for b in page.get_text("rawdict")["blocks"]:
+        for line in b.get("lines", []):
+            for s in line["spans"]:
+                t = "".join(c["c"] for c in s["chars"]).strip()
+                if not t:
+                    continue
+                x0, x1 = (s["bbox"][0] - frame.x0) / SCALE, (s["bbox"][2] - frame.x0) / SCALE
+                y0, y1 = (frame.y1 - s["bbox"][3]) / SCALE, (frame.y1 - s["bbox"][1]) / SCALE
+                out.append((t, (x0, y0, x1, y1), [(c["c"], *(round(v, 1) for v in c["bbox"])) for c in s["chars"]
+                                                  if c["c"].strip()]))
+    return out
+
+
+def load(fn):
+    page = fitz.open(fn)[0]
+    drawings = page.get_drawings()
+    frame = _frame(drawings)
 
     def u(p):
         return ((p.x - frame.x0) / SCALE, (frame.y1 - p.y) / SCALE)
@@ -56,22 +78,86 @@ def load(fn):
             elif it[0] == "c":
                 pts = [u(p) for p in it[1:5]]
                 segs += [(pts[i], pts[i + 1]) for i in range(3)]
-    texts = []
-    for b in page.get_text("dict")["blocks"]:
-        for line in b.get("lines", []):
-            for s in line["spans"]:
-                t = s["text"].strip()
-                if not t:
-                    continue
-                x0, y0 = u(fitz.Point(s["bbox"][0], s["bbox"][3]))
-                x1, y1 = u(fitz.Point(s["bbox"][2], s["bbox"][1]))
-                texts.append((t, (x0, y0, x1, y1)))
-    return texts, segs
+    return [(t, box) for t, box, _ in spans(page, frame)], segs
+
+
+# EasyEDA writes every text as its own object: BT, font, colour, Td (or Tm when turned), one Tj per font run, ET
+TEXT_OBJECT = re.compile(rb"BT\n.*?\nET\n", re.S)
+SHOW = re.compile(rb"(\((?:[^()\\]|\\.)*\)|<[0-9A-Fa-f]*>)\s*Tj")
+PLACE = re.compile(rb"(-?[\d.]+) (-?[\d.]+) T[dm]\n")
+ESCAPES = {b"n": b"\n", b"r": b"\r", b"t": b"\t", b"b": b"\b", b"f": b"\f"}
+
+
+def _shown_text(token):
+    """A Tj string: hex is UCS-2 (the Type0 fonts), a literal string is WinAnsi (the Arial fonts)."""
+    if token[:1] == b"<":
+        return bytes.fromhex(token[1:-1].decode()).decode("utf-16-be")
+    body = re.sub(rb"\\([0-7]{1,3}|.)", lambda m: bytes([int(m.group(1), 8) & 255]) if m.group(1)[:1] in b"01234567"
+                  else ESCAPES.get(m.group(1), m.group(1)), token[1:-1], flags=re.S)
+    return body.decode("cp1252")
+
+
+def strip_hidden(src, dst):
+    """EasyEDA's PDF export draws some of the wire names the editor hides (64 of 192 on one export, all on signal
+    nets), each at its own anchor. Delete exactly those text objects: the ones that spell a hidden Name's net and
+    start at that Name's anchor, from the anchors --api saved in sch_geometry.json. (Redaction can't do it: these
+    names sit on pin numbers and part names, and it takes every glyph it touches.) Every other glyph and every line
+    must come through unchanged, or nothing is written. Returns the number of names removed."""
+    import json
+    from collections import Counter
+    geo = json.load(open(GEOMETRY, encoding="utf-8"))
+    if "hidden" not in geo:
+        raise SystemExit("sch_geometry.json has no hidden names: run sch_lint.py --api first")
+    hidden = {}
+    for net, x, y in geo["hidden"]:
+        hidden.setdefault(net, []).append((x, y))
+    shown = [(n[len("net label "):], tuple(b)) for n, k, b in geo["texts"] if b and n.startswith("net label ")]
+    doc = fitz.open(src)
+    page = doc[0]
+    xrefs = page.get_contents()
+    if len(xrefs) != 1:
+        raise SystemExit(f"expected one content stream, found {len(xrefs)}")
+    frame = _frame(page.get_drawings())
+    bottom = page.rect.height - frame.y1            # the frame's lower edge in PDF space (y up)
+    content = page.read_contents()
+    cut, starts = [], []
+    for m in TEXT_OBJECT.finditer(content):
+        p = PLACE.search(m.group(0))
+        text = "".join(_shown_text(s) for s in SHOW.findall(m.group(0))).strip()
+        if not p or text not in hidden:
+            continue
+        x, y = (float(p.group(1)) - frame.x0) / SCALE, (float(p.group(2)) - bottom) / SCALE
+        # the baseline starts 1.8 units off the anchor, across the text (above it, or left of it when turned)
+        if any(abs(x - ax) <= 2.5 and abs(y - ay) <= 2.5 for ax, ay in hidden[text]) \
+                and not any(n == text and s[0] - 1 <= x <= s[2] + 1 and s[1] - 1 <= y <= s[3] + 1 for n, s in shown):
+            cut.append(m.span())
+            starts.append((text, x, y))
+
+    def glyphs():
+        return Counter(g for _, _, gs in spans(doc[0], frame) for g in gs)
+
+    def lines():
+        return Counter(str([(it[0], *(round(v, 1) for p in it[1:] if hasattr(p, "x") for v in (p.x, p.y)))
+                            for it in d["items"]]) for d in doc[0].get_drawings())
+
+    before, art = glyphs(), lines()
+    gone = Counter(g for t, b, gs in spans(page, frame)
+                   if any(t == n and b[0] - 2 <= x <= b[2] + 2 and b[1] - 2 <= y <= b[3] + 2 for n, x, y in starts)
+                   for g in gs)
+    for a, b in reversed(cut):
+        content = content[:a] + content[b:]
+    doc.update_stream(xrefs[0], content)
+    if glyphs() != before - gone or lines() != art:
+        raise SystemExit(f"stripping the hidden names would change other text or lines: {src} left as exported")
+    data = doc.tobytes(garbage=3, deflate=True)
+    doc.close()
+    open(dst, "wb").write(data)
+    return len(cut)
 
 
 API_JS = r"""
 const bb = async (id) => { const b = await eda.sch_Primitive.getPrimitivesBBox([id]); return b ? [b.minX, b.minY, b.maxX, b.maxY] : null; };
-const out = { bodies: [], pins: [], texts: [], wires: [], rects: [] };
+const out = { bodies: [], pins: [], texts: [], hidden: [], wires: [], rects: [] };
 const comps = await eda.sch_PrimitiveComponent.getAll();
 const wires = await eda.sch_PrimitiveWire.getAll();
 job.total = comps.length + wires.length;
@@ -91,7 +177,9 @@ for (const c of comps) {
 for (const w of wires) {
   out.wires.push(w.getState_Line());
   for (const a of await eda.sch_PrimitiveAttribute.getAll(w.getState_PrimitiveId()))
-    if (a.getState_Key() === 'Name' && a.getState_ValueVisible()) out.texts.push(['net label ' + w.getState_Net(), 'label', await bb(a.getState_PrimitiveId())]);
+    if (a.getState_Key() !== 'Name') continue;
+    else if (a.getState_ValueVisible()) out.texts.push(['net label ' + w.getState_Net(), 'label', await bb(a.getState_PrimitiveId())]);
+    else out.hidden.push([w.getState_Net(), a.getState_X(), a.getState_Y()]);   // the PDF export may still draw it
   job.n += 1;
 }
 for (const t of await eda.sch_PrimitiveText.getAll()) out.texts.push(['note ' + String(t.getState_Content()).slice(0, 30), 'note', await bb(t.getState_PrimitiveId())]);

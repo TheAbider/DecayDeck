@@ -146,9 +146,11 @@ Generated from the module symbol's pin names and `design.py` (module pin in brac
       `sch_pretty.py freeze` pins every block where it sits (`sch_layout.json`), and `sch_pretty.py attrs`
       re-places only the text against all of that, never moving a part or a wire. Names and values are written at
       the default font size (some library parts came with larger or smaller ones).
-      `sch_lint.py <pdf>` runs the same checks on an exported PDF. EasyEDA's PDF export draws wire names even
-      when they're hidden, so a PDF shows net names the editor doesn't.
-    - `sch_export.py pdf` exports the sheet. EasyEDA only renders it while its window is on screen.
+      `sch_lint.py <pdf>` runs the same checks on an exported PDF.
+    - `sch_export.py pdf` exports the sheet. EasyEDA only renders it while its window is on screen. The export
+      also draws some of the wire names the editor hides, often on top of pin numbers, so the script deletes
+      exactly those text objects (the hidden names' anchors come from the last `sch_lint.py --api`). It writes
+      nothing if any other glyph or line would change.
 12. `sim/` simulates the HV supply and the tube pulse chain in ngspice, from a netlist generated out of `design.py`
     (see [`sim/README.md`](sim/README.md)).
 

@@ -2,8 +2,10 @@
 the bridge's 30 s request limit.
 
 usage: python sch_export.py svg|png|pdf|netlist OUT_FILE [--resume]
-A PDF of the whole sheet takes minutes while the EasyEDA window is hidden; --resume picks up the export already
-running instead of starting another.
+EasyEDA renders a picture of the sheet only while its window is on screen: hidden, a PDF ran 21 minutes without
+finishing and the SVG never did. --resume picks up the export already running instead of starting another.
+A PDF comes back with some wire names the editor hides; sch_lint.strip_hidden takes exactly those out (it needs
+the anchors from a fresh sch_lint.py --api).
 """
 import base64
 import json
@@ -22,7 +24,7 @@ CALLS = {
 }
 START = r"""
 await eda.dmt_EditorControl.openDocument('__PAGE__');
-globalThis.__ddExport = { started: Date.now(), done: false };
+const st = globalThis.__ddExport = { started: Date.now(), done: false };
 (async () => {
   const f = await __CALL__;
   if (!f) return null;
@@ -30,8 +32,8 @@ globalThis.__ddExport = { started: Date.now(), done: false };
   let s = '';
   for (let i = 0; i < buf.length; i += 0x8000) s += String.fromCharCode.apply(null, buf.subarray(i, i + 0x8000));
   return { name: f.name, size: buf.length, b64: btoa(s) };
-})().then(r => { globalThis.__ddExport.result = r; globalThis.__ddExport.done = true; })
-   .catch(e => { globalThis.__ddExport.error = String(e); globalThis.__ddExport.done = true; });
+})().then(r => { st.result = r; st.done = true; })          // its own state: an abandoned export that finishes
+   .catch(e => { st.error = String(e); st.done = true; });  // late must not hand its file to the next one
 return 'started';
 """
 POLL = r"""
@@ -56,6 +58,9 @@ def export(kind, out, resume=False):
             data = base64.b64decode(st["result"]["b64"])
             open(out, "wb").write(data)
             print(f"{kind}: {out} ({len(data)} bytes, EasyEDA name {st['result']['name']})")
+            if kind == "pdf":       # the PDF draws wire names the editor hides: take exactly those out
+                from sch_lint import strip_hidden
+                print("hidden wire names removed:", strip_hidden(out, out))
             return out
     raise SystemExit("export timed out")
 
